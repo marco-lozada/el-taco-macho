@@ -26,25 +26,27 @@ const STRINGS = {
     "nav.catering": "Catering",
 
     "hero.logoAlt": "El Taco Macho mascot logo",
-    "hero.sub": "From the grill to your plate · Sabor de México, made in Fresno",
+    "hero.sub": "From the grill to your plate. Sabor de México, made in Fresno.",
     "hero.quickInfo": "Quick info",
     "hero.payment": "Cash & Cash App",
     "hero.directions": "Get Directions",
 
-    "status.open": "Open now · until {time}",
-    "status.tonight": "Closed · Opens tonight at {time}",
-    "status.tomorrow": "Closed · Opens tomorrow at {time}",
-    "status.day": "Closed · Opens {day} at {time}",
+    "status.open": "Open until {time}",
+    "status.tonight": "Opens tonight at {time}",
+    "status.tomorrow": "Opens tomorrow at {time}",
+    "status.day": "Opens {day} at {time}",
     "status.closed": "Closed for now",
 
 
     "find.title": "Find Us",
-    "find.address": "Address",
     "find.hours": "Hours",
+    "find.range": "{from} to {to}",
+    "find.and": "and",
     "find.closed": "Closed",
     "find.today": "Today",
     "find.mapTitle": "Map of El Taco Macho at 2848 W Ashlan Ave, Fresno",
-    "find.truckAlt": "The El Taco Macho truck on W Ashlan Ave",
+    "find.truckAlt": "The El Taco Macho truck at night, with customers ordering at the window",
+    "find.mapsLink": "Open in Google Maps",
 
     "events.title": "Tacos for Any Event",
     "events.copy": "Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.",
@@ -65,25 +67,27 @@ const STRINGS = {
     "nav.catering": "Eventos",
 
     "hero.logoAlt": "Logo de la mascota de El Taco Macho",
-    "hero.sub": "Sabor de México, hecho en Fresno",
+    "hero.sub": "Sabor de México, hecho en Fresno.",
     "hero.quickInfo": "Información rápida",
     "hero.payment": "Efectivo y Cash App",
     "hero.directions": "Cómo Llegar",
 
-    "status.open": "Abierto ahora · hasta las {time}",
-    "status.tonight": "Cerrado · Abre hoy a las {time}",
-    "status.tomorrow": "Cerrado · Abre mañana a las {time}",
-    "status.day": "Cerrado · Abre el {day} a las {time}",
+    "status.open": "Abierto hasta las {time}",
+    "status.tonight": "Abre hoy a las {time}",
+    "status.tomorrow": "Abre mañana a las {time}",
+    "status.day": "Abre el {day} a las {time}",
     "status.closed": "Cerrado por ahora",
 
 
     "find.title": "Encuéntranos",
-    "find.address": "Dirección",
     "find.hours": "Horario",
+    "find.range": "De {from} a {to}",
+    "find.and": "y",
     "find.closed": "Cerrado",
     "find.today": "Hoy",
     "find.mapTitle": "Mapa de El Taco Macho en 2848 W Ashlan Ave, Fresno",
-    "find.truckAlt": "El camión de El Taco Macho en W Ashlan Ave",
+    "find.truckAlt": "El camión de El Taco Macho de noche, con clientes ordenando en la ventana",
+    "find.mapsLink": "Abrir en Google Maps",
 
     "events.title": "Tacos Para Todo Tipo de Eventos",
     "events.copy": "Cumpleaños, quinceañeras, bodas, eventos de trabajo.",
@@ -160,66 +164,79 @@ function nowInTruckTime() {
 }
 
 /* =========================================================================
-   Hours: summary text, table, today highlight, open-now badge
+   Hours: summary text, week strip, today highlight, open-now status
    ========================================================================= */
+const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0]; // Mon → Sun
+
 function daysSummary() {
   const days = openDays();
   const short = STRINGS[lang].daysShort;
-  if (!days.length) return t("find.closed");
   const consecutive = days.every((d, i) => i === 0 || d === days[i - 1] + 1);
   if (consecutive && days.length > 2) return short[days[0]] + "–" + short[days[days.length - 1]];
   return days.map(d => short[d]).join(", ");
 }
 
-function renderHoursSummary() {
-  const text = SITE.days.length ? daysSummary() + " · " + formatRange(SITE.open, SITE.close) : t("find.closed");
-  document.querySelectorAll("[data-hours='summary']").forEach(el => { el.textContent = text; });
+// "Tuesday to Friday" / "De martes a viernes", or "Tuesday and Friday"
+function daysLong() {
+  const days = openDays();
+  const names = days.map((d, i) => {
+    const name = STRINGS[lang].days[d];
+    return lang === "es" && (i > 0 || days.length > 2) ? name.toLowerCase() : name;
+  });
+  const consecutive = days.every((d, i) => i === 0 || d === days[i - 1] + 1);
+  if (consecutive && days.length > 2) return t("find.range", { from: names[0], to: names[names.length - 1] });
+  if (names.length === 1) return names[0];
+  return names.slice(0, -1).join(", ") + " " + t("find.and") + " " + names[names.length - 1];
 }
 
-function renderHoursTable(today) {
-  const body = document.getElementById("hours-body");
-  if (!body) return;
+function renderHoursSummary() {
+  const open = SITE.days.length > 0;
+  const summary = open ? daysSummary() + ", " + formatRange(SITE.open, SITE.close) : t("find.closed");
+  document.querySelectorAll("[data-hours='summary']").forEach(el => { el.textContent = summary; });
+
+  const time = document.getElementById("hours-time");
+  const days = document.getElementById("hours-days");
+  if (time) time.textContent = open ? formatRange(SITE.open, SITE.close) : t("find.closed");
+  if (days) { days.textContent = open ? daysLong() : ""; days.hidden = !open; }
+}
+
+function renderWeek(today) {
+  const list = document.getElementById("week");
+  if (!list) return;
   const days = openDays();
-  const names = STRINGS[lang].days;
-  const short = STRINGS[lang].daysShort;
+  const range = formatRange(SITE.open, SITE.close);
 
-  // Walk the week starting at the first open day; group runs of closed days into one row.
-  const start = days.length ? days[0] : 1;
-  const rows = [];
-  for (let i = 0; i < 7; i++) {
-    const d = (start + i) % 7;
+  list.textContent = "";
+  WEEK_ORDER.forEach(d => {
     const isOpen = days.includes(d);
-    const last = rows[rows.length - 1];
-    if (!isOpen && last && !last.open) last.days.push(d);
-    else rows.push({ open: isOpen, days: [d] });
-  }
+    const isToday = d === today;
+    const li = document.createElement("li");
+    li.className = "day" + (isOpen ? " is-open" : "") + (isToday ? " is-today" : "");
 
-  body.textContent = "";
-  rows.forEach(row => {
-    const tr = document.createElement("tr");
-    const th = document.createElement("th");
-    const td = document.createElement("td");
-    th.scope = "row";
-    th.textContent = row.days.length === 1
-      ? names[row.days[0]]
-      : short[row.days[0]] + " – " + short[row.days[row.days.length - 1]];
-    td.textContent = row.open ? formatRange(SITE.open, SITE.close) : t("find.closed");
-    if (!row.open) tr.className = "is-closed";
-    if (row.days.includes(today)) {
-      tr.classList.add("is-today");
+    const short = document.createElement("span");
+    short.className = "day-name";
+    short.setAttribute("aria-hidden", "true");
+    short.textContent = STRINGS[lang].daysShort[d];
+
+    const full = document.createElement("span");
+    full.className = "sr-only";
+    full.textContent = STRINGS[lang].days[d] + ": " + (isOpen ? range : t("find.closed")) + (isToday ? " (" + t("find.today") + ")" : "");
+
+    li.append(short, full);
+    if (isToday) {
       const tag = document.createElement("span");
-      tag.className = "today-tag";
+      tag.className = "day-today";
+      tag.setAttribute("aria-hidden", "true");
       tag.textContent = t("find.today");
-      th.append(" ", tag);
+      li.appendChild(tag);
     }
-    tr.append(th, td);
-    body.appendChild(tr);
+    list.appendChild(li);
   });
 }
 
 function renderStatus(now) {
-  const badge = document.getElementById("status-badge");
-  if (!badge) return;
+  const status = document.getElementById("status");
+  if (!status) return;
   const days = openDays();
   const openM = toMinutes(SITE.open);
   const closeM = toMinutes(SITE.close);
@@ -250,16 +267,16 @@ function renderStatus(now) {
     }
   }
 
-  badge.textContent = text;
-  badge.classList.toggle("is-open", isOpen);
-  badge.hidden = false;
+  status.textContent = text;
+  status.classList.toggle("is-open", isOpen);
+  status.hidden = false;
 }
 
 function renderTime() {
-  let now;
-  try { now = nowInTruckTime(); } catch (e) { return; } // no Intl timezone support: show nothing
-  renderHoursTable(now.day);
-  renderStatus(now);
+  let now = null;
+  try { now = nowInTruckTime(); } catch (e) { /* no Intl timezone support: skip today + status */ }
+  renderWeek(now ? now.day : -1);
+  if (now) renderStatus(now);
 }
 
 /* =========================================================================

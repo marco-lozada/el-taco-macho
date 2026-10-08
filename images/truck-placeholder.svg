@@ -1,6 +1,0 @@
-<!-- TODO: replace with the yellow truck photo (WebP, ~1200px wide, crop out phone numbers if needed) -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
-  <rect x="4" y="4" width="792" height="492" rx="16" fill="#2a2a2a" stroke="#F9CA18" stroke-width="6" stroke-dasharray="20 14"/>
-  <text x="400" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="48" fill="#F9CA18">TODO</text>
-  <text x="400" y="296" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#FFF8EC">TRUCK PHOTO</text>
-</svg>

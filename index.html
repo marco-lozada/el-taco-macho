@@ -12,14 +12,14 @@
   <meta property="og:title" content="El Taco Macho | Taco Truck in Fresno, CA · Tue–Fri 7–11 PM">
   <meta property="og:description" content="Authentic Mexican tacos from the grill on W Ashlan Ave in Fresno. Open Tuesday–Friday, 7–11 PM. Cash &amp; Cash App. Del asador a tu plato.">
   <meta property="og:url" content="https://eltacomachofresno.com">
-  <!-- TODO: add images/og-image.jpg (best food photo, 1200×630). This file does not exist yet. -->
   <meta property="og:image" content="https://eltacomachofresno.com/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="El Taco Macho logo beside the yellow truck at night, Fresno, CA">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- TODO: favicon from the mascot logo once we have the original file -->
-  <link rel="icon" href="images/logo-placeholder.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,13 +63,15 @@
 <body>
 
   <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Cambiar a español" data-i18n-aria="lang.toggle">
-    <span data-lang="en">EN</span><span class="lang-sep" aria-hidden="true">|</span><span data-lang="es">ES</span>
+    <span data-lang="en">EN</span><span class="lang-sep" aria-hidden="true">/</span><span data-lang="es">ES</span>
   </button>
 
   <!-- Notice banner: filled from SITE.notice in js/main.js; stays hidden when empty. -->
   <div class="notice" id="notice" role="status" hidden>
     <p class="notice-text" id="notice-text"></p>
-    <button class="notice-close" type="button" id="notice-close" aria-label="Dismiss notice" data-i18n-aria="notice.dismiss">&times;</button>
+    <button class="notice-close" type="button" id="notice-close" aria-label="Dismiss notice" data-i18n-aria="notice.dismiss">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
   </div>
 
   <header class="hero">
@@ -79,94 +81,116 @@
     </nav>
 
     <div class="hero-inner">
-      <!-- TODO: swap for the original mascot logo (transparent PNG/SVG) -->
-      <img class="hero-logo" src="images/logo-placeholder.svg" width="200" height="200"
+      <img class="hero-logo" src="images/el-taco-macho-logo.webp" width="608" height="713" fetchpriority="high"
            alt="El Taco Macho mascot logo" data-i18n-alt="hero.logoAlt">
 
-      <h1 class="hero-title">El Taco Macho</h1>
-      <p class="hero-tagline">Del Asador a Tu Plato</p>
-      <p class="hero-sub" data-i18n="hero.sub">From the grill to your plate · Sabor de México, made in Fresno</p>
+      <div class="hero-copy">
+        <h1 class="hero-title">El Taco Macho</h1>
+        <p class="hero-tagline">Del Asador a Tu Plato</p>
+        <p class="hero-sub" data-i18n="hero.sub">From the grill to your plate. Sabor de México, made in Fresno.</p>
 
-      <p class="status-badge" id="status-badge" hidden></p>
+        <p class="status" id="status" hidden></p>
 
-      <ul class="quick-info" aria-label="Quick info" data-i18n-aria="hero.quickInfo">
-        <li><span aria-hidden="true">🕖</span> <span data-hours="summary">Tue–Fri · 7–11 PM</span></li>
-        <li><span aria-hidden="true">📍</span> 2848 W Ashlan Ave</li>
-        <li><span aria-hidden="true">💵</span> <span data-i18n="hero.payment">Cash &amp; Cash App</span></li>
-      </ul>
+        <ul class="quick-info" aria-label="Quick info" data-i18n-aria="hero.quickInfo">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span data-hours="summary">Tue–Fri, 7–11 PM</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <span>2848 W Ashlan Ave</span>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9.5v5M18 9.5v5"/></svg>
+            <span data-i18n="hero.payment">Cash &amp; Cash App</span>
+          </li>
+        </ul>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener" data-i18n="hero.directions">Get Directions</a>
+        <a class="btn" href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener" data-i18n="hero.directions">Get Directions</a>
       </div>
     </div>
   </header>
 
   <main>
 
-    <section class="section find" id="find-us" aria-labelledby="find-title">
-      <div class="container">
-        <h2 class="section-title" id="find-title" data-i18n="find.title">Find Us</h2>
+    <section class="find" id="find-us" aria-labelledby="find-title">
+      <div class="container find-grid">
+        <h2 class="section-title find-title" id="find-title" data-i18n="find.title">Find Us</h2>
 
-        <div class="find-grid">
-          <div>
-            <h3 class="find-label" data-i18n="find.address">Address</h3>
-            <address class="address">2848 W Ashlan Ave<br>Fresno, CA 93705</address>
-            <a class="btn btn-primary" href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener" data-i18n="hero.directions">Get Directions</a>
-
-            <h3 class="find-label" data-i18n="find.hours">Hours</h3>
-            <!-- Rebuilt from SITE by js/main.js; this static copy is the no-JS fallback. -->
-            <table class="hours">
-              <tbody id="hours-body">
-                <tr><th scope="row">Tuesday</th><td>7–11 PM</td></tr>
-                <tr><th scope="row">Wednesday</th><td>7–11 PM</td></tr>
-                <tr><th scope="row">Thursday</th><td>7–11 PM</td></tr>
-                <tr><th scope="row">Friday</th><td>7–11 PM</td></tr>
-                <tr class="is-closed"><th scope="row">Sat – Mon</th><td>Closed</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="find-media">
-            <iframe class="map"
-              src="https://www.google.com/maps?q=2848+W+Ashlan+Ave,+Fresno,+CA+93705&amp;output=embed"
-              title="Map of El Taco Macho at 2848 W Ashlan Ave, Fresno" data-i18n-title="find.mapTitle"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-            <!-- TODO: replace with the yellow truck photo (WebP) -->
-            <img class="photo" src="images/truck-placeholder.svg" width="800" height="500" loading="lazy"
-                 alt="The El Taco Macho truck on W Ashlan Ave" data-i18n-alt="find.truckAlt">
-          </div>
+        <div class="find-hours">
+          <!-- Rebuilt from SITE by js/main.js; this static copy is the no-JS fallback. -->
+          <ol class="week" id="week" aria-label="Hours" data-i18n-aria="find.hours">
+            <li class="day"><span class="day-name" aria-hidden="true">Mon</span><span class="sr-only">Monday: Closed</span></li>
+            <li class="day is-open"><span class="day-name" aria-hidden="true">Tue</span><span class="sr-only">Tuesday: 7–11 PM</span></li>
+            <li class="day is-open"><span class="day-name" aria-hidden="true">Wed</span><span class="sr-only">Wednesday: 7–11 PM</span></li>
+            <li class="day is-open"><span class="day-name" aria-hidden="true">Thu</span><span class="sr-only">Thursday: 7–11 PM</span></li>
+            <li class="day is-open"><span class="day-name" aria-hidden="true">Fri</span><span class="sr-only">Friday: 7–11 PM</span></li>
+            <li class="day"><span class="day-name" aria-hidden="true">Sat</span><span class="sr-only">Saturday: Closed</span></li>
+            <li class="day"><span class="day-name" aria-hidden="true">Sun</span><span class="sr-only">Sunday: Closed</span></li>
+          </ol>
+          <p class="hours-time" id="hours-time">7–11 PM</p>
+          <p class="hours-days" id="hours-days">Tuesday to Friday</p>
         </div>
+
+        <img class="truck-photo" src="images/el-taco-macho.webp" width="1440" height="960" loading="lazy" decoding="async"
+             alt="The El Taco Macho truck at night, with customers ordering at the window" data-i18n-alt="find.truckAlt">
+
+        <div class="find-place">
+          <address class="address">2848 W Ashlan Ave<br>Fresno, CA 93705</address>
+          <a class="text-link" href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener" data-i18n="find.mapsLink">Open in Google Maps</a>
+        </div>
+
+        <iframe class="map"
+          src="https://www.google.com/maps?q=2848+W+Ashlan+Ave,+Fresno,+CA+93705&amp;output=embed"
+          title="Map of El Taco Macho at 2848 W Ashlan Ave, Fresno" data-i18n-title="find.mapTitle"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
     </section>
 
-    <section class="section events" id="eventos" aria-labelledby="events-title">
-      <div class="container">
-        <h2 class="section-title" id="events-title" data-i18n="events.title">Tacos for Any Event</h2>
-        <p class="events-copy" data-i18n="events.copy">Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.</p>
-
-        <div class="call-buttons">
-          <a class="btn btn-primary btn-call" href="tel:+15593603714"><span aria-hidden="true">📞</span> <span data-i18n="events.call">Call</span> (559) 360-3714</a>
-          <a class="btn btn-primary btn-call" href="tel:+15596817250"><span aria-hidden="true">📞</span> <span data-i18n="events.call">Call</span> (559) 681-7250</a>
+    <section class="events" id="eventos" aria-labelledby="events-title">
+      <div class="container events-grid">
+        <div class="events-intro">
+          <h2 class="section-title" id="events-title" data-i18n="events.title">Tacos for Any Event</h2>
+          <p class="events-copy" data-i18n="events.copy">Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.</p>
         </div>
+
+        <ul class="calls">
+          <li>
+            <a class="call" href="tel:+15593603714">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 5.2 5.2l1.4-2.1 4.2 1.6V17a2 2 0 0 1-2 2A15.5 15.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg>
+              <span class="call-text"><span class="call-label" data-i18n="events.call">Call</span> <span class="call-number">(559) 360-3714</span></span>
+            </a>
+          </li>
+          <li>
+            <a class="call" href="tel:+15596817250">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 5.2 5.2l1.4-2.1 4.2 1.6V17a2 2 0 0 1-2 2A15.5 15.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg>
+              <span class="call-text"><span class="call-label" data-i18n="events.call">Call</span> <span class="call-number">(559) 681-7250</span></span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <p class="footer-brand">El Taco Macho</p>
-      <p class="footer-tag">Sabor de México • Made in Fresno</p>
-      <p>2848 W Ashlan Ave, Fresno, CA 93705<br><span data-hours="summary">Tue–Fri · 7–11 PM</span></p>
-      <p>Cash App: <a href="https://cash.app/$eltacomacho" target="_blank" rel="noopener">$eltacomacho</a></p>
-      <p class="social">
-        <a href="https://www.instagram.com/eltacomacho/" target="_blank" rel="noopener" aria-label="El Taco Macho on Instagram" data-i18n-aria="footer.instagram">
-          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2c-3.1 0-3.5 0-4.7.1-1 0-1.6.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.7-.7 1.1-.1.4-.3.9-.3 1.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c0 1 .2 1.6.3 1.9.2.5.4.8.7 1.1.3.3.7.5 1.1.7.4.1.9.3 1.9.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1 0 1.6-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.7.7-1.1.1-.4.3-.9.3-1.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c0-1-.2-1.6-.3-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.7-.5-1.1-.7-.4-.1-.9-.3-1.9-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 7.2a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/eltacomacho559" target="_blank" rel="noopener" aria-label="El Taco Macho on Facebook" data-i18n-aria="footer.facebook">
-          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4v3.2h2.8V22h3.3z"/></svg>
-        </a>
-      </p>
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">El Taco Macho</p>
+        <p>Sabor de México • Made in Fresno</p>
+      </div>
+      <p>2848 W Ashlan Ave<br>Fresno, CA 93705<br><span data-hours="summary">Tue–Fri, 7–11 PM</span></p>
+      <div>
+        <p>Cash App <a href="https://cash.app/$eltacomacho" target="_blank" rel="noopener">$eltacomacho</a></p>
+        <p class="social">
+          <a href="https://www.instagram.com/eltacomacho/" target="_blank" rel="noopener" aria-label="El Taco Macho on Instagram" data-i18n-aria="footer.instagram">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2c-3.1 0-3.5 0-4.7.1-1 0-1.6.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.7-.7 1.1-.1.4-.3.9-.3 1.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c0 1 .2 1.6.3 1.9.2.5.4.8.7 1.1.3.3.7.5 1.1.7.4.1.9.3 1.9.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1 0 1.6-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.7.7-1.1.1-.4.3-.9.3-1.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c0-1-.2-1.6-.3-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.7-.5-1.1-.7-.4-.1-.9-.3-1.9-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 7.2a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/eltacomacho559" target="_blank" rel="noopener" aria-label="El Taco Macho on Facebook" data-i18n-aria="footer.facebook">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4v3.2h2.8V22h3.3z"/></svg>
+          </a>
+        </p>
+      </div>
       <p class="copyright">&copy; <span id="year">2026</span> El Taco Macho</p>
       <!-- TODO (optional): builder credit line, e.g. <p class="credit">Site by …</p> -->
     </div>
