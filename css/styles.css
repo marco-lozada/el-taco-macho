@@ -326,41 +326,9 @@ p { margin: 0; }
 /* ---------- Events ---------- */
 .events { background: var(--brand-gradient); }
 .events-copy { font-size: 1.2rem; font-weight: 500; max-width: 38ch; }
-.call-buttons { margin-top: 1.25rem; display: grid; gap: .75rem; }
+.call-buttons { margin-top: 1.5rem; display: grid; gap: 1rem; }
+.btn-call { min-height: 68px; font-size: 1.35rem; letter-spacing: .02em; }
 
-.form {
-  padding: 1.25rem;
-  background: var(--crema);
-  border: 3px solid var(--carbon);
-  border-radius: var(--radius);
-  display: grid;
-  gap: 1rem;
-}
-.field { display: grid; gap: .3rem; }
-.field-row { display: grid; gap: 1rem; }
-.field label { font-weight: 600; }
-.field input, .field textarea {
-  width: 100%;
-  min-height: 48px;
-  padding: .7rem .8rem;
-  border: 2px solid var(--carbon);
-  border-radius: 10px;
-  background: #fff;
-  color: var(--carbon);
-  font: 400 1rem/1.4 var(--font); /* 16px+ avoids iOS zoom */
-}
-.field textarea { resize: vertical; }
-.field input:focus, .field textarea:focus { outline: 3px solid var(--mango); outline-offset: 1px; }
-.form .btn { justify-self: start; }
-.form-status {
-  padding: .8rem 1rem;
-  border-radius: 10px;
-  background: var(--nopal);
-  color: #fff;
-  font-weight: 600;
-}
-.form-status.is-error { background: var(--chile); }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* ---------- Footer ---------- */
 .footer { background: var(--carbon); color: var(--crema); padding: 40px 0 32px; text-align: center; }
@@ -383,10 +351,9 @@ p { margin: 0; }
 /* ---------- Larger screens ---------- */
 @media (min-width: 560px) {
   .hero-actions, .call-buttons { grid-template-columns: repeat(2, max-content); justify-content: center; }
-  .call-buttons { justify-content: start; }
+  .call-buttons { grid-template-columns: 1fr 1fr; max-width: 720px; }
   .meat-grid { grid-template-columns: repeat(3, 1fr); }
   .meat-grid li:last-child { grid-column: 1 / -1; }
-  .field-row { grid-template-columns: 1fr 1fr; }
 }
 
 @media (min-width: 860px) {
@@ -401,8 +368,4 @@ p { margin: 0; }
   .find-media { margin-top: 0; }
   .map { height: 360px; }
   .cards { grid-template-columns: repeat(3, 1fr); }
-  .events .container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0 3rem; align-items: start; }
-  .events .section-title, .events-copy, .call-buttons { grid-column: 1; }
-  .events .accent-label { grid-column: 2; grid-row: 1; margin-top: 0; }
-  .form { grid-column: 2; grid-row: 2 / span 3; }
 }

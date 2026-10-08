@@ -210,48 +210,9 @@
         <p class="events-copy" data-i18n="events.copy">Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.</p>
 
         <div class="call-buttons">
-          <a class="btn btn-primary" href="tel:+15593603714"><span data-i18n="events.call">Call</span> (559) 360-3714</a>
-          <a class="btn btn-primary" href="tel:+15596817250"><span data-i18n="events.call">Call</span> (559) 681-7250</a>
+          <a class="btn btn-primary btn-call" href="tel:+15593603714"><span aria-hidden="true">📞</span> <span data-i18n="events.call">Call</span> (559) 360-3714</a>
+          <a class="btn btn-primary btn-call" href="tel:+15596817250"><span aria-hidden="true">📞</span> <span data-i18n="events.call">Call</span> (559) 681-7250</a>
         </div>
-
-        <h3 class="accent-label" data-i18n="events.formTitle">Send an inquiry</h3>
-        <form class="form" id="catering-form" name="catering" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="catering">
-          <input type="hidden" name="language" id="form-language" value="en">
-          <p class="hp" aria-hidden="true">
-            <label><span data-i18n="form.honeypot">Don't fill this out if you're human:</span> <input name="bot-field" tabindex="-1" autocomplete="off"></label>
-          </p>
-
-          <div class="field">
-            <label for="f-name" data-i18n="form.name">Name</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="f-phone" data-i18n="form.phone">Phone</label>
-            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="f-date" data-i18n="form.date">Event date</label>
-              <input id="f-date" name="event-date" type="date">
-            </div>
-            <div class="field">
-              <label for="f-guests" data-i18n="form.guests">Guest count</label>
-              <input id="f-guests" name="guest-count" type="number" min="1" inputmode="numeric">
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-location" data-i18n="form.location">Location</label>
-            <input id="f-location" name="location" type="text" placeholder="City or venue" data-i18n-placeholder="form.locationPh">
-          </div>
-          <div class="field">
-            <label for="f-message" data-i18n="form.message">Message</label>
-            <textarea id="f-message" name="message" rows="4" placeholder="Tell us about your event" data-i18n-placeholder="form.messagePh"></textarea>
-          </div>
-
-          <button class="btn btn-primary" type="submit" id="form-submit" data-i18n="form.submit">Send</button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
-        </form>
       </div>
     </section>
 

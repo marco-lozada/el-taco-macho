@@ -47,8 +47,6 @@ No extra pages, no frameworks, no build step.
   - HTML ships with English text so the page works without JS and for SEO.
 - Brand phrases stay in Spanish in BOTH languages: "Del Asador a Tu Plato",
   "Sabor de México", menu meat names, Agua de Sandía, Tres Leches.
-- The catering form's labels and success message must translate too, and
-  include a hidden field `language` so they know which language to reply in.
 
 ## Brand voice
 - Proud, warm, a little bold. Short lines, no corporate fluff.
@@ -145,9 +143,8 @@ Confirmed by the truck wrap: "Tacos para todo tipo de eventos."
 - Headline: **Tacos for Any Event · Tacos Para Todo Tipo de Eventos**
 - Copy: Birthdays, quinceañeras, weddings, work parties. We bring the truck
   and the grill. / Cumpleaños, quinceañeras, bodas, eventos de trabajo.
-- Two tap-to-call buttons: (559) 360-3714 and (559) 681-7250
-- Netlify Forms inquiry form (data-netlify="true" + honeypot field):
-  name, phone, event date, guest count, location, message.
+- Two large tap-to-call buttons (tel: links): (559) 360-3714 and (559) 681-7250
+- Calling is the only way to book an event.
 - Place between Good to Know and Footer. Nav/hero link: "Catering" / "Eventos".
 
 ## Not included (for now)

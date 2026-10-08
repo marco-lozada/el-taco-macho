@@ -69,21 +69,7 @@ const STRINGS = {
     "events.title": "Tacos for Any Event",
     "events.copy": "Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.",
     "events.call": "Call",
-    "events.formTitle": "Send an inquiry",
 
-    "form.honeypot": "Don't fill this out if you're human:",
-    "form.name": "Name",
-    "form.phone": "Phone",
-    "form.date": "Event date",
-    "form.guests": "Guest count",
-    "form.location": "Location",
-    "form.locationPh": "City or venue",
-    "form.message": "Message",
-    "form.messagePh": "Tell us about your event",
-    "form.submit": "Send",
-    "form.sending": "Sending…",
-    "form.success": "Thanks! We got your request and will get back to you soon.",
-    "form.error": "Something went wrong. Please try again or give us a call.",
 
     "footer.instagram": "El Taco Macho on Instagram",
     "footer.facebook": "El Taco Macho on Facebook",
@@ -141,21 +127,7 @@ const STRINGS = {
     "events.title": "Tacos Para Todo Tipo de Eventos",
     "events.copy": "Cumpleaños, quinceañeras, bodas, eventos de trabajo.",
     "events.call": "Llamar",
-    "events.formTitle": "Envíanos tu solicitud",
 
-    "form.honeypot": "No llenes esto si eres humano:",
-    "form.name": "Nombre",
-    "form.phone": "Teléfono",
-    "form.date": "Fecha del evento",
-    "form.guests": "Número de invitados",
-    "form.location": "Lugar",
-    "form.locationPh": "Ciudad o salón",
-    "form.message": "Mensaje",
-    "form.messagePh": "Cuéntanos de tu evento",
-    "form.submit": "Enviar",
-    "form.sending": "Enviando…",
-    "form.success": "¡Gracias! Recibimos tu solicitud y te contactaremos pronto.",
-    "form.error": "Algo salió mal. Inténtalo de nuevo o llámanos.",
 
     "footer.instagram": "El Taco Macho en Instagram",
     "footer.facebook": "El Taco Macho en Facebook",
@@ -366,9 +338,6 @@ function applyLanguage(next) {
     el.classList.toggle("is-active", el.dataset.lang === lang);
   });
 
-  const formLang = document.getElementById("form-language");
-  if (formLang) formLang.value = lang;
-
   renderHoursSummary();
   renderNotice();
   renderSpecials();
@@ -379,46 +348,6 @@ function initialLanguage() {
   const saved = storageGet("lang");
   if (saved && STRINGS[saved]) return saved;
   return (navigator.language || "").toLowerCase().startsWith("es") ? "es" : "en";
-}
-
-/* =========================================================================
-   Catering form (Netlify Forms via fetch)
-   ========================================================================= */
-function initForm() {
-  const form = document.getElementById("catering-form");
-  if (!form || !window.fetch) return;
-  const status = document.getElementById("form-status");
-  const submit = document.getElementById("form-submit");
-
-  function showStatus(key, ok) {
-    status.dataset.i18n = key;
-    status.textContent = t(key);
-    status.classList.toggle("is-error", !ok);
-    status.hidden = false;
-  }
-
-  form.addEventListener("submit", event => {
-    event.preventDefault();
-    submit.disabled = true;
-    submit.textContent = t("form.sending");
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(new FormData(form)).toString()
-    })
-      .then(res => {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        form.reset();
-        document.getElementById("form-language").value = lang;
-        showStatus("form.success", true);
-      })
-      .catch(() => showStatus("form.error", false))
-      .finally(() => {
-        submit.disabled = false;
-        submit.textContent = t("form.submit");
-      });
-  });
 }
 
 /* =========================================================================
@@ -441,6 +370,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  initForm();
   setInterval(renderTime, 60 * 1000);
 });
