@@ -1,0 +1,6 @@
+<!-- TODO: replace with the original mustached-taco mascot (transparent PNG/SVG from the owner) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="96" fill="#FFF8EC" stroke="#1B1B1B" stroke-width="6" stroke-dasharray="14 10"/>
+  <text x="100" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#C8102E">TODO</text>
+  <text x="100" y="124" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="20" fill="#1B1B1B">MASCOT LOGO</text>
+</svg>
