@@ -2,7 +2,7 @@
   --sun:      #F9CA18;  /* gradient start, yellow */
   --mango:    #FE934B;  /* gradient end, orange */
   --chile:    #C8102E;  /* "EL TACO MACHO" red */
-  --nopal:    #2E5E3A;  /* menu band green, use sparingly */
+  --nopal:    #2E5E3A;  /* green, use sparingly */
   --carbon:   #1B1B1B;  /* dark sections / text */
   --crema:    #FFF8EC;  /* light backgrounds */
   --brand-gradient: linear-gradient(135deg, var(--sun), var(--mango));
@@ -62,7 +62,6 @@ p { margin: 0; }
 .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--carbon); }
 .btn:disabled { opacity: .6; cursor: wait; }
 .btn-primary { background: var(--chile); color: #fff; }
-.btn-secondary { background: #fff; color: var(--carbon); }
 
 /* ---------- Language toggle ---------- */
 .lang-toggle {
@@ -199,70 +198,7 @@ p { margin: 0; }
   text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
-.accent-label {
-  font-family: var(--accent-font);
-  font-weight: 400;
-  font-size: 1.9rem;
-  letter-spacing: .05em;
-  color: var(--chile);
-  text-shadow: 2px 2px 0 var(--carbon);
-  margin: 1.75rem 0 .9rem;
-}
 .photo { width: 100%; border-radius: var(--radius); margin-top: 1.75rem; }
-
-/* ---------- Menu ---------- */
-.menu { padding-top: 0; }
-.menu-band { background: var(--nopal); color: #fff; text-align: center; padding: 22px var(--gutter) 4px; }
-.menu-band .section-title { margin-bottom: .6rem; }
-.menu .accent-label:first-child { margin-top: 2rem; }
-
-.meat-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: .6rem;
-}
-.meat-grid li {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 64px;
-  padding: .6rem .8rem;
-  background: #fff;
-  border: 3px solid var(--carbon);
-  border-radius: var(--radius);
-  box-shadow: 3px 3px 0 var(--chile);
-  font-weight: 600;
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  text-align: center;
-}
-.meat-grid li small { font-weight: 500; font-size: .8rem; text-transform: none; opacity: .75; }
-.meat-grid li:last-child { background: var(--sun); }
-
-.price-note { margin-top: 1rem; font-weight: 500; font-style: italic; text-align: center; }
-
-.tonight {
-  margin-bottom: .9rem;
-  padding: .7rem 1rem;
-  background: var(--brand-gradient);
-  border: 2px solid var(--carbon);
-  border-radius: var(--radius);
-  font-weight: 600;
-}
-.tonight-label { font-family: var(--accent-font); font-weight: 400; letter-spacing: .05em; margin-right: .4em; }
-.tonight-label::after { content: ":"; }
-
-.specials { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
-.specials li {
-  padding: .8rem 1rem;
-  background: #fff;
-  border-left: 6px solid var(--mango);
-  border-radius: 8px;
-}
-.specials strong { display: block; font-weight: 600; font-size: 1.25rem; text-transform: uppercase; }
 
 /* ---------- Find Us ---------- */
 .find { background: var(--carbon); color: var(--crema); }
@@ -301,28 +237,6 @@ p { margin: 0; }
 .map { width: 100%; height: 300px; border: 0; border-radius: var(--radius); }
 .find-media .photo { margin-top: 1rem; }
 
-/* ---------- Good to Know ---------- */
-.cards { display: grid; gap: 1rem; }
-.card {
-  padding: 1.25rem;
-  background: #fff;
-  border: 3px solid var(--carbon);
-  border-radius: var(--radius);
-  box-shadow: 4px 4px 0 var(--mango);
-}
-.card-icon { font-size: 2.2rem; line-height: 1; }
-.card h3 { margin: .5rem 0 .35rem; font-size: 1.4rem; text-transform: uppercase; }
-.cashtag {
-  display: inline-block;
-  margin-top: .6rem;
-  font-weight: 600;
-  font-size: clamp(1.8rem, 8vw, 2.4rem);
-  color: var(--nopal);
-  text-decoration: none;
-  word-break: break-all;
-}
-.cashtag:hover { text-decoration: underline; }
-
 /* ---------- Events ---------- */
 .events { background: var(--brand-gradient); }
 .events-copy { font-size: 1.2rem; font-weight: 500; max-width: 38ch; }
@@ -350,22 +264,15 @@ p { margin: 0; }
 
 /* ---------- Larger screens ---------- */
 @media (min-width: 560px) {
-  .hero-actions, .call-buttons { grid-template-columns: repeat(2, max-content); justify-content: center; }
+  .hero-actions { grid-template-columns: max-content; justify-content: center; }
   .call-buttons { grid-template-columns: 1fr 1fr; max-width: 720px; }
-  .meat-grid { grid-template-columns: repeat(3, 1fr); }
-  .meat-grid li:last-child { grid-column: 1 / -1; }
 }
 
 @media (min-width: 860px) {
   .hero { padding-bottom: 56px; }
   .hero-logo { width: 140px; height: 140px; }
   .section { padding: 72px 0; }
-  .menu { padding-top: 0; }
-  .meat-grid { grid-template-columns: repeat(5, 1fr); }
-  .meat-grid li:last-child { grid-column: auto; }
-  .specials { grid-template-columns: 1fr 1fr; }
   .find-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.5rem; align-items: start; }
   .find-media { margin-top: 0; }
   .map { height: 360px; }
-  .cards { grid-template-columns: repeat(3, 1fr); }
 }

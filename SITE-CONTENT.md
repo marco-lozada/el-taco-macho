@@ -28,7 +28,7 @@ Drop this file in the project root and tell Claude Code:
 
 ## Scope
 A SIMPLE ONE-PAGER: a single index.html, one CSS file, one small JS file.
-Sections in order: Hero → Menu → Find Us → Good to Know → Catering → Footer.
+Sections in order: Hero → Find Us → Catering → Footer.
 No extra pages, no frameworks, no build step.
 
 ## Language: English / Español toggle
@@ -37,9 +37,9 @@ No extra pages, no frameworks, no build step.
   first part is the EN string and the second is the ES string. Show only the
   active language on the page (no side-by-side text).
 - Implementation (keep it simple):
-  - Every translatable element gets a key: `<h2 data-i18n="menu.title">Menu</h2>`
+  - Every translatable element gets a key: `<h2 data-i18n="find.title">Find Us</h2>`
   - All strings live in ONE object in `js/main.js`:
-    `const STRINGS = { en: { "menu.title": "Menu", ... }, es: { "menu.title": "Menú", ... } }`
+    `const STRINGS = { en: { "find.title": "Find Us", ... }, es: { "find.title": "Encuéntranos", ... } }`
   - Toggle swaps textContent for every [data-i18n], also placeholders
     ([data-i18n-placeholder]) and aria-labels, and sets `<html lang>`.
   - Default: Spanish if the browser language starts with "es", otherwise
@@ -76,33 +76,9 @@ if empty, the banner doesn't render.
 - Primary button: **Get Directions / Cómo Llegar** →
   https://maps.app.goo.gl/c8hriSUc7dh7fYxA7 (their own Google Maps pin, so it
   drops people at the exact truck spot)
-- Secondary button: **See the Menu / Ver Menú** (scrolls to #menu)
 - Optional: "Open now / Abierto ahora" badge, computed in JS from
   America/Los_Angeles time (Tue–Fri, 19:00–23:00). Shows "Opens Tuesday at
   7 PM" etc. when closed. Fail gracefully: if JS is off, show nothing.
-
-### 2. Menu / Menú  (id="menu")
-Meats / Carnes (from the truck's menu board), shown as a bold grid of tags:
-- Asada
-- Pastor
-- Suadero
-- Pollo
-- Chorizo
-- Cabeza
-- Cecina (the truck spells it "Sesina", so use "Cecina" on the site unless the owner prefers their spelling)
-- Lengua
-- Tripa
-- Campechanos (mixed meats)
-
-TODO: prices, and whether they also sell burritos, quesadillas, mulitas, etc.
-Until prices are confirmed, show the meats without prices plus a line:
-"Ask at the window for today's prices · Pregunta por los precios en la ventana."
-
-Specials / Especiales (rotating, from Instagram):
-- Agua de Sandía (watermelon agua fresca)
-- Tres Leches
-Add a small "Tonight's specials / Especiales de hoy" line driven by a
-`specials` field in the SITE config (empty = hidden).
 
 ### 3. Find Us / Encuéntranos  (id="find-us")
 - Address: 2848 W Ashlan Ave, Fresno, CA 93705
@@ -121,13 +97,6 @@ Add a small "Tonight's specials / Especiales de hoy" line driven by a
   `https://www.google.com/maps?q=2848+W+Ashlan+Ave,+Fresno,+CA+93705&output=embed`
   Use loading="lazy" and a title attribute.
 
-### 4. Good to Know / Bueno Saber
-Three simple icon cards:
-- 💵 **Cash & Cash App** · Efectivo y Cash App: show the $eltacomacho
-  cashtag large and easy to read, linked to https://cash.app/$eltacomacho
-- 🚶 **Walk-up orders only** · Pedidos solo en el camión
-- 🚫 **No DM orders** · No pedidos por DM
-
 ### 5. Footer
 - El Taco Macho · Sabor de México • Made in Fresno
 - Address + hours (short form)
@@ -145,10 +114,42 @@ Confirmed by the truck wrap: "Tacos para todo tipo de eventos."
   and the grill. / Cumpleaños, quinceañeras, bodas, eventos de trabajo.
 - Two large tap-to-call buttons (tel: links): (559) 360-3714 and (559) 681-7250
 - Calling is the only way to book an event.
-- Place between Good to Know and Footer. Nav/hero link: "Catering" / "Eventos".
+- Place between Find Us and Footer. Nav/hero link: "Catering" / "Eventos".
 
 ## Not included (for now)
 - Online ordering: intentionally excluded; they're walk-up only.
+- Good to Know section: removed from the page. Original spec:
+
+  Three simple icon cards:
+  - 💵 **Cash & Cash App** · Efectivo y Cash App: show the $eltacomacho
+    cashtag large and easy to read, linked to https://cash.app/$eltacomacho
+  - 🚶 **Walk-up orders only** · Pedidos solo en el camión
+  - 🚫 **No DM orders** · No pedidos por DM
+
+- Menu section: removed from the page. The menu details are kept here in case
+  it comes back:
+
+  Meats / Carnes (from the truck's menu board), shown as a bold grid of tags:
+  - Asada
+  - Pastor
+  - Suadero
+  - Pollo
+  - Chorizo
+  - Cabeza
+  - Cecina (the truck spells it "Sesina", so use "Cecina" on the site unless the owner prefers their spelling)
+  - Lengua
+  - Tripa
+  - Campechanos (mixed meats)
+
+  TODO: prices, and whether they also sell burritos, quesadillas, mulitas, etc.
+  Until prices are confirmed, show the meats without prices plus a line:
+  "Ask at the window for today's prices · Pregunta por los precios en la ventana."
+
+  Specials / Especiales (rotating, from Instagram):
+  - Agua de Sandía (watermelon agua fresca)
+  - Tres Leches
+  Add a small "Tonight's specials / Especiales de hoy" line driven by a
+  `specials` field in the SITE config (empty = hidden).
 
 ---
 
@@ -202,7 +203,6 @@ in ONE place at the top of the main script (or a small `site-config.js`):
 ```js
 const SITE = {
   notice: "",            // e.g. "Summer Break · Descanso de Verano: back Sept 2"
-  specials: "",          // e.g. "Agua de Sandía + Tres Leches"
   days: [2, 3, 4, 5],    // 0=Sun … 6=Sat → Tue–Fri
   open: "19:00",
   close: "23:00",
@@ -217,8 +217,8 @@ Remember to update the JSON-LD hours too when hours change.
 ### Fonts (Google Fonts, free)
 - **League Spartan SemiBold (600)**: headings and big bold text. This is the font
   on their Instagram graphics ("TACO MATH", "AGUA DE SANDIA"), uppercase.
-- **Bangers**: sparingly, for punchy accent labels like "SERVING TONIGHT"
-  or "ESPECIALES". It's a close free match to the comic-style italic in their
+- **Bangers**: sparingly, for punchy accent labels like "SERVING TONIGHT".
+  It's a close free match to the comic-style italic in their
   posts and truck lettering. Add a small offset text-shadow for the same pop.
 - Body text: League Spartan 400–500. Use 600 for headings, buttons, and the
   quick-info strip; avoid going heavier so it stays true to their posts.
@@ -235,7 +235,7 @@ Remember to update the JSON-LD hours too when hours change.
   --sun:      #F9CA18;  /* gradient start, yellow */
   --mango:    #FE934B;  /* gradient end, orange */
   --chile:    #C8102E;  /* "EL TACO MACHO" red */
-  --nopal:    #2E5E3A;  /* menu band green, use sparingly */
+  --nopal:    #2E5E3A;  /* green, use sparingly */
   --carbon:   #1B1B1B;  /* dark sections / text */
   --crema:    #FFF8EC;  /* light backgrounds */
 }

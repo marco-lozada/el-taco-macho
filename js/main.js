@@ -1,13 +1,12 @@
 /* =========================================================================
-   SITE CONFIG: edit this when hours, breaks, or specials change.
-   - notice / specials: a plain string, or { en: "...", es: "..." }. Empty = hidden.
+   SITE CONFIG: edit this when hours or breaks change.
+   - notice: a plain string, or { en: "...", es: "..." }. Empty = hidden.
    - On a break, set `notice` and `days: []` so the page shows "Closed".
    - When hours change, also update the JSON-LD block and <title>/meta
      description in index.html.
    ========================================================================= */
 const SITE = {
   notice: "",            // e.g. "Summer Break · Descanso de Verano: back Sept 2"
-  specials: "",          // e.g. "Agua de Sandía + Tres Leches"
   days: [2, 3, 4, 5],    // 0=Sun … 6=Sat → Tue–Fri
   open: "19:00",
   close: "23:00",
@@ -23,7 +22,6 @@ const STRINGS = {
     "lang.toggle": "Cambiar a español",
     "notice.dismiss": "Dismiss notice",
     "nav.label": "Sections",
-    "nav.menu": "Menu",
     "nav.findUs": "Find Us",
     "nav.catering": "Catering",
 
@@ -32,7 +30,6 @@ const STRINGS = {
     "hero.quickInfo": "Quick info",
     "hero.payment": "Cash & Cash App",
     "hero.directions": "Get Directions",
-    "hero.seeMenu": "See the Menu",
 
     "status.open": "Open now · until {time}",
     "status.tonight": "Closed · Opens tonight at {time}",
@@ -40,15 +37,6 @@ const STRINGS = {
     "status.day": "Closed · Opens {day} at {time}",
     "status.closed": "Closed for now",
 
-    "menu.title": "Menu",
-    "menu.meats": "Meats",
-    "menu.campechanos": "mixed meats",
-    "menu.prices": "Ask at the window for today's prices",
-    "menu.specials": "Specials",
-    "menu.tonight": "Tonight's specials",
-    "menu.sandia": "Watermelon agua fresca",
-    "menu.tresLeches": "Three-milk cake",
-    "menu.photoAlt": "Tacos from El Taco Macho",
 
     "find.title": "Find Us",
     "find.address": "Address",
@@ -57,14 +45,6 @@ const STRINGS = {
     "find.today": "Today",
     "find.mapTitle": "Map of El Taco Macho at 2848 W Ashlan Ave, Fresno",
     "find.truckAlt": "The El Taco Macho truck on W Ashlan Ave",
-
-    "know.title": "Good to Know",
-    "know.payTitle": "Cash & Cash App",
-    "know.payText": "No cards. Pay with cash or Cash App:",
-    "know.walkTitle": "Walk-up orders only",
-    "know.walkText": "Order in person at the truck window.",
-    "know.dmTitle": "No DM orders",
-    "know.dmText": "We can't take food orders through Instagram or Facebook messages.",
 
     "events.title": "Tacos for Any Event",
     "events.copy": "Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.",
@@ -81,7 +61,6 @@ const STRINGS = {
     "lang.toggle": "Switch to English",
     "notice.dismiss": "Cerrar aviso",
     "nav.label": "Secciones",
-    "nav.menu": "Menú",
     "nav.findUs": "Encuéntranos",
     "nav.catering": "Eventos",
 
@@ -90,7 +69,6 @@ const STRINGS = {
     "hero.quickInfo": "Información rápida",
     "hero.payment": "Efectivo y Cash App",
     "hero.directions": "Cómo Llegar",
-    "hero.seeMenu": "Ver Menú",
 
     "status.open": "Abierto ahora · hasta las {time}",
     "status.tonight": "Cerrado · Abre hoy a las {time}",
@@ -98,15 +76,6 @@ const STRINGS = {
     "status.day": "Cerrado · Abre el {day} a las {time}",
     "status.closed": "Cerrado por ahora",
 
-    "menu.title": "Menú",
-    "menu.meats": "Carnes",
-    "menu.campechanos": "carnes mixtas",
-    "menu.prices": "Pregunta por los precios en la ventana",
-    "menu.specials": "Especiales",
-    "menu.tonight": "Especiales de hoy",
-    "menu.sandia": "Agua fresca de sandía",
-    "menu.tresLeches": "Pastel de tres leches",
-    "menu.photoAlt": "Tacos de El Taco Macho",
 
     "find.title": "Encuéntranos",
     "find.address": "Dirección",
@@ -115,14 +84,6 @@ const STRINGS = {
     "find.today": "Hoy",
     "find.mapTitle": "Mapa de El Taco Macho en 2848 W Ashlan Ave, Fresno",
     "find.truckAlt": "El camión de El Taco Macho en W Ashlan Ave",
-
-    "know.title": "Bueno Saber",
-    "know.payTitle": "Efectivo y Cash App",
-    "know.payText": "No aceptamos tarjetas. Paga en efectivo o Cash App:",
-    "know.walkTitle": "Pedidos solo en el camión",
-    "know.walkText": "Ordena en persona en la ventana del camión.",
-    "know.dmTitle": "No pedidos por DM",
-    "know.dmText": "No tomamos pedidos por mensajes de Instagram o Facebook.",
 
     "events.title": "Tacos Para Todo Tipo de Eventos",
     "events.copy": "Cumpleaños, quinceañeras, bodas, eventos de trabajo.",
@@ -302,7 +263,7 @@ function renderTime() {
 }
 
 /* =========================================================================
-   Notice banner + tonight's specials
+   Notice banner
    ========================================================================= */
 function renderNotice() {
   const banner = document.getElementById("notice");
@@ -311,14 +272,6 @@ function renderNotice() {
   const dismissed = storageGet("notice-dismissed") === JSON.stringify(SITE.notice);
   banner.hidden = !text || dismissed;
   document.getElementById("notice-text").textContent = text;
-}
-
-function renderSpecials() {
-  const line = document.getElementById("tonight");
-  const text = localized(SITE.specials);
-  if (!line) return;
-  line.hidden = !text;
-  document.getElementById("tonight-text").textContent = text;
 }
 
 /* =========================================================================
@@ -340,7 +293,6 @@ function applyLanguage(next) {
 
   renderHoursSummary();
   renderNotice();
-  renderSpecials();
   renderTime();
 }
 

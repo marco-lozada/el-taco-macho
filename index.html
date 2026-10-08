@@ -74,7 +74,6 @@
 
   <header class="hero">
     <nav class="hero-nav" aria-label="Sections" data-i18n-aria="nav.label">
-      <a href="#menu" data-i18n="nav.menu">Menu</a>
       <a href="#find-us" data-i18n="nav.findUs">Find Us</a>
       <a href="#eventos" data-i18n="nav.catering">Catering</a>
     </nav>
@@ -98,51 +97,11 @@
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener" data-i18n="hero.directions">Get Directions</a>
-        <a class="btn btn-secondary" href="#menu" data-i18n="hero.seeMenu">See the Menu</a>
       </div>
     </div>
   </header>
 
   <main>
-
-    <section class="section menu" id="menu" aria-labelledby="menu-title">
-      <div class="menu-band">
-        <h2 class="section-title" id="menu-title" data-i18n="menu.title">Menu</h2>
-      </div>
-      <div class="container">
-        <h3 class="accent-label" data-i18n="menu.meats">Meats</h3>
-        <!-- TODO: confirm with owner whether they also sell burritos, quesadillas, mulitas, etc. -->
-        <ul class="meat-grid">
-          <li>Asada</li>
-          <li>Pastor</li>
-          <li>Suadero</li>
-          <li>Pollo</li>
-          <li>Chorizo</li>
-          <li>Cabeza</li>
-          <!-- Truck menu board spells it "Sesina"; TODO: confirm owner is OK with "Cecina". -->
-          <li>Cecina</li>
-          <li>Lengua</li>
-          <li>Tripa</li>
-          <li>Campechanos <small data-i18n="menu.campechanos">mixed meats</small></li>
-        </ul>
-        <!-- TODO: add prices once confirmed; remove this line then. -->
-        <p class="price-note" data-i18n="menu.prices">Ask at the window for today's prices</p>
-
-        <h3 class="accent-label" data-i18n="menu.specials">Specials</h3>
-        <p class="tonight" id="tonight" hidden>
-          <span class="tonight-label" data-i18n="menu.tonight">Tonight's specials</span>
-          <span id="tonight-text"></span>
-        </p>
-        <ul class="specials">
-          <li><strong>Agua de Sandía</strong> <span data-i18n="menu.sandia">Watermelon agua fresca</span></li>
-          <li><strong>Tres Leches</strong> <span data-i18n="menu.tresLeches">Three-milk cake</span></li>
-        </ul>
-
-        <!-- TODO: replace with a real food photo (WebP) -->
-        <img class="photo" src="images/food-placeholder.svg" width="800" height="500" loading="lazy"
-             alt="Tacos from El Taco Macho" data-i18n-alt="menu.photoAlt">
-      </div>
-    </section>
 
     <section class="section find" id="find-us" aria-labelledby="find-title">
       <div class="container">
@@ -176,30 +135,6 @@
             <img class="photo" src="images/truck-placeholder.svg" width="800" height="500" loading="lazy"
                  alt="The El Taco Macho truck on W Ashlan Ave" data-i18n-alt="find.truckAlt">
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section know" aria-labelledby="know-title">
-      <div class="container">
-        <h2 class="section-title" id="know-title" data-i18n="know.title">Good to Know</h2>
-        <div class="cards">
-          <article class="card">
-            <span class="card-icon" aria-hidden="true">💵</span>
-            <h3 data-i18n="know.payTitle">Cash &amp; Cash App</h3>
-            <p data-i18n="know.payText">No cards. Pay with cash or Cash App:</p>
-            <a class="cashtag" href="https://cash.app/$eltacomacho" target="_blank" rel="noopener">$eltacomacho</a>
-          </article>
-          <article class="card">
-            <span class="card-icon" aria-hidden="true">🚶</span>
-            <h3 data-i18n="know.walkTitle">Walk-up orders only</h3>
-            <p data-i18n="know.walkText">Order in person at the truck window.</p>
-          </article>
-          <article class="card">
-            <span class="card-icon" aria-hidden="true">🚫</span>
-            <h3 data-i18n="know.dmTitle">No DM orders</h3>
-            <p data-i18n="know.dmText">We can't take food orders through Instagram or Facebook messages.</p>
-          </article>
         </div>
       </div>
     </section>
