@@ -29,7 +29,7 @@ const STRINGS = {
     "hero.logoAlt": "El Taco Macho mascot logo",
     "hero.sub": "From the grill to your plate. Sabor de México, made in Fresno.",
     "hero.quickInfo": "Quick info",
-    "hero.payment": "Cash & Cash App",
+    "hero.payment": "Cash or Cash App. No cards.",
     "hero.directions": "Get Directions",
 
     "status.open": "Open until {time}",
@@ -39,6 +39,8 @@ const STRINGS = {
     "status.day": "Opens {day} at {time}",
     "status.closed": "Closed for now",
 
+    "carne.campechanos": "mixed meats",
+    "carne.prices": "Order at the window and ask for today's prices.",
 
     "find.title": "Find Us",
     "find.hours": "Hours",
@@ -48,15 +50,11 @@ const STRINGS = {
     "find.today": "Today",
     "find.mapTitle": "Map of El Taco Macho at 2848 W Ashlan Ave, Fresno",
     "find.truckAlt": "The El Taco Macho truck at night, with customers ordering at the window",
-    "find.mapsLink": "Open in Google Maps",
 
     "events.title": "Tacos for Any Event",
     "events.copy": "Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.",
-    "carne.campechanos": "mixed meats",
-    "carne.prices": "Ask at the window for today's prices.",
-
+    "events.note": "For events only. Order food at the truck window.",
     "events.call": "Call",
-
 
     "footer.instagram": "El Taco Macho on Instagram",
     "footer.facebook": "El Taco Macho on Facebook",
@@ -75,7 +73,7 @@ const STRINGS = {
     "hero.logoAlt": "Logo de la mascota de El Taco Macho",
     "hero.sub": "Sabor de México, hecho en Fresno.",
     "hero.quickInfo": "Información rápida",
-    "hero.payment": "Efectivo y Cash App",
+    "hero.payment": "Efectivo o Cash App. Sin tarjetas.",
     "hero.directions": "Cómo Llegar",
 
     "status.open": "Abierto hasta las {time}",
@@ -85,6 +83,8 @@ const STRINGS = {
     "status.day": "Abre el {day} a las {time}",
     "status.closed": "Cerrado por ahora",
 
+    "carne.campechanos": "carnes mixtas",
+    "carne.prices": "Ordena en la ventana y pregunta por los precios del día.",
 
     "find.title": "Encuéntranos",
     "find.hours": "Horario",
@@ -94,15 +94,11 @@ const STRINGS = {
     "find.today": "Hoy",
     "find.mapTitle": "Mapa de El Taco Macho en 2848 W Ashlan Ave, Fresno",
     "find.truckAlt": "El camión de El Taco Macho de noche, con clientes ordenando en la ventana",
-    "find.mapsLink": "Abrir en Google Maps",
 
     "events.title": "Tacos Para Todo Tipo de Eventos",
-    "events.copy": "Cumpleaños, quinceañeras, bodas, eventos de trabajo.",
-    "carne.campechanos": "carnes mixtas",
-    "carne.prices": "Pregunta por los precios en la ventana.",
-
+    "events.copy": "Cumpleaños, quinceañeras, bodas, eventos de trabajo. Llevamos el camión y el asador.",
+    "events.note": "Solo para eventos. Pide tu comida en la ventana del camión.",
     "events.call": "Llamar",
-
 
     "footer.instagram": "El Taco Macho en Instagram",
     "footer.facebook": "El Taco Macho en Facebook",
@@ -324,6 +320,9 @@ function applyLanguage(next) {
   document.querySelectorAll("[data-i18n-alt]").forEach(el => { el.alt = t(el.dataset.i18nAlt); });
   document.querySelectorAll("[data-i18n-title]").forEach(el => { el.title = t(el.dataset.i18nTitle); });
 
+  // The toggle's label is in the *other* language, so mark it for correct pronunciation.
+  const toggle = document.getElementById("lang-toggle");
+  if (toggle) toggle.lang = lang === "en" ? "es" : "en";
   document.querySelectorAll(".lang-toggle [data-lang]").forEach(el => {
     el.classList.toggle("is-active", el.dataset.lang === lang);
   });

@@ -142,7 +142,7 @@ address { font-style: normal; }
   font: 600 1rem/1 var(--font);
   cursor: pointer;
 }
-.lang-toggle .is-active { color: var(--chile); }
+.lang-toggle .is-active { color: var(--chile); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 
 /* ---------- Notice ---------- */
 .notice {
@@ -390,6 +390,7 @@ address { font-style: normal; }
 .events-grid { display: grid; gap: var(--space-xl); }
 .events-copy { margin-top: var(--space-md); max-width: 34ch; font-size: var(--step-1); font-weight: 500; line-height: 1.35; }
 
+.events-note { margin-top: var(--space-md); max-width: 34ch; font-weight: 600; }
 .calls { border-top: 2px solid var(--carbon); }
 .calls li { border-bottom: 2px solid var(--carbon); }
 .call {
