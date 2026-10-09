@@ -39,6 +39,9 @@ const STRINGS = {
     "status.day": "Opens {day} at {time}",
     "status.closed": "Closed for now",
 
+    "carne.intro": "The difference is in the meat: fresh, seasoned, and grilled to order.",
+    "carne.lead": "Pick the meat for your tacos:",
+    "carne.photoAlt": "Meat being turned with tongs on the grill, beside a row of fresh tortillas",
     "carne.campechanos": "mixed meats",
     "carne.prices": "Order at the window and ask for today's prices.",
 
@@ -54,6 +57,7 @@ const STRINGS = {
     "events.title": "Tacos for Any Event",
     "events.copy": "Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.",
     "events.note": "For events only. Order food at the truck window.",
+    "events.photoAlt": "A plate of tacos topped with cabbage, cilantro, radish, a grilled chile and lime, with a cup of salsa",
     "events.call": "Call",
 
     "footer.instagram": "El Taco Macho on Instagram",
@@ -83,6 +87,9 @@ const STRINGS = {
     "status.day": "Abre el {day} a las {time}",
     "status.closed": "Cerrado por ahora",
 
+    "carne.intro": "Aquí la diferencia está en la carne: fresca, bien sazonada y asada al momento.",
+    "carne.lead": "Escoge la carne de tus tacos:",
+    "carne.photoAlt": "Carne volteada con pinzas en el asador, junto a una fila de tortillas frescas",
     "carne.campechanos": "carnes mixtas",
     "carne.prices": "Ordena en la ventana y pregunta por los precios del día.",
 
@@ -98,6 +105,7 @@ const STRINGS = {
     "events.title": "Tacos Para Todo Tipo de Eventos",
     "events.copy": "Cumpleaños, quinceañeras, bodas, eventos de trabajo. Llevamos el camión y el asador.",
     "events.note": "Solo para eventos. Pide tu comida en la ventana del camión.",
+    "events.photoAlt": "Un plato de tacos con repollo, cilantro, rábano, chile asado y limón, con un vasito de salsa",
     "events.call": "Llamar",
 
     "footer.instagram": "El Taco Macho en Instagram",

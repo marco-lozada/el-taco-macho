@@ -14,11 +14,11 @@ web
 
 ## Product Purpose
 
-The one-page site for El Taco Macho, a walk-up taco truck at 2848 W Ashlan Ave, Fresno, CA 93705. It answers, in seconds: is it open, where is it, how do I pay, and how do I book it for an event. Success: people show up at the window, and event hosts call.
+The one-page site for El Taco Macho, a walk-up taco truck at 2848 W Ashlan Ave, Fresno, CA 93705 (Ashlan & Marks). It answers, in seconds: is it open, where is it, how do I pay, and how do I book it for an event. Success: people show up at the window, and event hosts call.
 
 ## Positioning
 
-Fresh food, a deep meat menu, and a family-owned truck. Their own taglines: "Del Asador a Tu Plato" and "Sabor de México • Made in Fresno".
+Fresh food, a deep meat menu, and a family-owned truck. Their own taglines: "Del Asador a Tu Plato" and "Sabor de México • Made in Fresno". Their own claim, from their Instagram: "The difference is in the meat: fresh, seasoned, and grilled to order." / "Aquí la diferencia está en la carne: fresca, bien sazonada y asada al momento." "Grilled to order" is the truck's claim; use it verbatim and don't extend it.
 
 ## Operating Context
 
@@ -32,7 +32,8 @@ Fresh food, a deep meat menu, and a family-owned truck. Their own taglines: "Del
 
 - Static one-pager: `index.html`, `css/styles.css`, `js/main.js`. No framework and no build step. Deployed on Netlify (`netlify.toml`, publish = ".") from GitHub.
 - Everything that changes (hours, open days, notice) lives in the `SITE` config at the top of `js/main.js`. Every EN/ES string lives in its `STRINGS` object. The JSON-LD hours in `index.html` have to be updated by hand when the hours change.
-- Current sections: Hero → La Carne (meat list; nav label "Menu" / "Menú") → Find Us (hours, address, map, truck photo) → Catering/Eventos (tap-to-call) → Footer.
+- Current sections: Hero → La Carne (Instagram intro, meat list for tacos, grill photo; nav label "Menu" / "Menú") → Find Us (status, week strip, truck photo, address + map card) → Catering/Eventos (taco plate photo, tap-to-call) → Footer.
+- The two catering numbers are unlabeled until the owner confirms which is the main line ((559) 681-7250 is believed to be main; both work).
 - The meats are Asada, Pastor, Suadero, Pollo, Chorizo, Cabeza, Cecina (the truck spells it "Sesina"), Lengua, Tripa, and Campechanos (mixed meats). Prices are unconfirmed and must not be invented; the page says to ask at the window. Other menu items (burritos, quesadillas, etc.) are unconfirmed.
 - The truck wrap shows other addresses (504 E. Belmont Ave on the wrap; 1639 S. Orange on a decal). They are not the service location, and the site must never show them.
 
@@ -40,13 +41,13 @@ Fresh food, a deep meat menu, and a family-owned truck. Their own taglines: "Del
 
 - Name: El Taco Macho. Taglines "Del Asador a Tu Plato" and "Sabor de México • Made in Fresno" stay in Spanish in both languages, as do meat names, Agua de Sandía, and Tres Leches.
 - Voice: proud, warm, a little bold. Short lines, no corporate fluff.
-- Assets: the mustached-taco mascot logo (`images/el-taco-macho-logo.webp`), a night photo of the truck with customers (`images/el-taco-macho.webp`, decal painted out), favicons, and `images/og-image.jpg`.
+- Assets: the mustached-taco mascot logo (`images/el-taco-macho-logo.webp`), a night photo of the truck with customers (`images/el-taco-macho.webp`, decal painted out), a grill photo (`images/grill-480.webp`, `grill-960.webp`), a taco plate with radish and salsa (`images/taco-plate-480.webp`, `taco-plate-960.webp`), favicons, and `images/og-image.jpg` (built from the taco plate).
 - Visual identity commitments from their real branding (League Spartan, Bangers as an accent, and the sun/mango/chile/nopal/carbon/crema palette) are recorded in `SITE-CONTENT.md` and the code, not here.
 
 ## Evidence on Hand
 
-- Real: the address, hours, phone numbers, Cash App handle, social links, the mascot logo, and one truck photo.
-- Not on hand, and never to be fabricated: menu prices, food photos, reviews or testimonials, press, and customer counts.
+- Real: the address and cross streets (Ashlan & Marks), hours, phone numbers, Cash App handle, social links, the mascot logo, the truck photo, and real food photos: the grill, a taco plate (radish, salsa), and an asada/pollo plate (`images/el-taco-macho-tacos-2.jpeg`, held back for now). Original photo files are backed up outside the site.
+- Not on hand, and never to be fabricated: menu prices, reviews or testimonials, press, customer counts, and any menu items beyond tacos with the listed meats.
 
 ## Product Principles
 
