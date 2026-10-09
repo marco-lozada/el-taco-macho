@@ -216,7 +216,7 @@ address { font-style: normal; }
 .hero-tagline {
   margin-top: var(--space-sm);
   font-family: var(--accent-font);
-  font-size: clamp(1.6rem, 1.1rem + 2.4vw, 2.5rem);
+  font-size: clamp(1.125rem, .9rem + 1.1vw, 1.5rem); /* supporting voice: Bangers caps read large, so it stays below the status */
   line-height: 1.1;
   letter-spacing: .03em;
   color: var(--carbon);
@@ -236,12 +236,13 @@ address { font-style: normal; }
   align-items: center;
   gap: .55em;
   margin-top: var(--space-lg);
-  padding: .4em 1em .35em .8em;
+  padding: .4em 1em .35em .75em;
+  border: 2px solid var(--carbon);
   border-radius: 16px;
   background: var(--crema);
   color: var(--carbon);
   font-weight: 600;
-  font-size: clamp(1.125rem, 1rem + .9vw, 1.5rem);
+  font-size: clamp(1.375rem, 1rem + 1.4vw, 2rem);
   line-height: 1.2;
   text-wrap: balance;
 }
@@ -255,7 +256,7 @@ address { font-style: normal; }
 }
 .status.is-open::before { background: var(--nopal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--nopal) 22%, transparent); }
 .status.is-closing::before { background: var(--mango); box-shadow: 0 0 0 2px var(--carbon); }
-.status-find { margin: 0 0 var(--space-lg); }
+.status-find { margin: 0 0 var(--space-lg); border-color: transparent; font-size: clamp(1.125rem, 1rem + .9vw, 1.5rem); } /* 7–11 PM leads here */
 
 .quick-info {
   width: 100%;
