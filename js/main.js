@@ -29,7 +29,8 @@ const STRINGS = {
     "hero.logoAlt": "El Taco Macho mascot logo",
     "hero.sub": "From the grill to your plate. Sabor de México, made in Fresno.",
     "hero.quickInfo": "Quick info",
-    "hero.payment": "Cash or Cash App. No cards.",
+    "hero.payment": "Cash or Cash App",
+    "hero.noCards": "No cards.",
     "hero.directions": "Get Directions",
 
     "status.open": "Open until {time}",
@@ -46,6 +47,7 @@ const STRINGS = {
     "carne.prices": "Order at the window and ask for today's prices.",
 
     "find.title": "Find Us",
+    "find.updates": "Breaks and updates: @eltacomacho on Instagram",
     "find.hours": "Hours",
     "find.range": "{from} to {to}",
     "find.and": "and",
@@ -77,8 +79,9 @@ const STRINGS = {
     "hero.logoAlt": "Logo de la mascota de El Taco Macho",
     "hero.sub": "Sabor de México, hecho en Fresno.",
     "hero.quickInfo": "Información rápida",
-    "hero.payment": "Efectivo o Cash App. Sin tarjetas.",
-    "hero.directions": "Cómo Llegar",
+    "hero.payment": "Efectivo o Cash App",
+    "hero.noCards": "Sin tarjetas.",
+    "hero.directions": "Cómo llegar",
 
     "status.open": "Abierto hasta las {time}",
     "status.closing": "Cierra pronto, a las {time}",
@@ -94,6 +97,7 @@ const STRINGS = {
     "carne.prices": "Ordena en la ventana y pregunta por los precios del día.",
 
     "find.title": "Encuéntranos",
+    "find.updates": "Avisos: @eltacomacho en Instagram",
     "find.hours": "Horario",
     "find.range": "De {from} a {to}",
     "find.and": "y",
@@ -102,7 +106,7 @@ const STRINGS = {
     "find.mapTitle": "Mapa de El Taco Macho en 2848 W Ashlan Ave, Fresno",
     "find.truckAlt": "El camión de El Taco Macho de noche, con clientes ordenando en la ventana",
 
-    "events.title": "Tacos Para Todo Tipo de Eventos",
+    "events.title": "Tacos para todo tipo de eventos",
     "events.copy": "Cumpleaños, quinceañeras, bodas, eventos de trabajo. Llevamos el camión y el asador.",
     "events.note": "Solo para eventos. Pide tu comida en la ventana del camión.",
     "events.photoAlt": "Un plato de tacos con repollo, cilantro, rábano, chile asado y limón, con un vasito de salsa",

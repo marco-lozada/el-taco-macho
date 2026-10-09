@@ -256,7 +256,7 @@ address { font-style: normal; }
 }
 .status.is-open::before { background: var(--nopal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--nopal) 22%, transparent); }
 .status.is-closing::before { background: var(--mango); box-shadow: 0 0 0 2px var(--carbon); }
-.status-find { margin: 0 0 var(--space-lg); border-color: transparent; font-size: clamp(1.125rem, 1rem + .9vw, 1.5rem); } /* 7–11 PM leads here */
+.status-find { margin: 0 0 var(--space-xs); border-color: transparent; font-size: clamp(1.125rem, 1rem + .9vw, 1.5rem); } /* 7–11 PM leads here */
 
 .quick-info {
   width: 100%;
@@ -422,6 +422,9 @@ address { font-style: normal; }
 .address { font-size: var(--step-1); font-weight: 600; line-height: 1.3; }
 .cross { font-weight: 500; white-space: nowrap; }
 .find .text-link { color: var(--sun); }
+.updates { margin-bottom: var(--space-lg); }
+.nowrap { white-space: nowrap; }
+.cashtag-inline { text-decoration-thickness: 2px; text-underline-offset: 3px; }
 
 .map {
   display: block;
