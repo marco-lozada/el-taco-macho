@@ -33,6 +33,7 @@ const STRINGS = {
     "hero.directions": "Get Directions",
 
     "status.open": "Open until {time}",
+    "status.closing": "Closing soon, at {time}",
     "status.tonight": "Opens tonight at {time}",
     "status.tomorrow": "Opens tomorrow at {time}",
     "status.day": "Opens {day} at {time}",
@@ -78,6 +79,7 @@ const STRINGS = {
     "hero.directions": "Cómo Llegar",
 
     "status.open": "Abierto hasta las {time}",
+    "status.closing": "Cierra pronto, a las {time}",
     "status.tonight": "Abre hoy a las {time}",
     "status.tomorrow": "Abre mañana a las {time}",
     "status.day": "Abre el {day} a las {time}",
@@ -242,9 +244,11 @@ function renderWeek(today) {
   });
 }
 
+const CLOSING_SOON_MINUTES = 30;
+
 function renderStatus(now) {
-  const status = document.getElementById("status");
-  if (!status) return;
+  const targets = document.querySelectorAll("[data-status]");
+  if (!targets.length) return;
   const days = openDays();
   const openM = toMinutes(SITE.open);
   const closeM = toMinutes(SITE.close);
@@ -258,8 +262,13 @@ function renderStatus(now) {
     isOpen = days.includes(now.day) && now.minutes >= openM && now.minutes < closeM;
   }
 
+  const minutesLeft = (closeM - now.minutes + 1440) % 1440;
+  const isClosing = isOpen && minutesLeft <= CLOSING_SOON_MINUTES;
+
   let text;
-  if (isOpen) {
+  if (isClosing) {
+    text = t("status.closing", { time: formatTime(SITE.close) });
+  } else if (isOpen) {
     text = t("status.open", { time: formatTime(SITE.close) });
   } else if (!days.length) {
     text = t("status.closed");
@@ -275,9 +284,12 @@ function renderStatus(now) {
     }
   }
 
-  status.textContent = text;
-  status.classList.toggle("is-open", isOpen);
-  status.hidden = false;
+  targets.forEach(el => {
+    el.textContent = text;
+    el.classList.toggle("is-open", isOpen && !isClosing);
+    el.classList.toggle("is-closing", isClosing);
+    el.hidden = false;
+  });
 }
 
 function renderTime() {

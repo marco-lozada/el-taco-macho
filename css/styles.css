@@ -224,26 +224,32 @@ address { font-style: normal; }
   font-weight: 500;
 }
 
+/* Live status: the answer to "open tonight?", so it is the loudest fact after the name. */
 .status {
   display: inline-flex;
   align-items: center;
-  gap: .5em;
-  margin-top: var(--space-md);
-  padding: .35em .9em .3em;
-  border-radius: 999px;
+  gap: .55em;
+  margin-top: var(--space-lg);
+  padding: .4em 1em .35em .8em;
+  border-radius: 16px;
   background: var(--crema);
   color: var(--carbon);
   font-weight: 600;
-  font-size: var(--step--1);
+  font-size: clamp(1.125rem, 1rem + .9vw, 1.5rem);
+  line-height: 1.2;
+  text-wrap: balance;
 }
 .status::before {
   content: "";
-  width: .65em;
-  height: .65em;
+  flex: none;
+  width: .6em;
+  height: .6em;
   border-radius: 50%;
   background: var(--chile);
 }
-.status.is-open::before { background: var(--nopal); box-shadow: 0 0 0 3px color-mix(in srgb, var(--nopal) 25%, transparent); }
+.status.is-open::before { background: var(--nopal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--nopal) 22%, transparent); }
+.status.is-closing::before { background: var(--mango); box-shadow: 0 0 0 2px var(--carbon); }
+.status-find { margin: 0 0 var(--space-lg); }
 
 .quick-info {
   width: 100%;
@@ -268,8 +274,9 @@ address { font-style: normal; }
 .hero-title { animation-delay: .06s; }
 .hero-tagline { animation-name: rise-tilt; animation-delay: .12s; }
 @keyframes rise-tilt { from { opacity: 0; transform: translateY(14px) rotate(-2deg); } }
-.hero-sub { animation-delay: .18s; }
-.status, .quick-info { animation-delay: .24s; }
+.hero-sub { animation-delay: .22s; }
+.status { animation-delay: .18s; }
+.quick-info { animation-delay: .24s; }
 .hero-copy .btn { animation-delay: .3s; }
 
 /* ---------- La Carne: the truck's green menu band, white border and all ---------- */
@@ -330,9 +337,9 @@ address { font-style: normal; }
 .week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: var(--space-2xs);
+  gap: var(--space-xs); /* room for the Today ring (2px + 2px offset) on both sides */
 }
-.day { display: grid; gap: 6px; justify-items: center; }
+.day { display: grid; gap: 8px; justify-items: center; }
 .day-name {
   display: grid;
   place-items: center;
@@ -345,8 +352,8 @@ address { font-style: normal; }
   font-size: var(--step--1);
 }
 .day.is-open .day-name { background: var(--sun); border-color: var(--sun); color: var(--carbon); }
-.day.is-today .day-name { outline: 3px solid var(--crema); outline-offset: 3px; }
-.day-today { font-size: .8125rem; font-weight: 600; color: var(--crema); line-height: 1; }
+.day.is-today .day-name { outline: 2px solid var(--crema); outline-offset: 2px; }
+.day-today { font-size: var(--step--1); font-weight: 600; color: var(--crema); line-height: 1; }
 
 .hours-time {
   margin-top: var(--space-lg);
@@ -418,7 +425,6 @@ address { font-style: normal; }
 
 /* ---------- Larger screens ---------- */
 @media (min-width: 640px) {
-  .week { gap: var(--space-xs); }
   .day-name { height: 64px; font-size: 1rem; }
 }
 
