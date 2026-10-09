@@ -76,6 +76,7 @@
 
   <header class="hero">
     <nav class="hero-nav" aria-label="Sections" data-i18n-aria="nav.label">
+      <a href="#menu" data-i18n="nav.menu">Menu</a>
       <a href="#find-us" data-i18n="nav.findUs">Find Us</a>
       <a href="#eventos" data-i18n="nav.catering">Catering</a>
     </nav>
@@ -112,6 +113,27 @@
   </header>
 
   <main>
+
+    <section class="carne" id="menu" aria-labelledby="carne-title">
+      <div class="container">
+        <h2 class="section-title carne-title" id="carne-title">La Carne</h2>
+        <!-- Truck menu board spells it "Sesina"; the site uses "Cecina" (see PRODUCT.md). -->
+        <ul class="meats">
+          <li>Asada</li>
+          <li>Pastor</li>
+          <li>Suadero</li>
+          <li>Pollo</li>
+          <li>Chorizo</li>
+          <li>Cabeza</li>
+          <li>Cecina</li>
+          <li>Lengua</li>
+          <li>Tripa</li>
+          <li><span class="meat-stack">Campechanos <span class="meat-note" data-i18n="carne.campechanos">mixed meats</span></span></li>
+        </ul>
+        <!-- Prices are unconfirmed: keep this line until the owner provides them. -->
+        <p class="carne-note" data-i18n="carne.prices">Ask at the window for today's prices.</p>
+      </div>
+    </section>
 
     <section class="find" id="find-us" aria-labelledby="find-title">
       <div class="container find-grid">

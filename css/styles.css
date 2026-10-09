@@ -3,7 +3,7 @@
   --sun:      #F9CA18;  /* gradient start, yellow */
   --mango:    #FE934B;  /* gradient end, orange */
   --chile:    #C8102E;  /* "EL TACO MACHO" red */
-  --nopal:    #2E5E3A;  /* green, use sparingly: "open" state only */
+  --nopal:    #2E5E3A;  /* green, use sparingly: the menu band (as on the truck) and the "open" state */
   --carbon:   #1B1B1B;  /* dark sections / text */
   --crema:    #FFF8EC;  /* light backgrounds, replaces pure white */
   --brand-gradient: linear-gradient(135deg, var(--sun), var(--mango));
@@ -13,6 +13,7 @@
   --muted-light: color-mix(in srgb, var(--carbon) 75%, var(--crema));  /* secondary text on crema */
   --rule-dark:   color-mix(in srgb, var(--crema) 22%, var(--carbon));
   --rule-light:  color-mix(in srgb, var(--carbon) 22%, transparent);
+  --muted-nopal: color-mix(in srgb, var(--crema) 82%, var(--nopal));   /* secondary text on the menu band */
 
   /* Type: League Spartan only, 1.333 scale */
   --font: "League Spartan", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -175,7 +176,8 @@ address { font-style: normal; }
 .hero-nav, .hero-inner { max-width: 1120px; margin-inline: auto; padding-inline: var(--gutter); }
 .hero-nav {
   display: flex;
-  gap: var(--space-lg);
+  flex-wrap: wrap;
+  column-gap: var(--space-md);
   min-height: 52px;
   align-items: center;
   padding-right: 100px; /* clear the fixed language toggle */
@@ -269,6 +271,51 @@ address { font-style: normal; }
 .hero-sub { animation-delay: .18s; }
 .status, .quick-info { animation-delay: .24s; }
 .hero-copy .btn { animation-delay: .3s; }
+
+/* ---------- La Carne: the truck's green menu band, white border and all ---------- */
+.carne {
+  background: var(--nopal);
+  color: var(--crema);
+  border-block: 6px solid var(--crema);
+  padding: clamp(48px, 8vw, 96px) 0;
+}
+.carne-title { color: var(--sun); }
+.meats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2xs) 0;
+  margin-top: var(--space-lg);
+  font-size: var(--step-3);
+  font-weight: 600;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+}
+/* A small sun diamond before every meat, drawn in CSS (not a glyph). The list is pulled
+   left by one separator width and clipped, so a diamond that lands at the start of a
+   wrapped line is hidden and no line ever ends or starts with a stray separator. */
+.meats { --sep: .96em; margin-left: calc(-1 * var(--sep)); clip-path: inset(0 0 0 var(--sep)); }
+.meats li { display: inline-flex; align-items: baseline; }
+.meat-stack { display: inline-flex; flex-direction: column; }
+.meats li::before {
+  content: "";
+  flex: none;
+  width: .2em;
+  height: .2em;
+  margin: 0 .38em;
+  background: var(--sun);
+  transform: translateY(-.32em) rotate(45deg);
+}
+.meat-note {
+  margin-top: 2px;
+  font-size: var(--step-0);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted-nopal);
+}
+.carne-note { margin-top: var(--space-lg); font-size: var(--step-1); font-weight: 500; color: var(--muted-nopal); }
 
 /* ---------- Find Us ---------- */
 .find {

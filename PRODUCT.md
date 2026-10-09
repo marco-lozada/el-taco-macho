@@ -32,8 +32,8 @@ Fresh food, a deep meat menu, and a family-owned truck. Their own taglines: "Del
 
 - Static one-pager: `index.html`, `css/styles.css`, `js/main.js`. No framework and no build step. Deployed on Netlify (`netlify.toml`, publish = ".") from GitHub.
 - Everything that changes (hours, open days, notice) lives in the `SITE` config at the top of `js/main.js`. Every EN/ES string lives in its `STRINGS` object. The JSON-LD hours in `index.html` have to be updated by hand when the hours change.
-- Current sections: Hero → Find Us (hours, address, map, truck photo) → Catering/Eventos (tap-to-call) → Footer.
-- **Open product decision:** bring back a list of the meats offered. The owner wants it. The meats are Asada, Pastor, Suadero, Pollo, Chorizo, Cabeza, Cecina (the truck spells it "Sesina"), Lengua, Tripa, and Campechanos. Prices are unconfirmed and must not be invented.
+- Current sections: Hero → La Carne (meat list; nav label "Menu" / "Menú") → Find Us (hours, address, map, truck photo) → Catering/Eventos (tap-to-call) → Footer.
+- The meats are Asada, Pastor, Suadero, Pollo, Chorizo, Cabeza, Cecina (the truck spells it "Sesina"), Lengua, Tripa, and Campechanos (mixed meats). Prices are unconfirmed and must not be invented; the page says to ask at the window. Other menu items (burritos, quesadillas, etc.) are unconfirmed.
 - The truck wrap shows other addresses (504 E. Belmont Ave on the wrap; 1639 S. Orange on a decal). They are not the service location, and the site must never show them.
 
 ## Brand Commitments

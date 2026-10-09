@@ -22,6 +22,7 @@ const STRINGS = {
     "lang.toggle": "Cambiar a español",
     "notice.dismiss": "Dismiss notice",
     "nav.label": "Sections",
+    "nav.menu": "Menu",
     "nav.findUs": "Find Us",
     "nav.catering": "Catering",
 
@@ -50,6 +51,9 @@ const STRINGS = {
 
     "events.title": "Tacos for Any Event",
     "events.copy": "Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.",
+    "carne.campechanos": "mixed meats",
+    "carne.prices": "Ask at the window for today's prices.",
+
     "events.call": "Call",
 
 
@@ -63,6 +67,7 @@ const STRINGS = {
     "lang.toggle": "Switch to English",
     "notice.dismiss": "Cerrar aviso",
     "nav.label": "Secciones",
+    "nav.menu": "Menú",
     "nav.findUs": "Encuéntranos",
     "nav.catering": "Eventos",
 
@@ -91,6 +96,9 @@ const STRINGS = {
 
     "events.title": "Tacos Para Todo Tipo de Eventos",
     "events.copy": "Cumpleaños, quinceañeras, bodas, eventos de trabajo.",
+    "carne.campechanos": "carnes mixtas",
+    "carne.prices": "Pregunta por los precios en la ventana.",
+
     "events.call": "Llamar",
 
 
