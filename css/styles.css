@@ -12,7 +12,7 @@
   --muted-dark:  color-mix(in srgb, var(--crema) 70%, var(--carbon));  /* secondary text on carbon */
   --muted-light: color-mix(in srgb, var(--carbon) 75%, var(--crema));  /* secondary text on crema */
   --rule-dark:   color-mix(in srgb, var(--crema) 22%, var(--carbon));
-  --rule-light:  color-mix(in srgb, var(--carbon) 22%, transparent);
+  --rule-light:  color-mix(in srgb, var(--carbon) 30%, transparent);
   --muted-nopal: color-mix(in srgb, var(--crema) 82%, var(--nopal));   /* secondary text on the menu band */
 
   /* Type: League Spartan only, 1.333 scale */
@@ -41,7 +41,13 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: color-mix(in srgb, var(--carbon) 55%, var(--crema)) var(--crema);
+}
+::selection { background: var(--sun); color: var(--carbon); }
+p { text-wrap: pretty; }
 
 body {
   margin: 0;
@@ -58,7 +64,7 @@ img { height: auto; }
 a { color: inherit; }
 h1, h2, p, ul, ol { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
-h1, h2 { font-weight: 600; line-height: .95; }
+h1, h2 { font-weight: 600; line-height: .95; text-wrap: balance; }
 address { font-style: normal; }
 [hidden] { display: none !important; }
 
@@ -149,7 +155,7 @@ address { font-style: normal; }
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-sm) 76px var(--space-sm) var(--gutter);
+  padding: var(--space-sm) 112px var(--space-sm) var(--gutter); /* clear the fixed language toggle */
   background: var(--chile);
   color: var(--crema);
   font-weight: 600;
@@ -473,17 +479,9 @@ address { font-style: normal; }
     grid-row: auto;
     justify-self: center;
     width: min(100%, 360px);
-    rotate: 3deg;
+    rotate: -3deg;
     filter: drop-shadow(6px 6px 0 var(--carbon));
   }
-  .quick-info {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: none;
-    border: 0;
-    gap: var(--space-xs) var(--space-lg);
-  }
-  .quick-info li { border: 0; }
   .hero-copy .btn { width: auto; }
 
   /* Two groups: "when" (hours beside the photo, same height) and "where" (one card). */
