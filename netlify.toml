@@ -1,8 +1,21 @@
 [build]
   publish = "."
 
+# Keep internal notes off the live site
 [[redirects]]
   from = "/SITE-CONTENT.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/PRODUCT.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/DESIGN.md"
   to = "/404"
   status = 404
   force = true
