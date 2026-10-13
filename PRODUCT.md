@@ -39,7 +39,7 @@ Fresh food, a deep meat menu, and a family-owned truck. Their own taglines: "Del
 
 ## Brand Commitments
 
-- Name: El Taco Macho. Taglines "Del Asador a Tu Plato" and "Sabor de México • Made in Fresno" stay in Spanish in both languages, as do meat names, Agua de Sandía, and Tres Leches.
+- Name: El Taco Macho. Taglines "Del Asador a Tu Plato" and "Sabor de México" stay in Spanish in both languages ("Made in Fresno" becomes "Hecho en Fresno" in Spanish), as do meat names, Agua de Sandía, and Tres Leches.
 - Voice: proud, warm, a little bold. Short lines, no corporate fluff.
 - Assets: the mustached-taco mascot logo (`images/el-taco-macho-logo.webp`), a night photo of the truck with customers (`images/el-taco-macho.webp`, decal painted out), a grill photo (`images/grill-480.webp`, `grill-960.webp`), a taco plate with radish and salsa (`images/taco-plate-480.webp`, `taco-plate-960.webp`), favicons, and `images/og-image.jpg` (built from the taco plate).
 - Visual identity commitments from their real branding (League Spartan, Bangers as an accent, and the sun/mango/chile/nopal/carbon/crema palette) are recorded in `SITE-CONTENT.md` and the code, not here.

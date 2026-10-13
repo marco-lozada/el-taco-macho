@@ -47,6 +47,8 @@ No extra pages, no frameworks, no build step.
   - HTML ships with English text so the page works without JS and for SEO.
 - Brand phrases stay in Spanish in BOTH languages: "Del Asador a Tu Plato",
   "Sabor de México", menu meat names, Agua de Sandía, Tres Leches.
+  Exception: the tagline's second half follows the language:
+  EN "Sabor de México • Made in Fresno", ES "Sabor de México • Hecho en Fresno".
 
 ## Brand voice
 - Proud, warm, a little bold. Short lines, no corporate fluff.
@@ -67,8 +69,8 @@ if empty, the banner doesn't render.
 
 ### 1. Hero
 - Headline: **El Taco Macho**
-- Tagline: **Del Asador a Tu Plato**
-- Sub: *From the grill to your plate · Sabor de México, made in Fresno*
+- Tagline: **Sabor de México • Made in Fresno** (ES: **Sabor de México • Hecho en Fresno**)
+- Sub: EN *From the grill to your plate.* / ES *Del Asador a Tu Plato*
 - Quick-info strip (visible without scrolling on mobile):
   - Tue–Fri · Mar–Vie · 7–11 PM
   - 2848 W Ashlan Ave
@@ -98,7 +100,7 @@ if empty, the banner doesn't render.
   Use loading="lazy" and a title attribute.
 
 ### 5. Footer
-- El Taco Macho · Sabor de México • Made in Fresno
+- El Taco Macho · Sabor de México • Made in Fresno (ES: Hecho en Fresno)
 - Address + hours (short form)
 - Instagram + Facebook icon links (target="_blank" rel="noopener")
 - Cash App: $eltacomacho
