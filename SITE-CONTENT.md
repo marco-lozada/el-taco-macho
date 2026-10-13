@@ -70,9 +70,13 @@ if empty, the banner doesn't render.
 ### 1. Hero
 - Headline: **El Taco Macho**
 - Tagline: **Sabor de México • Made in Fresno** (ES: **Sabor de México • Hecho en Fresno**)
-- Instagram check instead of a live open/closed status (the truck closes for events
-  without notice): EN "Check Instagram before you go: @eltacomacho" /
-  ES "Revisa Instagram antes de venir: @eltacomacho", linked to the Instagram profile
+- Schedule status, never a live "open" claim (the truck closes for events without notice):
+  - Service day before opening: "Tonight: 7–11 PM" / "Hoy: 7–11 PM"
+  - During service: "Tonight until 11 PM" / "Hoy hasta las 11 PM"
+  - After close / off days: "Back Tuesday at 7 PM" / "Volvemos el martes a las 7 PM" (next service day)
+  - Find Us shows the same status text
+- Under it, one small line: "Before you go, check @eltacomacho for same-day updates." /
+  "Antes de venir, revisa @eltacomacho para avisos del día." (@eltacomacho links to Instagram)
 - Quick-info strip (visible without scrolling on mobile):
   - Hours with days spelled out: "Tuesday to Friday, 7–11 PM" / "De martes a viernes, 7–11 PM"
   - Full address, linked to Google Maps: 2848 W Ashlan Ave, Fresno, CA 93705 (Ashlan & Marks)

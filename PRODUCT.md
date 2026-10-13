@@ -32,7 +32,7 @@ Fresh food, a deep meat menu, and a family-owned truck. Their own taglines: "Del
 
 - Static one-pager: `index.html`, `css/styles.css`, `js/main.js`. No framework and no build step. Deployed on Netlify (`netlify.toml`, publish = ".") from GitHub.
 - Everything that changes (hours, open days, notice) lives in the `SITE` config at the top of `js/main.js`. Every EN/ES string lives in its `STRINGS` object. The JSON-LD hours in `index.html` have to be updated by hand when the hours change.
-- Current sections: Hero → La Carne (Instagram intro, meat list for tacos, grill photo; nav label "Menu" / "Menú") → Find Us (Instagram updates line, week strip, truck photo, address + map card) → Catering/Eventos (taco plate photo, tap-to-call) → Footer.
+- Current sections: Hero → La Carne (Instagram intro, meat list for tacos, grill photo; nav label "Menu" / "Menú") → Find Us (schedule status, Instagram updates line, week strip, truck photo, address + map card) → Catering/Eventos (taco plate photo, tap-to-call) → Footer.
 - The two catering numbers are unlabeled until the owner confirms which is the main line ((559) 681-7250 is believed to be main; both work).
 - The meats are Asada, Pastor, Suadero, Pollo, Chorizo, Cabeza, Cecina (the truck spells it "Sesina"), Lengua, Tripa, and Campechanos (mixed meats). Prices are unconfirmed and must not be invented; the page says to ask at the window. Other menu items (burritos, quesadillas, etc.) are unconfirmed.
 - The truck wrap shows other addresses (504 E. Belmont Ave on the wrap; 1639 S. Orange on a decal). They are not the service location, and the site must never show them.
