@@ -223,7 +223,7 @@ main:focus { outline: none; }
 }
 .hero-nav a:hover { background-size: 100% 3px; }
 
-/* Phone: the logo, headline and tagline stack centered, like a sign; the status,
+/* Phone: the logo, headline, tagline and status stack centered, like a sign; the
    info and button below stay left-aligned. .hero-copy dissolves into the hero grid
    so the logo can sit above the title; desktop restores the two-column layout. */
 .hero-inner {
@@ -237,7 +237,7 @@ main:focus { outline: none; }
 .hero-copy { display: contents; }
 .hero-copy > * { grid-column: 1 / -1; justify-self: start; }
 .hero-copy > .hero-title { margin-top: var(--space-md); justify-self: center; text-align: center; }
-.hero-copy > .hero-tagline { justify-self: center; text-align: center; }
+.hero-copy > .hero-tagline, .hero-copy > .status { justify-self: center; text-align: center; }
 .hero-title {
   /* Lettered like the truck's sign, in the tagline's text-over-text style:
      Bangers in chile red over an offset crema copy. */
@@ -554,7 +554,8 @@ main:focus { outline: none; }
   }
   .hero-copy { grid-area: copy; display: grid; justify-items: start; }
   .hero-copy > *, .hero-copy > .hero-title { grid-column: auto; grid-row: auto; }
-  .hero-copy > .hero-title, .hero-copy > .hero-tagline { margin-top: 0; justify-self: start; text-align: left; }
+  .hero-copy > .hero-title, .hero-copy > .hero-tagline { margin-top: 0; }
+  .hero-copy > .hero-title, .hero-copy > .hero-tagline, .hero-copy > .status { justify-self: start; text-align: left; }
   .hero-copy > .hero-tagline { margin-top: var(--space-md); }
   .hero-logo {
     grid-area: logo;
