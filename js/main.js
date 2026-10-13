@@ -31,7 +31,6 @@ const STRINGS = {
     "hero.logoAlt": "El Taco Macho mascot logo",
     "hero.quickInfo": "Quick info",
     "hero.payment": "Cash or Cash App",
-    "hero.noCards": "No cards.",
     "hero.directions": "Get Directions",
 
     "status.open": "Open until {time}",
@@ -82,7 +81,6 @@ const STRINGS = {
     "hero.logoAlt": "Logo de la mascota de El Taco Macho",
     "hero.quickInfo": "Información rápida",
     "hero.payment": "Efectivo o Cash App",
-    "hero.noCards": "Sin tarjetas.",
     "hero.directions": "Cómo llegar",
 
     "status.open": "Abierto hasta las {time}",
@@ -213,6 +211,9 @@ function renderHoursSummary() {
   const open = SITE.days.length > 0;
   const summary = open ? daysSummary() + ", " + formatRange(SITE.open, SITE.close) : t("find.closed");
   document.querySelectorAll("[data-hours='summary']").forEach(el => { el.textContent = summary; });
+  // Spelled-out days for the hero: "Tuesday to Friday, 7–11 PM"
+  const long = open ? daysLong() + ", " + formatRange(SITE.open, SITE.close) : t("find.closed");
+  document.querySelectorAll("[data-hours='long']").forEach(el => { el.textContent = long; });
 
   const time = document.getElementById("hours-time");
   const days = document.getElementById("hours-days");

@@ -71,9 +71,9 @@ if empty, the banner doesn't render.
 - Headline: **El Taco Macho**
 - Tagline: **Sabor de México • Made in Fresno** (ES: **Sabor de México • Hecho en Fresno**)
 - Quick-info strip (visible without scrolling on mobile):
-  - Tue–Fri · Mar–Vie · 7–11 PM
-  - 2848 W Ashlan Ave
-  - Cash & Cash App
+  - Hours with days spelled out: "Tuesday to Friday, 7–11 PM" / "De martes a viernes, 7–11 PM"
+  - Full address, linked to Google Maps: 2848 W Ashlan Ave, Fresno, CA 93705 (Ashlan & Marks)
+  - Cash or Cash App ($eltacomacho)
 - Primary button: **Get Directions / Cómo Llegar** →
   https://maps.app.goo.gl/c8hriSUc7dh7fYxA7 (their own Google Maps pin, so it
   drops people at the exact truck spot)

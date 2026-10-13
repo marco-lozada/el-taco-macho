@@ -294,21 +294,28 @@ main:focus { outline: none; }
 .status.is-closing::before { background: var(--mango); box-shadow: 0 0 0 2px var(--carbon); }
 .status-find { margin: 0 0 var(--space-xs); border-color: transparent; font-size: clamp(1.125rem, 1rem + .9vw, 1.5rem); } /* 7–11 PM leads here */
 
+/* No rules between rows: the icon column and the gap do the separating. */
 .quick-info {
+  display: grid;
+  gap: var(--space-md);
   width: 100%;
   max-width: 440px;
   margin-top: var(--hero-step);
-  border-top: 2px solid var(--rule-light);
   font-weight: 600;
+  line-height: 1.4;
 }
 .quick-info li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-sm);
-  min-height: 52px;
-  padding-block: var(--space-xs);
-  border-bottom: 2px solid var(--rule-light);
 }
+.quick-info .icon { margin-top: .05em; } /* sits on the first line when a row wraps */
+.quick-link {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.quick-link:hover { text-decoration-thickness: 3px; }
 
 .hero-copy .btn { margin-top: var(--hero-step); width: 100%; max-width: 440px; }
 
