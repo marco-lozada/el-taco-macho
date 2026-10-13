@@ -253,8 +253,6 @@ main:focus { outline: none; }
   letter-spacing: .03em;
   color: var(--carbon);
   text-shadow: 2px 2px 0 var(--crema);
-  transform: rotate(-2deg);
-  transform-origin: left center;
 }
 .hero-sub {
   margin-top: var(--space-xs);
@@ -311,8 +309,7 @@ main:focus { outline: none; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 .hero-logo, .hero-copy > * { animation: rise .6s var(--ease-out) both; }
 .hero-title { animation-delay: .06s; }
-.hero-tagline { animation-name: rise-tilt; animation-delay: .12s; }
-@keyframes rise-tilt { from { opacity: 0; transform: translateY(14px) rotate(-2deg); } }
+.hero-tagline { animation-delay: .12s; }
 .hero-sub { animation-delay: .22s; }
 .status { animation-delay: .18s; }
 .quick-info { animation-delay: .24s; }
@@ -491,7 +488,7 @@ main:focus { outline: none; }
   object-position: 50% 60%; /* the plate */
   border: 6px solid var(--crema);
   border-radius: var(--radius);
-  rotate: -2deg; /* leans with the hero's tagline and logo */
+  rotate: -2deg; /* leans with the hero's logo */
   filter: drop-shadow(5px 5px 0 var(--carbon));
   background: var(--sun);
 }
