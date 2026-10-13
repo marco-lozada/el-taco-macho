@@ -223,20 +223,21 @@ main:focus { outline: none; }
 }
 .hero-nav a:hover { background-size: 100% 3px; }
 
-/* Phone: logo sits beside the headline. .hero-copy dissolves into the hero grid
-   so the logo and title can share the first row; desktop restores it below. */
+/* Phone: the logo, headline and tagline stack centered, like a sign; the status,
+   info and button below stay left-aligned. .hero-copy dissolves into the hero grid
+   so the logo can sit above the title; desktop restores the two-column layout. */
 .hero-inner {
   padding-top: var(--space-md);
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
-  column-gap: var(--space-sm);
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
 }
-.hero-logo { grid-column: 1; grid-row: 1; width: 72px; height: auto; filter: drop-shadow(2px 2px 0 var(--carbon)); }
+.hero-logo { justify-self: center; width: 120px; height: auto; filter: drop-shadow(3px 3px 0 var(--carbon)); }
 
 .hero-copy { display: contents; }
 .hero-copy > * { grid-column: 1 / -1; justify-self: start; }
-.hero-copy > .hero-title { grid-column: 2; grid-row: 1; }
+.hero-copy > .hero-title { margin-top: var(--space-md); justify-self: center; text-align: center; }
+.hero-copy > .hero-tagline { justify-self: center; text-align: center; }
 .hero-title {
   /* Lettered like the truck's sign, in the tagline's text-over-text style:
      Bangers in chile red over an offset crema copy. */
@@ -553,6 +554,8 @@ main:focus { outline: none; }
   }
   .hero-copy { grid-area: copy; display: grid; justify-items: start; }
   .hero-copy > *, .hero-copy > .hero-title { grid-column: auto; grid-row: auto; }
+  .hero-copy > .hero-title, .hero-copy > .hero-tagline { margin-top: 0; justify-self: start; text-align: left; }
+  .hero-copy > .hero-tagline { margin-top: var(--space-md); }
   .hero-logo {
     grid-area: logo;
     grid-column: auto;
