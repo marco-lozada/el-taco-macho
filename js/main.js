@@ -32,13 +32,8 @@ const STRINGS = {
     "hero.quickInfo": "Quick info",
     "hero.payment": "Cash or Cash App",
     "hero.directions": "Get Directions",
+    "hero.igCheck": "Check Instagram before you go:",
 
-    "status.open": "Open until {time}",
-    "status.closing": "Closing soon, at {time}",
-    "status.tonight": "Opens tonight at {time}",
-    "status.tomorrow": "Opens tomorrow at {time}",
-    "status.day": "Opens {day} at {time}",
-    "status.closed": "Closed for now",
 
     "carne.intro": "The difference is in the meat: fresh, seasoned, and grilled to order.",
     "carne.lead": "Pick the meat for your tacos:",
@@ -82,13 +77,8 @@ const STRINGS = {
     "hero.quickInfo": "Información rápida",
     "hero.payment": "Efectivo o Cash App",
     "hero.directions": "Cómo llegar",
+    "hero.igCheck": "Revisa Instagram antes de venir:",
 
-    "status.open": "Abierto hasta las {time}",
-    "status.closing": "Cierra pronto, a las {time}",
-    "status.tonight": "Abre hoy a las {time}",
-    "status.tomorrow": "Abre mañana a las {time}",
-    "status.day": "Abre el {day} a las {time}",
-    "status.closed": "Cerrado por ahora",
 
     "carne.intro": "Aquí la diferencia está en la carne: fresca, bien sazonada y asada al momento.",
     "carne.lead": "Escoge la carne de tus tacos:",
@@ -144,11 +134,6 @@ function storageSet(key, value) {
   try { localStorage.setItem(key, value); } catch (e) { /* storage blocked */ }
 }
 
-function toMinutes(hhmm) {
-  const [h, m] = hhmm.split(":").map(Number);
-  return h * 60 + m;
-}
-
 // "19:00" -> { label: "7", period: "PM" }, "19:30" -> { label: "7:30", period: "PM" }
 function timeParts(hhmm) {
   const [h, m] = hhmm.split(":").map(Number);
@@ -171,18 +156,16 @@ function openDays() {
   return SITE.days.slice().sort((a, b) => a - b);
 }
 
-// Current weekday (0–6) and minutes since midnight in the truck's timezone.
-function nowInTruckTime() {
-  const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: SITE.timezone, weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23"
-  }).formatToParts(new Date());
-  const get = type => parts.find(p => p.type === type).value;
-  const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday"));
-  return { day, minutes: (Number(get("hour")) % 24) * 60 + Number(get("minute")) };
+// Current weekday (0–6) in the truck's timezone, for the week strip's "Today" mark.
+function todayInTruckTime() {
+  const weekday = new Intl.DateTimeFormat("en-US", { timeZone: SITE.timezone, weekday: "short" }).format(new Date());
+  return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(weekday);
 }
 
 /* =========================================================================
-   Hours: summary text, week strip, today highlight, open-now status
+   Hours: summary text, week strip, today highlight
+   (No open-now status: the truck closes for events without notice, so the
+   page points to Instagram instead of guessing.)
    ========================================================================= */
 const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0]; // Mon → Sun
 
@@ -255,59 +238,10 @@ function renderWeek(today) {
   });
 }
 
-const CLOSING_SOON_MINUTES = 30;
-
-function renderStatus(now) {
-  const targets = document.querySelectorAll("[data-status]");
-  if (!targets.length) return;
-  const days = openDays();
-  const openM = toMinutes(SITE.open);
-  const closeM = toMinutes(SITE.close);
-  const overnight = closeM <= openM;
-  const yesterday = (now.day + 6) % 7;
-
-  let isOpen;
-  if (overnight) {
-    isOpen = (days.includes(now.day) && now.minutes >= openM) || (days.includes(yesterday) && now.minutes < closeM);
-  } else {
-    isOpen = days.includes(now.day) && now.minutes >= openM && now.minutes < closeM;
-  }
-
-  const minutesLeft = (closeM - now.minutes + 1440) % 1440;
-  const isClosing = isOpen && minutesLeft <= CLOSING_SOON_MINUTES;
-
-  let text;
-  if (isClosing) {
-    text = t("status.closing", { time: formatTime(SITE.close) });
-  } else if (isOpen) {
-    text = t("status.open", { time: formatTime(SITE.close) });
-  } else if (!days.length) {
-    text = t("status.closed");
-  } else {
-    let k = 0;
-    while (k < 8 && !(days.includes((now.day + k) % 7) && (k > 0 || now.minutes < openM))) k++;
-    const time = formatTime(SITE.open);
-    if (k === 0) text = t("status.tonight", { time });
-    else if (k === 1) text = t("status.tomorrow", { time });
-    else {
-      const name = STRINGS[lang].days[(now.day + k) % 7];
-      text = t("status.day", { time, day: lang === "es" ? name.toLowerCase() : name });
-    }
-  }
-
-  targets.forEach(el => {
-    el.textContent = text;
-    el.classList.toggle("is-open", isOpen && !isClosing);
-    el.classList.toggle("is-closing", isClosing);
-    el.hidden = false;
-  });
-}
-
 function renderTime() {
-  let now = null;
-  try { now = nowInTruckTime(); } catch (e) { /* no Intl timezone support: skip today + status */ }
-  renderWeek(now ? now.day : -1);
-  if (now) renderStatus(now);
+  let today = -1;
+  try { today = todayInTruckTime(); } catch (e) { /* no Intl timezone support: skip the Today mark */ }
+  renderWeek(today);
 }
 
 /* =========================================================================

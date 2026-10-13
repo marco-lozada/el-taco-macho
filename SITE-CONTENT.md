@@ -70,6 +70,9 @@ if empty, the banner doesn't render.
 ### 1. Hero
 - Headline: **El Taco Macho**
 - Tagline: **Sabor de México • Made in Fresno** (ES: **Sabor de México • Hecho en Fresno**)
+- Instagram check instead of a live open/closed status (the truck closes for events
+  without notice): EN "Check Instagram before you go: @eltacomacho" /
+  ES "Revisa Instagram antes de venir: @eltacomacho", linked to the Instagram profile
 - Quick-info strip (visible without scrolling on mobile):
   - Hours with days spelled out: "Tuesday to Friday, 7–11 PM" / "De martes a viernes, 7–11 PM"
   - Full address, linked to Google Maps: 2848 W Ashlan Ave, Fresno, CA 93705 (Ashlan & Marks)

@@ -197,7 +197,7 @@ main:focus { outline: none; }
 /* ---------- Hero ---------- */
 .hero {
   /* Spacing rhythm: the name block stays tight, the biggest break sits before the
-     status (the page's main answer), and the info and button get a middle step. */
+     Instagram check, and the info and button get a middle step. */
   --hero-break: clamp(36px, 1.5rem + 2.5vw, 56px);
   --hero-step:  clamp(24px, 1rem + 1.5vw, 36px);
   background: var(--brand-gradient);
@@ -223,7 +223,7 @@ main:focus { outline: none; }
 }
 .hero-nav a:hover { background-size: 100% 3px; }
 
-/* Phone: the logo, headline, tagline and status stack centered, like a sign; the
+/* Phone: the logo, headline, tagline and Instagram check stack centered, like a sign; the
    info and button below stay left-aligned. .hero-copy dissolves into the hero grid
    so the logo can sit above the title; desktop restores the two-column layout. */
 .hero-inner {
@@ -237,7 +237,7 @@ main:focus { outline: none; }
 .hero-copy { display: contents; }
 .hero-copy > * { grid-column: 1 / -1; justify-self: start; }
 .hero-copy > .hero-title { margin-top: var(--space-md); justify-self: center; text-align: center; }
-.hero-copy > .hero-tagline, .hero-copy > .status { justify-self: center; text-align: center; }
+.hero-copy > .hero-tagline, .hero-copy > .ig-check { justify-self: center; text-align: center; }
 .hero-title {
   /* Lettered like the truck's sign, in the tagline's text-over-text style:
      Bangers in chile red over an offset crema copy. */
@@ -254,7 +254,7 @@ main:focus { outline: none; }
 .hero-tagline {
   margin-top: var(--space-md);
   font-family: var(--accent-font);
-  font-size: clamp(1.125rem, .9rem + 1.1vw, 1.5rem); /* supporting voice: Bangers caps read large, so it stays below the status */
+  font-size: clamp(1.125rem, .9rem + 1.1vw, 1.5rem); /* supporting voice: Bangers caps read large, so it stays small */
   line-height: 1.1;
   letter-spacing: .03em;
   color: var(--carbon);
@@ -266,33 +266,27 @@ main:focus { outline: none; }
   font-weight: 500;
 }
 
-/* Live status: the answer to "open tonight?", so it is the loudest fact after the name. */
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: .55em;
+/* Instagram check: the truck closes for events without notice, so instead of a
+   live "open now" claim the hero sends people to where closures are posted.
+   A crema pill like the language toggle, and it inverts the same way on hover. */
+.ig-check {
+  display: inline-block; /* icon flows with the text, so it leads the first line when it wraps */
   margin-top: var(--hero-break, var(--space-lg));
-  padding: .4em 1em .35em .75em;
+  padding: .55em 1.1em .5em .9em;
   border: 2px solid var(--carbon);
   border-radius: 16px;
   background: var(--crema);
   color: var(--carbon);
   font-weight: 600;
-  font-size: clamp(1.375rem, 1rem + 1.4vw, 2rem);
-  line-height: 1.2;
+  font-size: var(--step-1);
+  line-height: 1.25;
+  text-decoration: none;
   text-wrap: balance;
+  transition: background-color .15s var(--ease-out), color .15s var(--ease-out);
 }
-.status::before {
-  content: "";
-  flex: none;
-  width: .6em;
-  height: .6em;
-  border-radius: 50%;
-  background: var(--chile);
-}
-.status.is-open::before { background: var(--nopal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--nopal) 22%, transparent); }
-.status.is-closing::before { background: var(--mango); box-shadow: 0 0 0 2px var(--carbon); }
-.status-find { margin: 0 0 var(--space-xs); border-color: transparent; font-size: clamp(1.125rem, 1rem + .9vw, 1.5rem); } /* 7–11 PM leads here */
+.ig-check .icon { display: inline-block; width: 1.1em; height: 1.1em; margin-right: .15em; vertical-align: -.2em; /* plus the HTML space after it */ }
+.ig-check .nowrap { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.ig-check:hover { background: var(--carbon); color: var(--crema); }
 
 /* No rules between rows: the icon column and the gap do the separating. */
 .quick-info {
@@ -325,7 +319,7 @@ main:focus { outline: none; }
 .hero-title { animation-delay: .06s; }
 .hero-tagline { animation-delay: .12s; }
 .hero-sub { animation-delay: .22s; }
-.status { animation-delay: .18s; }
+.ig-check { animation-delay: .18s; }
 .quick-info { animation-delay: .24s; }
 .hero-copy .btn { animation-delay: .3s; }
 
@@ -562,7 +556,7 @@ main:focus { outline: none; }
   .hero-copy { grid-area: copy; display: grid; justify-items: start; }
   .hero-copy > *, .hero-copy > .hero-title { grid-column: auto; grid-row: auto; }
   .hero-copy > .hero-title, .hero-copy > .hero-tagline { margin-top: 0; }
-  .hero-copy > .hero-title, .hero-copy > .hero-tagline, .hero-copy > .status { justify-self: start; text-align: left; }
+  .hero-copy > .hero-title, .hero-copy > .hero-tagline, .hero-copy > .ig-check { justify-self: start; text-align: left; }
   .hero-copy > .hero-tagline { margin-top: var(--space-md); }
   .hero-logo {
     grid-area: logo;

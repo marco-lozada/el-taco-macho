@@ -90,7 +90,12 @@
       <div class="hero-copy">
         <h1 class="hero-title">El Taco Macho</h1>
         <p class="hero-tagline" data-i18n="brand.tagline">Sabor de México • Made in Fresno</p>
-        <p class="status" data-status hidden></p>
+        <!-- The truck closes for events and breaks without notice, so the hero points to
+             Instagram instead of claiming "open now". -->
+        <a class="ig-check" href="https://www.instagram.com/eltacomacho/" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+          <span><span data-i18n="hero.igCheck">Check Instagram before you go:</span> <span class="nowrap">@eltacomacho</span></span>
+        </a>
 
         <ul class="quick-info" aria-label="Quick info" data-i18n-aria="hero.quickInfo">
           <li>
@@ -150,7 +155,6 @@
         <h2 class="section-title find-title" id="find-title" data-i18n="find.title">Find Us</h2>
 
         <div class="find-hours">
-          <p class="status status-find" data-status hidden></p>
           <p class="updates"><a class="text-link" href="https://www.instagram.com/eltacomacho/" target="_blank" rel="noopener" data-i18n="find.updates">Breaks and updates: @eltacomacho on Instagram</a></p>
           <!-- Rebuilt from SITE by js/main.js; this static copy is the no-JS fallback. -->
           <ol class="week" id="week" aria-label="Hours" data-i18n-aria="find.hours">
