@@ -19,7 +19,8 @@ const SITE = {
    ========================================================================= */
 const STRINGS = {
   en: {
-    "lang.toggle": "Cambiar a español",
+    "lang.toggle": "EN / ES: Cambiar a español",
+    "skip": "Skip to content",
     "notice.dismiss": "Dismiss notice",
     "nav.label": "Sections",
     "nav.menu": "Menu",
@@ -69,7 +70,8 @@ const STRINGS = {
     daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   },
   es: {
-    "lang.toggle": "Switch to English",
+    "lang.toggle": "EN / ES: Switch to English",
+    "skip": "Saltar al contenido",
     "notice.dismiss": "Cerrar aviso",
     "nav.label": "Secciones",
     "nav.menu": "Menú",

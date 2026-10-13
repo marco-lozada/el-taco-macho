@@ -62,7 +62,9 @@
 </head>
 <body>
 
-  <button class="lang-toggle" type="button" id="lang-toggle" lang="es" aria-label="Cambiar a español" data-i18n-aria="lang.toggle">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <button class="lang-toggle" type="button" id="lang-toggle" lang="es" aria-label="EN / ES: Cambiar a español" data-i18n-aria="lang.toggle">
     <span data-lang="en">EN</span><span class="lang-sep" aria-hidden="true">/</span><span data-lang="es">ES</span>
   </button>
 
@@ -102,7 +104,7 @@
           </li>
           <li>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9.5v5M18 9.5v5"/></svg>
-            <span><span data-i18n="hero.payment">Cash or Cash App</span> (<a class="cashtag-inline" href="https://cash.app/$eltacomacho" target="_blank" rel="noopener">$eltacomacho</a>). <span class="nowrap" data-i18n="hero.noCards">No cards.</span></span>
+            <span><span data-i18n="hero.payment">Cash or Cash App</span> (<a class="cashtag cashtag-inline" href="https://cash.app/$eltacomacho" target="_blank" rel="noopener">$eltacomacho</a>). <span class="nowrap" data-i18n="hero.noCards">No cards.</span></span>
           </li>
         </ul>
 
@@ -111,7 +113,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
 
     <section class="carne" id="menu" aria-labelledby="carne-title">
       <div class="container carne-grid">
@@ -180,7 +182,7 @@
           <iframe class="map"
             src="https://www.google.com/maps?q=2848+W+Ashlan+Ave,+Fresno,+CA+93705&amp;output=embed"
             title="Map of El Taco Macho at 2848 W Ashlan Ave, Fresno" data-i18n-title="find.mapTitle"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1" allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -228,7 +230,7 @@
       </div>
       <p>2848 W Ashlan Ave (Ashlan &amp; Marks)<br>Fresno, CA 93705<br><span data-hours="summary">Tue–Fri, 7–11 PM</span></p>
       <div>
-        <p>Cash App <a href="https://cash.app/$eltacomacho" target="_blank" rel="noopener">$eltacomacho</a></p>
+        <p>Cash App <a class="cashtag" href="https://cash.app/$eltacomacho" target="_blank" rel="noopener">$eltacomacho</a></p>
         <p class="social">
           <a href="https://www.instagram.com/eltacomacho/" target="_blank" rel="noopener" aria-label="El Taco Macho on Instagram" data-i18n-aria="footer.instagram">
             <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2c-3.1 0-3.5 0-4.7.1-1 0-1.6.2-1.9.3-.5.2-.8.4-1.1.7-.3.3-.5.7-.7 1.1-.1.4-.3.9-.3 1.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c0 1 .2 1.6.3 1.9.2.5.4.8.7 1.1.3.3.7.5 1.1.7.4.1.9.3 1.9.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1 0 1.6-.2 1.9-.3.5-.2.8-.4 1.1-.7.3-.3.5-.7.7-1.1.1-.4.3-.9.3-1.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c0-1-.2-1.6-.3-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.7-.5-1.1-.7-.4-.1-.9-.3-1.9-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 7.2a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | El Taco Macho</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#F9CA18">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=League+Spartan:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Root-absolute paths: Netlify serves this page for any missing URL, nested ones too. -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .lost { min-height: 100svh; display: grid; align-content: center; padding-block: 72px var(--space-xl); }
+    .lost-inner { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); align-items: center; }
+    .lost-logo { width: 120px; height: auto; rotate: -3deg; filter: drop-shadow(4px 4px 0 var(--carbon)); }
+    .lost-copy { display: grid; justify-items: start; }
+    .lost .hero-title { font-size: var(--step-4); }
+    .lost .hero-sub { margin-top: var(--space-md); max-width: 30ch; font-size: var(--step-1); }
+    .lost .btn { margin-top: var(--space-lg); }
+    .lost .text-link { margin-top: var(--space-xs); }
+    @media (min-width: 900px) {
+      .lost-inner { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+      .lost-logo { grid-column: 2; grid-row: 1; justify-self: center; width: min(100%, 300px); }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="lang-toggle" type="button" id="lang-toggle" lang="es" aria-label="EN / ES: Cambiar a español">
+    <span data-lang="en" class="is-active">EN</span><span class="lang-sep" aria-hidden="true">/</span><span data-lang="es">ES</span>
+  </button>
+
+  <main class="hero lost">
+    <div class="hero-inner lost-inner">
+      <img class="lost-logo" src="/images/el-taco-macho-logo.webp" width="608" height="713" alt="">
+      <div class="lost-copy">
+        <h1 class="hero-title" data-t="title">Wrong window</h1>
+        <p class="hero-tagline">Del Asador a Tu Plato</p>
+        <p class="hero-sub" data-t="sub">This page isn't on the menu. The tacos are right where we left them.</p>
+        <a class="btn" href="/" data-t="home">Back to El Taco Macho</a>
+        <a class="text-link" href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" data-t="directions">Get Directions</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var S = {
+        en: { title: "Wrong window", sub: "This page isn't on the menu. The tacos are right where we left them.",
+              home: "Back to El Taco Macho", directions: "Get Directions", page: "Page not found | El Taco Macho",
+              toggle: "EN / ES: Cambiar a español" },
+        es: { title: "Ventana equivocada", sub: "Esta página no está en el menú. Los tacos siguen en el mismo lugar.",
+              home: "Volver a El Taco Macho", directions: "Cómo llegar", page: "Página no encontrada | El Taco Macho",
+              toggle: "EN / ES: Switch to English" }
+      };
+      function get() { try { return localStorage.getItem("lang"); } catch (e) { return null; } }
+      function set(v) { try { localStorage.setItem("lang", v); } catch (e) {} }
+      var lang = get() || ((navigator.language || "").toLowerCase().indexOf("es") === 0 ? "es" : "en");
+      var toggle = document.getElementById("lang-toggle");
+      function apply(next) {
+        lang = S[next] ? next : "en";
+        document.documentElement.lang = lang;
+        document.title = S[lang].page;
+        document.querySelectorAll("[data-t]").forEach(function (el) { el.textContent = S[lang][el.dataset.t]; });
+        toggle.lang = lang === "en" ? "es" : "en";
+        toggle.setAttribute("aria-label", S[lang].toggle);
+        toggle.querySelectorAll("[data-lang]").forEach(function (el) { el.classList.toggle("is-active", el.dataset.lang === lang); });
+      }
+      toggle.addEventListener("click", function () { var n = lang === "en" ? "es" : "en"; set(n); apply(n); });
+      apply(lang);
+    })();
+  </script>
+</body>
+</html>

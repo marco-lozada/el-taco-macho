@@ -78,6 +78,23 @@ address { font-style: normal; }
   border: 0;
 }
 
+.skip-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 60;
+  padding: .7em 1.1em;
+  border: 2px solid var(--carbon);
+  border-radius: 999px;
+  background: var(--crema);
+  color: var(--carbon);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible { transform: none; }
+main:focus { outline: none; }
+
 .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
 
 :focus-visible { outline: 3px solid var(--carbon); outline-offset: 3px; }
@@ -116,8 +133,8 @@ address { font-style: normal; }
   box-shadow: 4px 4px 0 var(--carbon);
   transition: transform .15s var(--ease-out), box-shadow .15s var(--ease-out);
 }
-.btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--carbon); }
-.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--carbon); }
+.btn:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 var(--carbon); }
+.btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--carbon); }
 
 .text-link {
   display: inline-flex;
@@ -132,7 +149,7 @@ address { font-style: normal; }
 
 /* ---------- Language toggle ---------- */
 .lang-toggle {
-  position: fixed;
+  position: absolute; /* sits in the hero's top corner and scrolls away, so it never covers copy */
   top: 10px;
   right: 10px;
   z-index: 50;
@@ -147,8 +164,11 @@ address { font-style: normal; }
   color: var(--muted-light);
   font: 600 1rem/1 var(--font);
   cursor: pointer;
+  transition: background-color .15s var(--ease-out), color .15s var(--ease-out);
 }
 .lang-toggle .is-active { color: var(--chile); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.lang-toggle:hover { background: var(--carbon); color: var(--muted-dark); }
+.lang-toggle:hover .is-active { color: var(--sun); }
 
 /* ---------- Notice ---------- */
 .notice {
@@ -189,8 +209,15 @@ address { font-style: normal; }
   padding-right: 100px; /* clear the fixed language toggle */
   font-weight: 600;
 }
-.hero-nav a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
-.hero-nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.hero-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) no-repeat left bottom 9px / 0 3px;
+  transition: background-size .25s var(--ease-out);
+}
+.hero-nav a:hover { background-size: 100% 3px; }
 
 /* Phone: logo sits beside the headline. .hero-copy dissolves into the hero grid
    so the logo and title can share the first row; desktop restores it below. */
@@ -425,6 +452,19 @@ address { font-style: normal; }
 .updates { margin-bottom: var(--space-lg); }
 .nowrap { white-space: nowrap; }
 .cashtag-inline { text-decoration-thickness: 2px; text-underline-offset: 3px; }
+/* Inline padding grows the tap target to 44px without moving the line. The highlight is
+   painted only behind the text (inside the padding), and wipes in from the left on hover. */
+.cashtag {
+  --hl: var(--crema);
+  padding: 14px 2px;
+  margin-inline: -2px; /* the side padding stays out of the text flow */
+  border-radius: 4px;
+  background: linear-gradient(transparent 14px, var(--hl) 14px, var(--hl) calc(100% - 14px), transparent calc(100% - 14px)) no-repeat left / 0 100%;
+  transition: background-size .25s var(--ease-out), color .15s var(--ease-out);
+}
+.cashtag:hover { background-size: 100% 100%; }
+.footer .cashtag { --hl: var(--sun); }
+.footer .cashtag:hover { color: var(--carbon); }
 
 .map {
   display: block;

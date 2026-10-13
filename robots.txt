@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eltacomachofresno.com/sitemap.xml
