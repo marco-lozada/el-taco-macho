@@ -196,6 +196,10 @@ main:focus { outline: none; }
 
 /* ---------- Hero ---------- */
 .hero {
+  /* Spacing rhythm: the name block stays tight, the biggest break sits before the
+     status (the page's main answer), and the info and button get a middle step. */
+  --hero-break: clamp(36px, 1.5rem + 2.5vw, 56px);
+  --hero-step:  clamp(24px, 1rem + 1.5vw, 36px);
   background: var(--brand-gradient);
   padding: var(--space-xs) 0 var(--space-xl);
 }
@@ -222,6 +226,7 @@ main:focus { outline: none; }
 /* Phone: logo sits beside the headline. .hero-copy dissolves into the hero grid
    so the logo and title can share the first row; desktop restores it below. */
 .hero-inner {
+  padding-top: var(--space-md);
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr);
   column-gap: var(--space-sm);
@@ -246,7 +251,7 @@ main:focus { outline: none; }
   margin-left: -.02em; /* optical alignment */
 }
 .hero-tagline {
-  margin-top: var(--space-sm);
+  margin-top: var(--space-md);
   font-family: var(--accent-font);
   font-size: clamp(1.125rem, .9rem + 1.1vw, 1.5rem); /* supporting voice: Bangers caps read large, so it stays below the status */
   line-height: 1.1;
@@ -265,7 +270,7 @@ main:focus { outline: none; }
   display: inline-flex;
   align-items: center;
   gap: .55em;
-  margin-top: var(--space-lg);
+  margin-top: var(--hero-break, var(--space-lg));
   padding: .4em 1em .35em .75em;
   border: 2px solid var(--carbon);
   border-radius: 16px;
@@ -291,7 +296,7 @@ main:focus { outline: none; }
 .quick-info {
   width: 100%;
   max-width: 440px;
-  margin-top: var(--space-md);
+  margin-top: var(--hero-step);
   border-top: 2px solid var(--rule-light);
   font-weight: 600;
 }
@@ -299,11 +304,12 @@ main:focus { outline: none; }
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  min-height: 44px;
+  min-height: 52px;
+  padding-block: var(--space-xs);
   border-bottom: 2px solid var(--rule-light);
 }
 
-.hero-copy .btn { margin-top: var(--space-lg); width: 100%; max-width: 440px; }
+.hero-copy .btn { margin-top: var(--hero-step); width: 100%; max-width: 440px; }
 
 /* One orchestrated entrance; nothing else on the page animates in. */
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
@@ -543,7 +549,7 @@ main:focus { outline: none; }
     grid-template-areas: "copy logo";
     align-items: center;
     gap: var(--space-xl);
-    padding-top: var(--space-lg);
+    padding-top: var(--space-xl);
   }
   .hero-copy { grid-area: copy; display: grid; justify-items: start; }
   .hero-copy > *, .hero-copy > .hero-title { grid-column: auto; grid-row: auto; }
