@@ -233,8 +233,8 @@ main:focus { outline: none; }
 .hero-copy > * { grid-column: 1 / -1; justify-self: start; }
 .hero-copy > .hero-title { grid-column: 2; grid-row: 1; }
 .hero-title {
-  /* Lettered like the truck's sign: Bangers in chile red, outlined and shadowed in crema.
-     The crema outline carries the contrast (chile alone dips below 3:1 on the gradient). */
+  /* Lettered like the truck's sign, in the tagline's text-over-text style:
+     Bangers in chile red over an offset crema copy. */
   font-family: var(--accent-font);
   font-weight: 400; /* Bangers has one weight; avoid faux bold */
   font-size: var(--step-4);
@@ -242,9 +242,7 @@ main:focus { outline: none; }
   text-transform: uppercase;
   letter-spacing: .02em;
   color: var(--chile);
-  -webkit-text-stroke: .1em var(--crema);
-  paint-order: stroke fill; /* stroke sits behind the fill, so it reads as an outline */
-  text-shadow: .06em .06em 0 var(--crema);
+  text-shadow: .08em .08em 0 var(--crema); /* same offset ratio as .hero-tagline (2px at 24px) */
   margin-left: -.02em; /* optical alignment */
 }
 .hero-tagline {
