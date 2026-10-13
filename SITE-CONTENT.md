@@ -70,7 +70,6 @@ if empty, the banner doesn't render.
 ### 1. Hero
 - Headline: **El Taco Macho**
 - Tagline: **Sabor de México • Made in Fresno** (ES: **Sabor de México • Hecho en Fresno**)
-- Sub: EN *From the grill to your plate.* / ES *Del Asador a Tu Plato*
 - Quick-info strip (visible without scrolling on mobile):
   - Tue–Fri · Mar–Vie · 7–11 PM
   - 2848 W Ashlan Ave

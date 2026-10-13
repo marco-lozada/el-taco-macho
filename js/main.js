@@ -29,7 +29,6 @@ const STRINGS = {
     "nav.catering": "Catering",
 
     "hero.logoAlt": "El Taco Macho mascot logo",
-    "hero.sub": "From the grill to your plate.",
     "hero.quickInfo": "Quick info",
     "hero.payment": "Cash or Cash App",
     "hero.noCards": "No cards.",
@@ -81,7 +80,6 @@ const STRINGS = {
     "nav.catering": "Eventos",
 
     "hero.logoAlt": "Logo de la mascota de El Taco Macho",
-    "hero.sub": "Del Asador a Tu Plato",
     "hero.quickInfo": "Información rápida",
     "hero.payment": "Efectivo o Cash App",
     "hero.noCards": "Sin tarjetas.",
