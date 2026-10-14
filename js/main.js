@@ -32,7 +32,7 @@ const STRINGS = {
     "hero.quickInfo": "Quick info",
     "hero.payment": "Cash or Cash App",
     "hero.directions": "Get Directions",
-    "hero.igNote.before": "Before you go, check",
+    "hero.igNote.before": "Check",
     "hero.igNote.after": "for same-day updates.",
 
     "carne.intro": "The difference is in the meat: fresh, seasoned, and grilled to order.",
@@ -74,7 +74,7 @@ const STRINGS = {
     "hero.quickInfo": "Información rápida",
     "hero.payment": "Efectivo o Cash App",
     "hero.directions": "Cómo llegar",
-    "hero.igNote.before": "Antes de venir, revisa",
+    "hero.igNote.before": "Revisa",
     "hero.igNote.after": "para avisos del día.",
 
     "carne.intro": "Aquí la diferencia está en la carne: fresca, bien sazonada y asada al momento.",

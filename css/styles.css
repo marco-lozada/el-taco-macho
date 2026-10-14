@@ -194,7 +194,7 @@ main:focus { outline: none; }
 /* ---------- Hero ---------- */
 .hero {
   /* Spacing rhythm: the name block stays tight, the biggest break sits before the
-     schedule, and the info and button get a middle step. */
+     info rows, and the button gets a middle step. */
   --hero-break: clamp(36px, 1.5rem + 2.5vw, 56px);
   --hero-step:  clamp(24px, 1rem + 1.5vw, 36px);
   background: var(--brand-gradient);
@@ -220,7 +220,7 @@ main:focus { outline: none; }
 }
 .hero-nav a:hover { background-size: 100% 3px; }
 
-/* Phone: the logo, headline, tagline, schedule and Instagram note stack centered, like a sign; the
+/* Phone: the logo, headline and tagline stack centered, like a sign; the
    info and button below stay left-aligned. .hero-copy dissolves into the hero grid
    so the logo can sit above the title; desktop restores the two-column layout. */
 .hero-inner {
@@ -234,7 +234,7 @@ main:focus { outline: none; }
 .hero-copy { display: contents; }
 .hero-copy > * { grid-column: 1 / -1; justify-self: start; }
 .hero-copy > .hero-title { margin-top: var(--space-md); justify-self: center; text-align: center; }
-.hero-copy > .hero-tagline, .hero-copy > .status, .hero-copy > .ig-note { justify-self: center; text-align: center; }
+.hero-copy > .hero-tagline { justify-self: center; text-align: center; }
 .hero-title {
   /* Lettered like the truck's sign, in the tagline's text-over-text style:
      Bangers in chile red over an offset crema copy. */
@@ -263,37 +263,13 @@ main:focus { outline: none; }
   font-weight: 500;
 }
 
-/* Regular schedule: the loudest fact after the name. No "open now" / "closed"
-   states (the truck closes for events without notice); the note under it points
-   to Instagram for same-day changes. */
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: .5em;
-  margin-top: var(--hero-break, var(--space-lg));
-  padding: .4em 1em .35em .8em;
-  border: 2px solid var(--carbon);
-  border-radius: 16px;
-  background: var(--crema);
-  color: var(--carbon);
-  font-weight: 600;
-  font-size: clamp(1.375rem, 1rem + 1.4vw, 2rem);
-  line-height: 1.2;
-  text-wrap: balance;
-}
-.status .icon { width: .85em; height: .85em; }
-
-/* One small line under the schedule: where same-day closures are posted. */
-.ig-note { margin-top: var(--space-sm); max-width: 36ch; font-weight: 500; }
-.ig-note a { font-weight: 600; text-decoration-thickness: 2px; text-underline-offset: 4px; } /* .cashtag adds the tap target and hover */
-
 /* No rules between rows: the icon column and the gap do the separating. */
 .quick-info {
   display: grid;
   gap: var(--space-md);
   width: 100%;
   max-width: 440px;
-  margin-top: var(--hero-step);
+  margin-top: var(--hero-break, var(--space-lg));
   font-weight: 600;
   line-height: 1.4;
 }
@@ -303,6 +279,10 @@ main:focus { outline: none; }
   gap: var(--space-sm);
 }
 .quick-info .icon { margin-top: .05em; } /* sits on the first line when a row wraps */
+/* Hours row: the regular schedule, with the Instagram caveat attached underneath. */
+.row-stack { display: grid; gap: 2px; }
+.row-note { font-size: var(--step--1); font-weight: 500; }
+.row-note a { font-weight: 600; text-decoration-thickness: 2px; text-underline-offset: 3px; } /* .cashtag adds the tap target and hover */
 .quick-link {
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -318,9 +298,7 @@ main:focus { outline: none; }
 .hero-title { animation-delay: .06s; }
 .hero-tagline { animation-delay: .12s; }
 .hero-sub { animation-delay: .22s; }
-.status { animation-delay: .18s; }
-.ig-note { animation-delay: .21s; }
-.quick-info { animation-delay: .24s; }
+.quick-info { animation-delay: .18s; }
 .hero-copy .btn { animation-delay: .3s; }
 
 /* ---------- La Carne: the truck's green menu band, white border and all ---------- */
@@ -519,7 +497,7 @@ main:focus { outline: none; }
   .hero-copy { grid-area: copy; display: grid; justify-items: start; }
   .hero-copy > *, .hero-copy > .hero-title { grid-column: auto; grid-row: auto; }
   .hero-copy > .hero-title, .hero-copy > .hero-tagline { margin-top: 0; }
-  .hero-copy > .hero-title, .hero-copy > .hero-tagline, .hero-copy > .status, .hero-copy > .ig-note { justify-self: start; text-align: left; }
+  .hero-copy > .hero-title, .hero-copy > .hero-tagline { justify-self: start; text-align: left; }
   .hero-copy > .hero-tagline { margin-top: var(--space-md); }
   .hero-logo {
     grid-area: logo;
