@@ -194,7 +194,7 @@ main:focus { outline: none; }
 /* ---------- Hero ---------- */
 .hero {
   /* Spacing rhythm: the name block stays tight, the biggest break sits before the
-     status, and the info and button get a middle step. */
+     schedule, and the info and button get a middle step. */
   --hero-break: clamp(36px, 1.5rem + 2.5vw, 56px);
   --hero-step:  clamp(24px, 1rem + 1.5vw, 36px);
   background: var(--brand-gradient);
@@ -220,7 +220,7 @@ main:focus { outline: none; }
 }
 .hero-nav a:hover { background-size: 100% 3px; }
 
-/* Phone: the logo, headline, tagline, status and Instagram note stack centered, like a sign; the
+/* Phone: the logo, headline, tagline, schedule and Instagram note stack centered, like a sign; the
    info and button below stay left-aligned. .hero-copy dissolves into the hero grid
    so the logo can sit above the title; desktop restores the two-column layout. */
 .hero-inner {
@@ -263,8 +263,9 @@ main:focus { outline: none; }
   font-weight: 500;
 }
 
-/* Schedule status: the loudest fact after the name, but it states the schedule,
-   never "open now" (the truck closes for events without notice). */
+/* Regular schedule: the loudest fact after the name. No "open now" / "closed"
+   states (the truck closes for events without notice); the note under it points
+   to Instagram for same-day changes. */
 .status {
   display: inline-flex;
   align-items: center;
@@ -281,9 +282,8 @@ main:focus { outline: none; }
   text-wrap: balance;
 }
 .status .icon { width: .85em; height: .85em; }
-.status-find { margin: 0 0 var(--space-xs); border-color: transparent; font-size: clamp(1.125rem, 1rem + .9vw, 1.5rem); }
 
-/* One small line under the status: where same-day closures are posted. */
+/* One small line under the schedule: where same-day closures are posted. */
 .ig-note { margin-top: var(--space-sm); max-width: 36ch; font-weight: 500; }
 .ig-note a { font-weight: 600; text-decoration-thickness: 2px; text-underline-offset: 4px; } /* .cashtag adds the tap target and hover */
 
