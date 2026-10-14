@@ -28,7 +28,8 @@ const STRINGS = {
     "nav.findUs": "Find Us",
     "nav.catering": "Catering",
 
-    "hero.eyebrow": "Your taco spot in Fresno",
+    "hero.locality": "• Made in Fresno",
+    "hero.menu": "See the meats",
     "carne.eyebrow": "Find your favorite",
     "carne.mixed": "Mixed meats",
     "find.eyebrow": "Ashlan & Marks · Fresno",
@@ -73,7 +74,8 @@ const STRINGS = {
     "nav.findUs": "Encuéntranos",
     "nav.catering": "Eventos",
 
-    "hero.eyebrow": "Tu lugar de tacos en Fresno",
+    "hero.locality": "• Hecho en Fresno",
+    "hero.menu": "Ver las carnes",
     "carne.eyebrow": "Encuentra tu favorita",
     "carne.mixed": "Carnes mixtas",
     "find.eyebrow": "Ashlan y Marks · Fresno",

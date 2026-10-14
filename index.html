@@ -74,10 +74,6 @@
 
   <header class="hero">
     <div class="hero-bar">
-      <a class="brand-home" href="#" aria-label="El Taco Macho">
-        <img src="images/el-taco-macho-logo.webp" width="608" height="713" alt="">
-        <span>El Taco Macho</span>
-      </a>
       <nav class="hero-nav" aria-label="Sections" data-i18n-aria="nav.label">
         <a href="#menu" data-i18n="nav.menu">Menu</a>
         <a href="#find-us" data-i18n="nav.findUs">Find Us</a>
@@ -90,9 +86,9 @@
 
     <div class="hero-inner">
       <div class="hero-copy">
-        <p class="eyebrow" data-i18n="hero.eyebrow">Your taco spot in Fresno</p>
-        <h1 class="hero-title">Del Asador<br><span>a Tu Plato.</span></h1>
-        <p class="hero-tagline" data-i18n="brand.tagline">Sabor de México • Made in Fresno</p>
+        <img class="hero-logo" src="images/el-taco-macho-logo.webp" width="608" height="713"
+             alt="El Taco Macho mascot logo" data-i18n-alt="hero.logoAlt">
+        <h1 class="hero-title"><span lang="es">Sabor de México</span><span class="hero-locality" data-i18n="hero.locality">• Made in Fresno</span></h1>
         <ul class="quick-info" aria-label="Quick info" data-i18n-aria="hero.quickInfo">
           <!-- Regular schedule only, no "open now" / "closed" states: the truck closes for
                events without notice, so the note under the hours points to Instagram. -->
@@ -113,14 +109,16 @@
           </li>
         </ul>
 
-        <a class="btn" href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener" data-i18n="hero.directions">Get Directions</a>
+        <div class="hero-actions">
+          <a class="btn" href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener" data-i18n="hero.directions">Get Directions</a>
+          <a class="btn btn-secondary" href="#menu" data-i18n="hero.menu">See the meats</a>
+        </div>
       </div>
       <div class="hero-visual">
         <img class="hero-food" src="images/taco-plate-960.webp"
              srcset="images/taco-plate-480.webp 480w, images/taco-plate-960.webp 960w"
              sizes="(min-width: 900px) 50vw, 100vw" width="960" height="1280" fetchpriority="high"
              alt="A plate of tacos topped with cabbage, cilantro, radish, a grilled chile and lime, with a cup of salsa" data-i18n-alt="events.photoAlt">
-        <p class="photo-caption">Sabor de México.</p>
       </div>
     </div>
   </header>
