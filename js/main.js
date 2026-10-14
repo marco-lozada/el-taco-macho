@@ -37,7 +37,6 @@ const STRINGS = {
 
     "carne.intro": "The difference is in the meat: fresh, seasoned, and grilled to order.",
     "carne.photoAlt": "Meat being turned with tongs on the grill, beside a row of fresh tortillas",
-    "carne.campechanos": "(mixed meats)",
 
     "find.title": "Find Us",
     "find.range": "{from} to {to}",
@@ -77,7 +76,6 @@ const STRINGS = {
 
     "carne.intro": "Aquí la diferencia está en la carne: fresca, bien sazonada y asada al momento.",
     "carne.photoAlt": "Carne volteada con pinzas en el asador, junto a una fila de tortillas frescas",
-    "carne.campechanos": "(carnes mixtas)",
 
     "find.title": "Encuéntranos",
     "find.range": "De {from} a {to}",
