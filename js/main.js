@@ -42,12 +42,9 @@ const STRINGS = {
     "carne.prices": "Order at the window and ask for today's prices.",
 
     "find.title": "Find Us",
-    "find.updates": "Breaks and updates: @eltacomacho on Instagram",
-    "find.hours": "Hours",
     "find.range": "{from} to {to}",
     "find.and": "and",
     "find.closed": "Closed",
-    "find.today": "Today",
     "find.mapTitle": "Map of El Taco Macho at 2848 W Ashlan Ave, Fresno",
     "find.truckAlt": "The El Taco Macho truck at night, with customers ordering at the window",
 
@@ -87,12 +84,9 @@ const STRINGS = {
     "carne.prices": "Ordena en la ventana y pregunta por los precios del día.",
 
     "find.title": "Encuéntranos",
-    "find.updates": "Avisos: @eltacomacho en Instagram",
-    "find.hours": "Horario",
     "find.range": "De {from} a {to}",
     "find.and": "y",
     "find.closed": "Cerrado",
-    "find.today": "Hoy",
     "find.mapTitle": "Mapa de El Taco Macho en 2848 W Ashlan Ave, Fresno",
     "find.truckAlt": "El camión de El Taco Macho de noche, con clientes ordenando en la ventana",
 
@@ -156,19 +150,11 @@ function openDays() {
   return SITE.days.slice().sort((a, b) => a - b);
 }
 
-// Current weekday (0–6) in the truck's timezone, for the week strip's "Today" mark.
-function todayInTruckTime() {
-  const weekday = new Intl.DateTimeFormat("en-US", { timeZone: SITE.timezone, weekday: "short" }).format(new Date());
-  return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(weekday);
-}
-
 /* =========================================================================
-   Hours: summary text, week strip, today highlight
-   (Regular schedule only, no "open now" / "closed" states: the truck closes
-   for events without notice, so the hero points to Instagram for changes.)
+   Hours: the regular schedule as text (hero and footer)
+   (No "open now" / "closed" states: the truck closes for events without
+   notice, so the hero points to Instagram for changes.)
    ========================================================================= */
-const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0]; // Mon → Sun
-
 function daysSummary() {
   const days = openDays();
   const short = STRINGS[lang].daysShort;
@@ -197,51 +183,6 @@ function renderHoursSummary() {
   // Spelled-out days for the hero: "Tuesday to Friday, 7–11 PM"
   const long = open ? daysLong() + ", " + formatRange(SITE.open, SITE.close) : t("find.closed");
   document.querySelectorAll("[data-hours='long']").forEach(el => { el.textContent = long; });
-
-  const time = document.getElementById("hours-time");
-  const days = document.getElementById("hours-days");
-  if (time) time.textContent = open ? formatRange(SITE.open, SITE.close) : t("find.closed");
-  if (days) { days.textContent = open ? daysLong() : ""; days.hidden = !open; }
-}
-
-function renderWeek(today) {
-  const list = document.getElementById("week");
-  if (!list) return;
-  const days = openDays();
-  const range = formatRange(SITE.open, SITE.close);
-
-  list.textContent = "";
-  WEEK_ORDER.forEach(d => {
-    const isOpen = days.includes(d);
-    const isToday = d === today;
-    const li = document.createElement("li");
-    li.className = "day" + (isOpen ? " is-open" : "") + (isToday ? " is-today" : "");
-
-    const short = document.createElement("span");
-    short.className = "day-name";
-    short.setAttribute("aria-hidden", "true");
-    short.textContent = STRINGS[lang].daysShort[d];
-
-    const full = document.createElement("span");
-    full.className = "sr-only";
-    full.textContent = STRINGS[lang].days[d] + ": " + (isOpen ? range : t("find.closed")) + (isToday ? " (" + t("find.today") + ")" : "");
-
-    li.append(short, full);
-    if (isToday) {
-      const tag = document.createElement("span");
-      tag.className = "day-today";
-      tag.setAttribute("aria-hidden", "true");
-      tag.textContent = t("find.today");
-      li.appendChild(tag);
-    }
-    list.appendChild(li);
-  });
-}
-
-function renderTime() {
-  let today = -1;
-  try { today = todayInTruckTime(); } catch (e) { /* no Intl timezone support: skip the Today mark */ }
-  renderWeek(today);
 }
 
 /* =========================================================================
@@ -278,7 +219,6 @@ function applyLanguage(next) {
 
   renderHoursSummary();
   renderNotice();
-  renderTime();
 }
 
 function initialLanguage() {
@@ -306,6 +246,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
-
-  setInterval(renderTime, 60 * 1000);
 });

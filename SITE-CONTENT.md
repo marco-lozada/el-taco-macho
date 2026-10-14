@@ -81,23 +81,14 @@ if empty, the banner doesn't render.
 - Primary button: **Get Directions / Cómo Llegar** →
   https://maps.app.goo.gl/c8hriSUc7dh7fYxA7 (their own Google Maps pin, so it
   drops people at the exact truck spot)
-- Optional: "Open now / Abierto ahora" badge, computed in JS from
-  America/Los_Angeles time (Tue–Fri, 19:00–23:00). Shows "Opens Tuesday at
-  7 PM" etc. when closed. Fail gracefully: if JS is off, show nothing.
+- No "Open now / Abierto ahora" badge or other time-based states: the truck closes
+  for events without notice, so the site shows the regular schedule and points to
+  Instagram instead (decided Oct 2026).
 
 ### 3. Find Us / Encuéntranos  (id="find-us")
+- Image and location only: the truck photo, then the address + map card.
+  No schedule here (the hero carries it).
 - Address: 2848 W Ashlan Ave, Fresno, CA 93705
-- Hours table:
-
-  | Day | Día | Hours |
-  |---|---|---|
-  | Tuesday | Martes | 7 – 11 PM |
-  | Wednesday | Miércoles | 7 – 11 PM |
-  | Thursday | Jueves | 7 – 11 PM |
-  | Friday | Viernes | 7 – 11 PM |
-  | Sat – Mon | Sáb – Lun | Closed / Cerrado |
-
-- Highlight today's row with JS.
 - Google Map embed (no API key needed):
   `https://www.google.com/maps?q=2848+W+Ashlan+Ave,+Fresno,+CA+93705&output=embed`
   Use loading="lazy" and a title attribute.
@@ -214,7 +205,7 @@ const SITE = {
   timezone: "America/Los_Angeles"
 };
 ```
-The hours table, today-highlight, and Open-now badge all read from this.
+The hero schedule line and the footer hours read from this.
 Remember to update the JSON-LD hours too when hours change.
 
 ## Design direction (matched to their branding)

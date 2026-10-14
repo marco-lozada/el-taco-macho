@@ -392,39 +392,7 @@ main:focus { outline: none; }
 .find-grid { display: grid; gap: var(--space-lg); }
 .find-title { color: var(--sun); }
 
-.week {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: var(--space-xs); /* room for the Today ring (2px + 2px offset) on both sides */
-}
-.day { display: grid; gap: 8px; justify-items: center; }
-.day-name {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 52px;
-  border: 2px solid var(--rule-dark);
-  border-radius: 10px;
-  color: var(--muted-dark);
-  font-weight: 600;
-  font-size: var(--step--1);
-}
-.day.is-open .day-name { background: var(--sun); border-color: var(--sun); color: var(--carbon); }
-.day.is-today .day-name { outline: 2px solid var(--crema); outline-offset: 2px; }
-.day-today { font-size: var(--step--1); font-weight: 600; color: var(--crema); line-height: 1; }
-
-.hours-time {
-  margin-top: var(--space-lg);
-  font-size: var(--step-4);
-  font-weight: 600;
-  line-height: .9;
-  letter-spacing: -.02em;
-  color: var(--sun);
-}
-.hours-days { margin-top: var(--space-xs); font-size: var(--step-1); font-weight: 500; }
-
-/* The frame sets the photo's box; the image covers it, so on desktop the photo can
-   stretch to the exact height of the hours block beside it. */
+/* The frame sets the photo's box; the image covers it. */
 .truck-frame {
   position: relative;
   aspect-ratio: 3 / 2;
@@ -459,7 +427,6 @@ main:focus { outline: none; }
 .address { font-size: var(--step-1); font-weight: 600; line-height: 1.3; }
 .cross { font-weight: 500; white-space: nowrap; }
 .find .text-link { color: var(--sun); }
-.updates { margin-bottom: var(--space-lg); }
 .nowrap { white-space: nowrap; }
 .cashtag-inline { text-decoration-thickness: 2px; text-underline-offset: 3px; }
 /* Inline padding grows the tap target to 44px without moving the line. The highlight is
@@ -540,10 +507,6 @@ main:focus { outline: none; }
 .copyright { padding-top: var(--space-md); border-top: 1px solid var(--rule-dark); font-size: var(--step--1); color: var(--muted-dark); }
 
 /* ---------- Larger screens ---------- */
-@media (min-width: 640px) {
-  .day-name { height: 64px; font-size: 1rem; }
-}
-
 @media (min-width: 900px) {
   .hero { padding-bottom: var(--space-section); }
   .hero-inner {
@@ -569,27 +532,19 @@ main:focus { outline: none; }
   }
   .hero-copy .btn { width: auto; }
 
-  /* Two groups: "when" (hours beside the photo, same height) and "where" (one card). */
+  /* The truck photo beside the location card, same height; address above the map. */
   .find-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     grid-template-areas:
-      "title  photo"
-      "hours  photo"
-      "place  place";
-    column-gap: var(--space-xl);
+      "title  title"
+      "photo  place";
+    column-gap: var(--space-lg);
     row-gap: var(--space-lg);
-    align-items: start;
   }
   .find-title { grid-area: title; }
-  .find-hours { grid-area: hours; }
-  .truck-frame { grid-area: photo; align-self: stretch; aspect-ratio: auto; min-height: 320px; }
-  .place-card {
-    grid-area: place;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    margin-top: var(--space-lg);
-  }
-  .find-place { padding: var(--space-xl) var(--space-lg); }
-  .map { aspect-ratio: auto; height: 100%; min-height: 320px; }
+  .truck-frame { grid-area: photo; aspect-ratio: auto; min-height: 360px; } /* stretches to the card's height */
+  .place-card { grid-area: place; grid-template-rows: auto 1fr; }
+  .map { aspect-ratio: auto; height: 100%; min-height: 220px; }
 
   .carne-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); column-gap: var(--space-xl); align-items: center; }
   .carne-photo { aspect-ratio: 3 / 4; object-position: 50% 50%; }
