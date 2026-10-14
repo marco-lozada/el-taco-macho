@@ -344,11 +344,8 @@ main:focus { outline: none; }
   text-transform: none;
   color: var(--muted-nopal);
 }
-.carne-note { margin-top: var(--space-lg); font-size: var(--step-1); font-weight: 500; color: var(--muted-nopal); }
 .carne-grid { display: grid; gap: var(--space-xl); }
 .carne-intro { margin-top: var(--space-md); max-width: 36ch; font-size: var(--step-1); font-weight: 500; line-height: 1.35; }
-.carne-lead { margin-top: var(--space-lg); font-weight: 600; color: var(--sun); }
-.carne-lead + .meats { margin-top: var(--space-xs); }
 /* The grill photo wears the band's crema border, like a print pinned to the menu board */
 .carne-photo {
   width: 100%;

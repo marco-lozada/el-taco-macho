@@ -36,10 +36,8 @@ const STRINGS = {
     "hero.igNote.after": "for same-day updates.",
 
     "carne.intro": "The difference is in the meat: fresh, seasoned, and grilled to order.",
-    "carne.lead": "Pick the meat for your tacos:",
     "carne.photoAlt": "Meat being turned with tongs on the grill, beside a row of fresh tortillas",
-    "carne.campechanos": "mixed meats",
-    "carne.prices": "Order at the window and ask for today's prices.",
+    "carne.campechanos": "(mixed meats)",
 
     "find.title": "Find Us",
     "find.range": "{from} to {to}",
@@ -78,10 +76,8 @@ const STRINGS = {
     "hero.igNote.after": "para avisos del día.",
 
     "carne.intro": "Aquí la diferencia está en la carne: fresca, bien sazonada y asada al momento.",
-    "carne.lead": "Escoge la carne de tus tacos:",
     "carne.photoAlt": "Carne volteada con pinzas en el asador, junto a una fila de tortillas frescas",
-    "carne.campechanos": "carnes mixtas",
-    "carne.prices": "Ordena en la ventana y pregunta por los precios del día.",
+    "carne.campechanos": "(carnes mixtas)",
 
     "find.title": "Encuéntranos",
     "find.range": "De {from} a {to}",

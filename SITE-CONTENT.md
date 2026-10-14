@@ -137,8 +137,8 @@ Confirmed by the truck wrap: "Tacos para todo tipo de eventos."
   - Campechanos (mixed meats)
 
   TODO: prices, and whether they also sell burritos, quesadillas, mulitas, etc.
-  Until prices are confirmed, show the meats without prices plus a line:
-  "Ask at the window for today's prices · Pregunta por los precios en la ventana."
+  Until prices are confirmed, show the meats without prices (no prices line).
+  "Campechanos" carries "(mixed meats)" / "(carnes mixtas)" under it.
 
   Specials / Especiales (rotating, from Instagram):
   - Agua de Sandía (watermelon agua fresca)
