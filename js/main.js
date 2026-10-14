@@ -28,10 +28,7 @@ const STRINGS = {
     "nav.findUs": "Find Us",
     "nav.catering": "Catering",
 
-    "hero.locality": "• Made in Fresno",
-    "hero.menu": "See the meats",
     "carne.eyebrow": "Find your favorite",
-    "carne.mixed": "Mixed meats",
     "find.eyebrow": "Ashlan & Marks · Fresno",
     "find.payment": "Cash & Cash App only · No cards",
     "events.eyebrow": "Bring everyone together",
@@ -74,10 +71,7 @@ const STRINGS = {
     "nav.findUs": "Encuéntranos",
     "nav.catering": "Eventos",
 
-    "hero.locality": "• Hecho en Fresno",
-    "hero.menu": "Ver las carnes",
     "carne.eyebrow": "Encuentra tu favorita",
-    "carne.mixed": "Carnes mixtas",
     "find.eyebrow": "Ashlan y Marks · Fresno",
     "find.payment": "Solo efectivo y Cash App · No tarjetas",
     "events.eyebrow": "Reúne a todos",
