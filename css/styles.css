@@ -25,7 +25,10 @@
   --shadow: 0 1px 2px #29241f14, 0 12px 32px -12px #29241f40;
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* Safari tints its status bar and bottom toolbar from the page edges, and shows the html
+   background when you pull past the top or bottom. Sun at the top (matches the hero),
+   carbon at the bottom (matches the footer). */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: linear-gradient(to bottom, var(--sun) 0 50%, var(--carbon) 50% 100%); }
 body { margin: 0; background: var(--crema); color: var(--carbon); font: 400 18px/1.5 var(--font); }
 ::selection { background: var(--sun); color: var(--carbon); }
 img, iframe { display: block; max-width: 100%; }
@@ -62,7 +65,7 @@ main:focus { outline: none; }
 }
 
 /* Hero */
-.hero { background: linear-gradient(135deg, var(--sun), var(--mango)); }
+.hero { background: linear-gradient(135deg, var(--sun), var(--mango)); padding-top: env(safe-area-inset-top); }
 .hero-bar { min-height: 80px; padding-top: 12px; padding-bottom: 4px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .hero-nav { display: flex; gap: 4px; margin-left: -14px; font-size: 16px; font-weight: 500; }
 .hero-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; text-decoration: none; transition: background-color .18s; }
@@ -159,7 +162,7 @@ main:focus { outline: none; }
 .call-number { font-size: 21px; font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* Footer */
-.footer { background: var(--carbon); color: var(--crema); padding-block: 56px 28px; }
+.footer { background: var(--carbon); color: var(--crema); padding-block: 56px calc(28px + env(safe-area-inset-bottom)); }
 .footer-inner { display: grid; justify-items: center; text-align: center; }
 .footer-logo { width: 84px; }
 .footer-brand { margin-top: 14px; font-family: var(--accent-font); font-size: 36px; line-height: 1; letter-spacing: .02em; color: var(--sun); }
