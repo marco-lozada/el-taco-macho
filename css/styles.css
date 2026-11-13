@@ -67,7 +67,9 @@ main:focus { outline: none; }
 }
 
 /* Hero */
-.hero { background: linear-gradient(135deg, var(--sun), var(--mango)); padding-top: env(safe-area-inset-top); }
+/* Solid sun along the top edge (meets Safari's status bar seamlessly), fading into the
+   live site's sun-to-mango diagonal. */
+.hero { background: linear-gradient(to bottom, var(--sun) 0, var(--sun) 40px, #f9ca1800 320px), linear-gradient(135deg, var(--sun), var(--mango)); padding-top: env(safe-area-inset-top); }
 .hero-bar { min-height: 80px; padding-top: 12px; padding-bottom: 4px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .hero-nav { display: flex; gap: 4px; margin-left: -14px; font-size: 16px; font-weight: 500; }
 .hero-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; text-decoration: none; transition: background-color .18s; }
