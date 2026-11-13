@@ -10,7 +10,13 @@ const SITE = {
   days: [2, 3, 4, 5],    // 0=Sun … 6=Sat → Tue–Fri
   open: "19:00",
   close: "23:00",
-  timezone: "America/Los_Angeles"
+  timezone: "America/Los_Angeles",
+  // Map links: every link marked data-maps in index.html opens the truck's listing.
+  // iPhone/iPad get Apple Maps; everyone else (and no-JS) gets the Google link in the HTML.
+  maps: {
+    google: "https://maps.app.goo.gl/c8hriSUc7dh7fYxA7",
+    apple: "https://maps.apple/p/VvrhcNTG0ASGfn"
+  }
   // TODO: confirm these are year-round hours (Linktree labels them "Summer hours").
 };
 
@@ -28,30 +34,44 @@ const STRINGS = {
     "nav.findUs": "Find Us",
     "nav.catering": "Catering",
 
-    "carne.eyebrow": "Find your favorite",
-    "find.eyebrow": "Ashlan & Marks · Fresno",
-    "find.payment": "Cash & Cash App only · No cards",
-    "events.eyebrow": "Bring everyone together",
     "hero.logoAlt": "El Taco Macho mascot logo",
     "hero.quickInfo": "Quick info",
     "hero.payment": "Cash or Cash App",
     "hero.directions": "Get Directions",
-    "hero.igNote.before": "Check",
-    "hero.igNote.after": "for same-day updates.",
+
+    "visit.label": "Plan your visit",
+    "visit.week": "Weekly schedule",
+    "visit.todayTag": "Today",
+    "visit.dayOpen": "{day}: open {hours}",
+    "visit.dayClosed": "{day}: closed",
+    "visit.igCta": "Check Instagram for schedule updates",
+    "visit.cross": "Corner of Ashlan & Marks",
+
+    "meat.asada": "Grilled steak",
+    "meat.pastor": "Marinated pork",
+    "meat.suadero": "Tender, slow-cooked beef",
+    "meat.pollo": "Chicken",
+    "meat.chorizo": "Spiced pork sausage",
+    "meat.cabeza": "Tender beef head meat",
+    "meat.cecina": "Thin-sliced salted beef",
+    "meat.lengua": "Beef tongue",
+    "meat.tripa": "Beef tripe",
+    "meat.campechanos": "A mix of meats",
 
     "carne.intro": "The difference is in the meat: fresh, seasoned, and grilled to order.",
     "carne.photoAlt": "Meat being turned with tongs on the grill, beside a row of fresh tortillas",
 
     "find.title": "Find Us",
+    "find.intro": "On the northeast corner of Ashlan & Marks in Fresno.",
     "find.range": "{from} to {to}",
     "find.and": "and",
     "find.closed": "Closed",
     "find.mapTitle": "Map of El Taco Macho at 2848 W Ashlan Ave, Fresno",
     "find.truckAlt": "The El Taco Macho truck at night, with customers ordering at the window",
 
-    "events.title": "Tacos for Any Event",
-    "events.copy": "Birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.",
-    "events.note": "For events only. Order food at the truck window.",
+    "events.title": "Catering",
+    "events.copy": "Tacos for any event: birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.",
+    "events.note": "Call to book. These lines are for events only; order food at the truck window.",
     "events.photoAlt": "A plate of tacos topped with cabbage, cilantro, radish, a grilled chile and lime, with a cup of salsa",
     "events.call": "Call",
 
@@ -71,30 +91,44 @@ const STRINGS = {
     "nav.findUs": "Encuéntranos",
     "nav.catering": "Eventos",
 
-    "carne.eyebrow": "Encuentra tu favorita",
-    "find.eyebrow": "Ashlan y Marks · Fresno",
-    "find.payment": "Solo efectivo y Cash App · No tarjetas",
-    "events.eyebrow": "Reúne a todos",
     "hero.logoAlt": "Logo de la mascota de El Taco Macho",
     "hero.quickInfo": "Información rápida",
     "hero.payment": "Efectivo o Cash App",
     "hero.directions": "Cómo llegar",
-    "hero.igNote.before": "Revisa",
-    "hero.igNote.after": "para avisos del día.",
+
+    "visit.label": "Planea tu visita",
+    "visit.week": "Horario semanal",
+    "visit.todayTag": "Hoy",
+    "visit.dayOpen": "{day}: abierto {hours}",
+    "visit.dayClosed": "{day}: cerrado",
+    "visit.igCta": "Avisos de horario en Instagram",
+    "visit.cross": "Esquina de Ashlan y Marks",
+
+    "meat.asada": "Bistec asado",
+    "meat.pastor": "Cerdo adobado",
+    "meat.suadero": "Res suave, cocida lentamente",
+    "meat.pollo": "Pollo",
+    "meat.chorizo": "Chorizo de cerdo con especias",
+    "meat.cabeza": "Carne suave de cabeza de res",
+    "meat.cecina": "Res salada en corte delgado",
+    "meat.lengua": "Lengua de res",
+    "meat.tripa": "Tripa de res",
+    "meat.campechanos": "Mezcla de carnes",
 
     "carne.intro": "Aquí la diferencia está en la carne: fresca, bien sazonada y asada al momento.",
     "carne.photoAlt": "Carne volteada con pinzas en el asador, junto a una fila de tortillas frescas",
 
     "find.title": "Encuéntranos",
+    "find.intro": "En la esquina noreste de Ashlan y Marks en Fresno.",
     "find.range": "De {from} a {to}",
     "find.and": "y",
     "find.closed": "Cerrado",
     "find.mapTitle": "Mapa de El Taco Macho en 2848 W Ashlan Ave, Fresno",
     "find.truckAlt": "El camión de El Taco Macho de noche, con clientes ordenando en la ventana",
 
-    "events.title": "Tacos para todo tipo de eventos",
-    "events.copy": "Cumpleaños, quinceañeras, bodas, eventos de trabajo. Llevamos el camión y el asador.",
-    "events.note": "Solo para eventos. Pide tu comida en la ventana del camión.",
+    "events.title": "Eventos",
+    "events.copy": "Tacos para todo tipo de evento: cumpleaños, quinceañeras, bodas, fiestas de trabajo. Llevamos el camión y el asador.",
+    "events.note": "Llama para reservar. Estas líneas son solo para eventos; pide tu comida en la ventana del camión.",
     "events.photoAlt": "Un plato de tacos con repollo, cilantro, rábano, chile asado y limón, con un vasito de salsa",
     "events.call": "Llamar",
 
@@ -188,6 +222,63 @@ function renderHoursSummary() {
 }
 
 /* =========================================================================
+   Week strip (hero): the regular schedule, with today's day marked.
+   No open/closed claim: Instagram is the source of truth for any given night.
+   ========================================================================= */
+const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0]; // Mon → Sun
+
+function todayIndex() {
+  try {
+    const name = new Intl.DateTimeFormat("en-US", { timeZone: SITE.timezone, weekday: "short" }).format(new Date());
+    return STRINGS.en.daysShort.indexOf(name);
+  } catch (e) {
+    return new Date().getDay();
+  }
+}
+
+function renderWeek() {
+  const week = document.getElementById("week");
+  if (!week) return;
+  const now = todayIndex();
+  const hours = formatRange(SITE.open, SITE.close);
+
+  week.textContent = "";
+  WEEK_ORDER.forEach(d => {
+    const open = SITE.days.includes(d);
+    const li = document.createElement("li");
+    li.className = "day" + (open ? " is-open" : "") + (d === now ? " is-today" : "");
+    li.setAttribute("aria-label", t(open ? "visit.dayOpen" : "visit.dayClosed", { day: STRINGS[lang].days[d], hours: hours }));
+    const abbr = document.createElement("span");
+    abbr.setAttribute("aria-hidden", "true");
+    abbr.textContent = STRINGS[lang].daysShort[d];
+    li.appendChild(abbr);
+    if (d === now) {
+      li.setAttribute("aria-current", "date");
+      const tag = document.createElement("span");
+      tag.className = "day-tag";
+      tag.setAttribute("aria-hidden", "true");
+      tag.textContent = t("visit.todayTag");
+      li.appendChild(tag);
+    }
+    week.appendChild(li);
+  });
+}
+
+/* =========================================================================
+   Map links: Apple Maps on iOS, Google Maps everywhere else
+   ========================================================================= */
+function isAppleMobile() {
+  const ua = navigator.userAgent || "";
+  // iPadOS reports itself as a Mac, so also check for a touch screen.
+  return /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+}
+
+function setMapLinks() {
+  if (!isAppleMobile()) return;
+  document.querySelectorAll("[data-maps]").forEach(a => { a.href = SITE.maps.apple; });
+}
+
+/* =========================================================================
    Notice banner
    ========================================================================= */
 function renderNotice() {
@@ -220,6 +311,7 @@ function applyLanguage(next) {
   });
 
   renderHoursSummary();
+  renderWeek();
   renderNotice();
 }
 
@@ -234,6 +326,7 @@ function initialLanguage() {
    ========================================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   applyLanguage(initialLanguage());
+  setMapLinks();
 
   document.getElementById("lang-toggle").addEventListener("click", () => {
     const next = lang === "en" ? "es" : "en";
