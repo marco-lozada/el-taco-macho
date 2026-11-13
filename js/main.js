@@ -339,6 +339,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("notice").hidden = true;
   });
 
+  // Safari bar color: dark while the footer is on screen (see html.at-footer in styles.css).
+  const footer = document.querySelector(".footer");
+  if (footer && "IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      document.documentElement.classList.toggle("at-footer", entry.isIntersecting);
+    }).observe(footer);
+  }
+
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 });

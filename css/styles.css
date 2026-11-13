@@ -25,11 +25,13 @@
   --shadow: 0 1px 2px #29241f14, 0 12px 32px -12px #29241f40;
 }
 *, *::before, *::after { box-sizing: border-box; }
-/* Safari tints its status bar and bottom toolbar from the page edges, and shows the html
-   background when you pull past the top or bottom. Sun at the top (matches the hero),
-   carbon at the bottom (matches the footer). */
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: linear-gradient(to bottom, var(--sun) 0 50%, var(--carbon) 50% 100%); }
-body { margin: 0; background: var(--crema); color: var(--carbon); font: 400 18px/1.5 var(--font); }
+/* iOS Safari colors its status bar and toolbar from the page's background color (a solid
+   color; gradients are ignored). Sun to match the hero; js/main.js switches it to carbon
+   while the footer is on screen, so the bottom bar matches there. */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html, body { background-color: var(--sun); }
+html.at-footer, html.at-footer body { background-color: var(--carbon); }
+body { margin: 0; color: var(--carbon); font: 400 18px/1.5 var(--font); }
 ::selection { background: var(--sun); color: var(--carbon); }
 img, iframe { display: block; max-width: 100%; }
 img { height: auto; }
