@@ -53,6 +53,8 @@
   --section-pad: var(--space-24);   /* top and bottom of a section */
   --head-gap: var(--space-10);      /* heading block → section content */
   --col-gap: clamp(40px, 7vw, 96px); /* photo column ↔ text column */
+  --feature-gap: clamp(32px, 5vw, 64px);    /* hero-style split: big photo ↔ content */
+  --feature-photo: clamp(520px, 52vw, 680px); /* height of a hero-size photo */
   --gutter: clamp(20px, 4vw, 56px);
 
   /* Radii: boxes (buttons, cards, photos), chips (day strip, thumbnails), tiny tags, pills. */
@@ -119,7 +121,7 @@ main:focus { outline: none; }
 .lang-toggle:active { background: var(--crema-70); }
 .lang-toggle .is-active { color: var(--chile-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 .lang-sep { color: var(--sun-rule); }
-.hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(32px, 5vw, 64px); align-items: center; padding-top: var(--space-4); padding-bottom: var(--space-16); }
+.hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: var(--feature-gap); align-items: center; padding-top: var(--space-4); padding-bottom: var(--space-16); }
 
 .brand { display: flex; align-items: center; gap: var(--space-5); }
 .hero-logo { flex: none; width: 128px; height: auto; }
@@ -151,17 +153,18 @@ main:focus { outline: none; }
 .ig-link:hover { border-color: var(--carbon); background: var(--day-off); }
 
 .hero-visual { min-width: 0; }
-.hero-food { width: 100%; height: clamp(520px, 52vw, 680px); object-fit: cover; object-position: center 56%; border-radius: 120px var(--radius) var(--radius) var(--radius); box-shadow: var(--shadow); }
+.hero-food { width: 100%; height: var(--feature-photo); object-fit: cover; object-position: center 56%; border-radius: 120px var(--radius) var(--radius) var(--radius); box-shadow: var(--shadow); }
 
 /* La Carne */
 .carne { padding-block: var(--section-pad); background: var(--nopal); color: var(--crema); }
-/* Heading across the top; photo and meat list side by side, same top and bottom. */
-.carne-grid { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); grid-template-areas: "title title" "intro intro" "photo list"; column-gap: var(--col-gap); }
+/* The hero's split, mirrored: hero-size photo on the left; heading, intro and meat list
+   stacked on the right and centered against the photo (the two 1fr rows take the slack). */
+.carne-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); grid-template-rows: 1fr auto auto auto 1fr; grid-template-areas: "photo ." "photo title" "photo intro" "photo list" "photo ."; column-gap: var(--feature-gap); }
 .carne-head { display: contents; }
 .carne-title { grid-area: title; color: var(--sun); }
 .carne-intro { grid-area: intro; color: var(--on-green-muted); }
-.carne-photo { grid-area: photo; width: 100%; aspect-ratio: 4 / 5; margin-top: var(--head-gap); object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
-.meats { grid-area: list; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; column-gap: var(--space-12); margin-top: var(--head-gap); }
+.carne-photo { grid-area: photo; align-self: center; width: 100%; height: var(--feature-photo); object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+.meats { grid-area: list; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; column-gap: var(--space-8); margin-top: var(--head-gap); }
 .meat { display: grid; grid-template-columns: 12px 1fr; column-gap: var(--space-3); align-content: center; padding-block: var(--space-4); border-bottom: 1px solid var(--on-green-rule); }
 .meat::before { content: ""; grid-row: 1; align-self: center; width: 8px; height: 8px; margin-left: 2px; background: var(--sun); transform: rotate(45deg); }
 .meat-name { grid-column: 2; font-size: var(--text-title); font-weight: 600; line-height: 1.1; letter-spacing: .01em; text-transform: uppercase; }
@@ -218,6 +221,10 @@ main:focus { outline: none; }
 .notice-text { flex: 1; }
 .notice-close { display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: transparent; color: var(--crema); cursor: pointer; }
 
+/* Narrow desktops: a slimmer photo column so the longest meat name (Campechanos) fits. */
+@media (min-width: 900px) and (max-width: 1099px) {
+  .carne-grid { grid-template-columns: minmax(0, .75fr) minmax(0, 1fr); }
+}
 @media (max-width: 899px) {
   :root { --section-pad: var(--space-16); --head-gap: var(--space-6); }
   .hero-bar { min-height: 68px; gap: var(--space-2); padding-top: var(--space-3); padding-bottom: var(--space-1); }
@@ -234,10 +241,10 @@ main:focus { outline: none; }
   .visit-row { padding-block: var(--space-4); }
   .hero-food { height: 300px; border-radius: 64px var(--radius) var(--radius) var(--radius); }
   .carne-grid, .events-grid, .find-grid { grid-template-columns: 1fr; gap: var(--space-6); }
-  .carne-grid { grid-template-areas: "title" "intro" "photo" "list"; gap: 0; }
+  .carne-grid { grid-template-rows: none; grid-template-areas: "title" "intro" "photo" "list"; gap: 0; }
   .carne-intro { max-width: 34ch; }
   .meats { grid-auto-rows: auto; column-gap: var(--space-6); }
-  .carne-photo { aspect-ratio: 16 / 10; }
+  .carne-photo { height: auto; aspect-ratio: 16 / 10; margin-top: var(--head-gap); }
   .find-heading { grid-column: auto; margin: 0; }
   .truck-frame { min-height: 0; aspect-ratio: 3 / 2; order: 1; }
   .find-place { padding: var(--space-4); }
