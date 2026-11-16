@@ -68,7 +68,7 @@
   <div class="notice" id="notice" role="status" hidden>
     <p class="notice-text" id="notice-text"></p>
     <button class="notice-close" type="button" id="notice-close" aria-label="Dismiss notice" data-i18n-aria="notice.dismiss">
-      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
 
@@ -96,7 +96,7 @@
              The week strip is drawn from SITE in js/main.js. There is deliberately no
              "open today" / "open now" state: the truck closes for events without notice, so Instagram is the
              source of truth for any given day. -->
-        <div class="visit" aria-label="Plan your visit" data-i18n-aria="visit.label">
+        <div class="visit" role="group" aria-label="Plan your visit" data-i18n-aria="visit.label">
           <section class="visit-row" aria-labelledby="hours-title">
             <h2 class="visit-hours" id="hours-title"><span data-hours="long">Tuesday to Friday, 7–11 PM</span></h2>
             <ol class="week" id="week" aria-label="Weekly schedule" data-i18n-aria="visit.week"></ol>
@@ -110,8 +110,8 @@
                     <stop offset="1" stop-color="#5B51D8"/>
                   </linearGradient>
                 </defs>
-                <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="url(#ig-grad)" stroke-width="2.2"/>
-                <circle cx="12" cy="12" r="4" fill="none" stroke="url(#ig-grad)" stroke-width="2.2"/>
+                <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="url(#ig-grad)" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" fill="none" stroke="url(#ig-grad)" stroke-width="2"/>
                 <circle cx="17.3" cy="6.7" r="1.3" fill="url(#ig-grad)"/>
               </svg>
               <span data-i18n="visit.igCta">Check Instagram for schedule updates</span>
@@ -124,7 +124,7 @@
             </h2>
             <p class="visit-note"><span data-i18n="visit.cross">Corner of Ashlan &amp; Marks</span> · <span data-i18n="hero.payment">Cash or Cash App</span> <a class="inline-link" href="https://cash.app/$eltacomacho" target="_blank" rel="noopener">$eltacomacho</a></p>
             <a class="btn" data-maps href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
               <span data-i18n="hero.directions">Get Directions</span>
             </a>
           </section>
@@ -187,7 +187,10 @@
         <div class="place-card">
           <div class="find-place">
             <address class="address">2848 W Ashlan Ave, <span class="nowrap">Fresno, CA 93705</span><span class="cross">(Ashlan &amp; Marks)</span></address>
-            <a class="btn" data-maps href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener" data-i18n="hero.directions">Get Directions</a>
+            <a class="btn" data-maps href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              <span data-i18n="hero.directions">Get Directions</span>
+            </a>
           </div>
           <!-- Embed of the official Google Maps listing (ftid = its place ID, from maps.app.goo.gl/c8hriSUc7dh7fYxA7). -->
           <iframe class="map"
@@ -206,26 +209,26 @@
              width="960" height="1280" loading="lazy" decoding="async"
              alt="A plate of tacos topped with cabbage, cilantro, radish, a grilled chile and lime, with a cup of salsa" data-i18n-alt="events.photoAlt">
         <div class="events-body">
-        <div class="section-head events-intro">
-          <h2 class="section-title" id="events-title" data-i18n="events.title">Catering</h2>
-          <p class="section-intro" data-i18n="events.copy">Tacos for any event: birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.</p>
-          <p class="events-note" data-i18n="events.note">Call to book. These lines are for events only; order food at the truck window.</p>
-        </div>
+          <div class="section-head events-intro">
+            <h2 class="section-title" id="events-title" data-i18n="events.title">Catering</h2>
+            <p class="section-intro" data-i18n="events.copy">Tacos for any event: birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.</p>
+            <p class="events-note" data-i18n="events.note">Call to book. These lines are for events only; order food at the truck window.</p>
+          </div>
 
-        <ul class="calls">
-          <li>
-            <a class="call" href="tel:+15593603714">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 5.2 5.2l1.4-2.1 4.2 1.6V17a2 2 0 0 1-2 2A15.5 15.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg>
-              <span class="call-text"><span class="call-label" data-i18n="events.call">Call</span> <span class="call-number">(559) 360-3714</span></span>
-            </a>
-          </li>
-          <li>
-            <a class="call" href="tel:+15596817250">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 5.2 5.2l1.4-2.1 4.2 1.6V17a2 2 0 0 1-2 2A15.5 15.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg>
-              <span class="call-text"><span class="call-label" data-i18n="events.call">Call</span> <span class="call-number">(559) 681-7250</span></span>
-            </a>
-          </li>
-        </ul>
+          <ul class="calls">
+            <li>
+              <a class="call" href="tel:+15593603714">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 5.2 5.2l1.4-2.1 4.2 1.6V17a2 2 0 0 1-2 2A15.5 15.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg>
+                <span class="call-text"><span class="call-label" data-i18n="events.call">Call</span> <span class="call-number">(559) 360-3714</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="call" href="tel:+15596817250">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 5.2 5.2l1.4-2.1 4.2 1.6V17a2 2 0 0 1-2 2A15.5 15.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></svg>
+                <span class="call-text"><span class="call-label" data-i18n="events.call">Call</span> <span class="call-number">(559) 681-7250</span></span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -239,11 +242,11 @@
       <p class="footer-tagline" data-i18n="brand.tagline">Sabor de México • Made in Fresno</p>
       <ul class="social">
         <li><a href="https://www.instagram.com/eltacomacho/" target="_blank" rel="noopener" aria-label="El Taco Macho on Instagram" data-i18n-aria="footer.instagram">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"/></svg>
           <span aria-hidden="true">Instagram</span>
         </a></li>
         <li><a href="https://www.facebook.com/eltacomacho559" target="_blank" rel="noopener" aria-label="El Taco Macho on Facebook" data-i18n-aria="footer.facebook">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4v3.2h2.8V22h3.3z"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4v3.2h2.8V22h3.3z"/></svg>
           <span aria-hidden="true">Facebook</span>
         </a></li>
       </ul>

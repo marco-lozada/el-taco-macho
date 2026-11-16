@@ -35,7 +35,6 @@ const STRINGS = {
     "nav.catering": "Catering",
 
     "hero.logoAlt": "El Taco Macho mascot logo",
-    "hero.quickInfo": "Quick info",
     "hero.payment": "Cash or Cash App",
     "hero.directions": "Get Directions",
 
@@ -92,7 +91,6 @@ const STRINGS = {
     "nav.catering": "Eventos",
 
     "hero.logoAlt": "Logo de la mascota de El Taco Macho",
-    "hero.quickInfo": "Información rápida",
     "hero.payment": "Efectivo o Cash App",
     "hero.directions": "Cómo llegar",
 
@@ -187,18 +185,10 @@ function openDays() {
 }
 
 /* =========================================================================
-   Hours: the regular schedule as text (hero and footer)
+   Hours: the regular schedule as text (hero)
    (No "open now" / "closed" states: the truck closes for events without
    notice, so the hero points to Instagram for changes.)
    ========================================================================= */
-function daysSummary() {
-  const days = openDays();
-  const short = STRINGS[lang].daysShort;
-  const consecutive = days.every((d, i) => i === 0 || d === days[i - 1] + 1);
-  if (consecutive && days.length > 2) return short[days[0]] + "–" + short[days[days.length - 1]];
-  return days.map(d => short[d]).join(", ");
-}
-
 // "Tuesday to Friday" / "De martes a viernes", or "Tuesday and Friday"
 function daysLong() {
   const days = openDays();
@@ -214,8 +204,6 @@ function daysLong() {
 
 function renderHoursSummary() {
   const open = SITE.days.length > 0;
-  const summary = open ? daysSummary() + ", " + formatRange(SITE.open, SITE.close) : t("find.closed");
-  document.querySelectorAll("[data-hours='summary']").forEach(el => { el.textContent = summary; });
   // Spelled-out days for the hero: "Tuesday to Friday, 7–11 PM"
   const long = open ? daysLong() + ", " + formatRange(SITE.open, SITE.close) : t("find.closed");
   document.querySelectorAll("[data-hours='long']").forEach(el => { el.textContent = long; });
