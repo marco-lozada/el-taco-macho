@@ -10,8 +10,7 @@
   --muted: #5a5248;
   --rule: #e4dac9;
   --masa: #F6E9D2;      /* warm tortilla cream, Find Us */
-  --canela: #6B3D22;      /* cinnamon brown: Find Us heading and corner line */
-  --jitomate: #CC3418;    /* tomato red: catering surface (not for buttons, which stay chile) */
+  --jitomate: #CC3418;    /* tomato red: catering surface and Find Us heading (buttons stay chile) */
   --on-jitomate: #FFF3EA; /* body text on jitomate */
   --day-off: #f1e7d4;
   --on-sun: #4a3714;
@@ -176,8 +175,8 @@ main:focus { outline: none; }
 
 /* Find Us */
 .find { padding-block: var(--section-pad); background: var(--masa); }
-/* Red is reserved for buttons and the hero name, so this heading is canela. */
-.find .section-title { color: var(--canela); }
+/* Tomato red like the Catering surface; the brighter chile red stays on the button below. */
+.find .section-title { color: var(--jitomate); }
 /* The hero's split: heading, address and directions button over the map on the left,
    hero-size truck photo on the right. The map stretches so its bottom edge lines up with
    the photo's. */
@@ -185,7 +184,7 @@ main:focus { outline: none; }
 .find-heading { grid-area: head; }
 /* Same pairing as the hero's visit panel: address line, then a quieter detail line. */
 .find-address { margin-top: var(--space-4); font-size: var(--text-lg); font-weight: 600; line-height: 1.25; }
-.find-corner { margin-top: var(--space-1); color: var(--canela); font-size: var(--text-base); line-height: 1.4; }
+.find-corner { margin-top: var(--space-1); color: var(--muted); font-size: var(--text-base); line-height: 1.4; }
 .find-heading .btn { margin-top: var(--space-6); }
 .truck-frame { grid-area: photo; align-self: center; height: var(--feature-photo); overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); }
 /* Anchored low so any cropping comes off the sky, not the truck. */
