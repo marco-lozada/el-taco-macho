@@ -35,6 +35,7 @@ const STRINGS = {
     "nav.catering": "Catering",
 
     "hero.logoAlt": "El Taco Macho mascot logo",
+    "hero.photoAlt": "A plate of tacos topped with cabbage, cilantro, radish, a grilled chile and lime, with a cup of salsa",
     "hero.payment": "Cash or Cash App",
     "hero.directions": "Get Directions",
 
@@ -71,7 +72,7 @@ const STRINGS = {
     "events.title": "Catering",
     "events.copy": "Tacos for any event: birthdays, quinceañeras, weddings, work parties. We bring the truck and the grill.",
     "events.note": "Call to book. These lines are for events only; order food at the truck window.",
-    "events.photoAlt": "A plate of tacos topped with cabbage, cilantro, radish, a grilled chile and lime, with a cup of salsa",
+    "events.photoAlt": "Tongs setting grilled onions on a plate of tacos topped with cilantro, radish and lime",
     "events.call": "Call",
 
     "footer.instagram": "El Taco Macho on Instagram",
@@ -91,6 +92,7 @@ const STRINGS = {
     "nav.catering": "Eventos",
 
     "hero.logoAlt": "Logo de la mascota de El Taco Macho",
+    "hero.photoAlt": "Un plato de tacos con repollo, cilantro, rábano, chile asado y limón, con un vasito de salsa",
     "hero.payment": "Efectivo o Cash App",
     "hero.directions": "Cómo llegar",
 
@@ -127,7 +129,7 @@ const STRINGS = {
     "events.title": "Eventos",
     "events.copy": "Tacos para todo tipo de evento: cumpleaños, quinceañeras, bodas, fiestas de trabajo. Llevamos el camión y el asador.",
     "events.note": "Llama para reservar. Estas líneas son solo para eventos; pide tu comida en la ventana del camión.",
-    "events.photoAlt": "Un plato de tacos con repollo, cilantro, rábano, chile asado y limón, con un vasito de salsa",
+    "events.photoAlt": "Pinzas colocando cebolla asada sobre un plato de tacos con cilantro, rábano y limón",
     "events.call": "Llamar",
 
     "footer.instagram": "El Taco Macho en Instagram",
