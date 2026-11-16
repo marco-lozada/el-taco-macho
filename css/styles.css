@@ -175,19 +175,22 @@ main:focus { outline: none; }
 
 /* Find Us */
 .find { padding-block: var(--section-pad); background: var(--masa); }
-.find .section-title { color: var(--chile); }
-.find .section-intro { color: var(--on-peach); }
-.find-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: var(--space-6); }
-/* The grid gap plus this margin adds up to --head-gap. */
-.find-heading { grid-column: 1 / -1; margin-bottom: calc(var(--head-gap) - var(--space-6)); }
-.truck-frame { overflow: hidden; border-radius: var(--radius); min-height: 520px; box-shadow: var(--shadow); }
-.truck-photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
-/* Address strip on top, the map fills the rest. */
-.place-card { display: grid; grid-template-rows: auto 1fr; overflow: hidden; background: var(--crema); border-radius: var(--radius); box-shadow: var(--shadow); }
-.find-place { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3) var(--space-5); padding: var(--space-4) var(--space-5) var(--space-4) var(--space-6); }
-.address { font-size: var(--text-lg); font-weight: 600; line-height: 1.35; }
-.cross { display: block; margin-top: var(--space-1); color: var(--muted); font-size: var(--text-sm); font-weight: 500; }
-.map { width: 100%; height: 100%; min-height: 420px; border: 0; background: var(--rule); }
+/* Green, not chile: the red is reserved for the Get Directions button right below. */
+.find .section-title { color: var(--nopal); }
+/* The hero's split: heading, address and directions button over the map on the left,
+   hero-size truck photo on the right. The map stretches so its bottom edge lines up with
+   the photo's. */
+.find-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); grid-template-rows: auto 1fr; grid-template-areas: "head photo" "card photo"; gap: var(--head-gap) var(--feature-gap); }
+.find-heading { grid-area: head; }
+/* Same pairing as the hero's visit panel: address line, then a quieter detail line. */
+.find-address { margin-top: var(--space-4); font-size: var(--text-lg); font-weight: 600; line-height: 1.25; }
+.find-corner { margin-top: var(--space-1); color: var(--on-peach); font-size: var(--text-md); line-height: 1.4; }
+.find-heading .btn { margin-top: var(--space-6); }
+.truck-frame { grid-area: photo; align-self: center; height: var(--feature-photo); overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); }
+/* Anchored low so any cropping comes off the sky, not the truck. */
+.truck-photo { width: 100%; height: 100%; object-fit: cover; object-position: 50% 90%; }
+.place-card { grid-area: card; overflow: hidden; background: var(--crema); border-radius: var(--radius); box-shadow: var(--shadow); }
+.map { width: 100%; height: 100%; min-height: 280px; border: 0; background: var(--rule); }
 
 /* Catering */
 .events { padding-block: var(--section-pad); background: var(--chile-dark); color: var(--crema); }
@@ -245,9 +248,8 @@ main:focus { outline: none; }
   .carne-intro { max-width: 34ch; }
   .meats { grid-auto-rows: auto; column-gap: var(--space-6); }
   .carne-photo { height: auto; aspect-ratio: 16 / 10; margin-top: var(--head-gap); }
-  .find-heading { grid-column: auto; margin: 0; }
-  .truck-frame { min-height: 0; aspect-ratio: 3 / 2; order: 1; }
-  .find-place { padding: var(--space-4); }
+  .find-grid { grid-template-rows: none; grid-template-areas: "head" "card" "photo"; }
+  .truck-frame { height: auto; aspect-ratio: 5 / 4; }
   .map { min-height: 0; height: 400px; }
   .events-photo { aspect-ratio: 4 / 3; max-height: 420px; }
   .events-body { order: -1; } /* heading first, like every other section */

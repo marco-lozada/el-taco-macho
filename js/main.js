@@ -61,7 +61,7 @@ const STRINGS = {
     "carne.photoAlt": "Meat being turned with tongs on the grill, beside a row of fresh tortillas",
 
     "find.title": "Find Us",
-    "find.intro": "On the northeast corner of Ashlan & Marks in Fresno.",
+    "find.intro": "Northeast corner of Ashlan & Marks",
     "find.range": "{from} to {to}",
     "find.and": "and",
     "find.closed": "Closed",
@@ -117,7 +117,7 @@ const STRINGS = {
     "carne.photoAlt": "Carne volteada con pinzas en el asador, junto a una fila de tortillas frescas",
 
     "find.title": "Encuéntranos",
-    "find.intro": "En la esquina noreste de Ashlan y Marks en Fresno.",
+    "find.intro": "Esquina noreste de Ashlan y Marks",
     "find.range": "De {from} a {to}",
     "find.and": "y",
     "find.closed": "Cerrado",

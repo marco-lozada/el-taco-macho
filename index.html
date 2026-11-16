@@ -132,8 +132,8 @@
       </div>
       <div class="hero-visual">
         <img class="hero-food" src="images/taco-plate-960.webp"
-             srcset="images/taco-plate-480.webp 480w, images/taco-plate-960.webp 960w"
-             sizes="(min-width: 900px) 50vw, 100vw" width="960" height="1280" fetchpriority="high"
+             srcset="images/taco-plate-480.webp 480w, images/taco-plate-960.webp 960w, images/taco-plate-1280.webp 1280w"
+             sizes="(min-width: 900px) min(45vw, 520px), calc(100vw - 40px)" width="960" height="1280" fetchpriority="high"
              alt="A plate of tacos topped with cabbage, cilantro, radish, a grilled chile and lime, with a cup of salsa" data-i18n-alt="events.photoAlt">
       </div>
     </div>
@@ -148,8 +148,8 @@
           <!-- Intro is the truck's own Instagram copy, verbatim in each language. -->
           <p class="section-intro carne-intro" data-i18n="carne.intro">The difference is in the meat: fresh, seasoned, and grilled to order.</p>
           <img class="carne-photo" src="images/grill-960.webp"
-               srcset="images/grill-480.webp 480w, images/grill-960.webp 960w"
-               sizes="(min-width: 900px) 45vw, calc(100vw - 40px)"
+               srcset="images/grill-480.webp 480w, images/grill-960.webp 960w, images/grill-1280.webp 1280w"
+               sizes="(min-width: 900px) min(45vw, 520px), calc(100vw - 40px)"
                width="960" height="1280" loading="lazy" decoding="async"
                alt="Meat being turned with tongs on the grill, beside a row of fresh tortillas" data-i18n-alt="carne.photoAlt">
         </div>
@@ -175,23 +175,23 @@
       <div class="container find-grid">
         <div class="section-head find-heading">
           <h2 class="section-title" id="find-title" data-i18n="find.title">Find Us</h2>
-          <p class="section-intro" data-i18n="find.intro">On the northeast corner of Ashlan &amp; Marks in Fresno.</p>
+          <address class="find-address">2848 W Ashlan Ave, <span class="nowrap">Fresno, CA 93705</span></address>
+          <p class="find-corner" data-i18n="find.intro">Northeast corner of Ashlan &amp; Marks</p>
+          <a class="btn" data-maps href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <span data-i18n="hero.directions">Get Directions</span>
+          </a>
         </div>
 
         <div class="truck-frame">
-          <img class="truck-photo" src="images/el-taco-macho.webp" width="1440" height="960" loading="lazy" decoding="async"
+          <img class="truck-photo" src="images/truck-night-1080.webp"
+               srcset="images/truck-night-540.webp 540w, images/truck-night-1080.webp 1080w"
+               sizes="(min-width: 900px) min(45vw, 520px), calc(100vw - 40px)"
+               width="1080" height="1440" loading="lazy" decoding="async"
                alt="The El Taco Macho truck at night, with customers ordering at the window" data-i18n-alt="find.truckAlt">
         </div>
 
-        <!-- Address and map share one frame, so the address still anchors the card if the embed fails. -->
         <div class="place-card">
-          <div class="find-place">
-            <address class="address">2848 W Ashlan Ave, <span class="nowrap">Fresno, CA 93705</span><span class="cross">(Ashlan &amp; Marks)</span></address>
-            <a class="btn" data-maps href="https://maps.app.goo.gl/c8hriSUc7dh7fYxA7" target="_blank" rel="noopener">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-              <span data-i18n="hero.directions">Get Directions</span>
-            </a>
-          </div>
           <!-- Embed of the official Google Maps listing (ftid = its place ID, from maps.app.goo.gl/c8hriSUc7dh7fYxA7). -->
           <iframe class="map"
             src="https://maps.google.com/maps?q=El+Taco+Macho,+2848+W+Ashlan+Ave,+Fresno,+CA+93705&amp;ftid=0x809467bbb7a2270f:0xfb8412980818c01&amp;output=embed"
@@ -204,7 +204,7 @@
     <section class="events" id="eventos" aria-labelledby="events-title">
       <div class="container events-grid">
         <img class="events-photo" src="images/taco-plate-960.webp"
-             srcset="images/taco-plate-480.webp 480w, images/taco-plate-960.webp 960w"
+             srcset="images/taco-plate-480.webp 480w, images/taco-plate-960.webp 960w, images/taco-plate-1280.webp 1280w"
              sizes="(min-width: 900px) 420px, calc(100vw - 48px)"
              width="960" height="1280" loading="lazy" decoding="async"
              alt="A plate of tacos topped with cabbage, cilantro, radish, a grilled chile and lime, with a cup of salsa" data-i18n-alt="events.photoAlt">
