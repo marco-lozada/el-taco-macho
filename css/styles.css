@@ -13,6 +13,7 @@
   --jitomate: #CC3418;    /* tomato red: catering surface and Find Us heading (buttons stay chile) */
   --on-jitomate: #FFF3EA; /* body text on jitomate */
   --day-off: #f1e7d4;
+  --day-off-text: #8f8474; /* closed-day names: deliberately faint, still 3:1 on the chip */
   --on-sun: #4a3714;
   --sun-rule: #b38a2c;      /* decorative dividers on the sun background */
   --sun-outline: #4a3714b3; /* control outlines on sun: --on-sun at 70%, clears 3:1 */
@@ -102,9 +103,9 @@ main:focus { outline: none; }
 .btn:active { transform: none; }
 
 /* Icon + label pairs: trim the font's extra top/bottom space so the label centers on the icon. */
-.btn > span, .ig-link > span, .social a span { line-height: 1; text-box: trim-both cap alphabetic; }
+.btn > span, .ig-link > span, .social a span, .cashapp-link > span { line-height: 1; text-box: trim-both cap alphabetic; }
 @supports not (text-box: trim-both cap alphabetic) {
-  .btn > span, .ig-link > span, .social a span { padding-top: .08em; }
+  .btn > span, .ig-link > span, .social a span, .cashapp-link > span { padding-top: .08em; }
 }
 
 /* Hero */
@@ -139,13 +140,21 @@ main:focus { outline: none; }
 .visit-label { font-size: var(--text-lg); font-weight: 600; line-height: 1.25; }
 .visit-note { color: var(--muted); font-size: var(--text-base); line-height: 1.4; margin-top: calc(-1 * var(--space-1)); }
 .visit-row .btn { margin-top: var(--space-1); }
+/* Payment row: label, then the Cash App pill beside it where there is room, below it where not. */
+.visit-pay { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); }
+.cashapp-link { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 48px; padding: 0 var(--space-4) 0 var(--space-3); border: 1.5px solid var(--rule); border-radius: var(--radius-pill); color: var(--carbon); font-size: var(--text-md); font-weight: 600; text-decoration: none; transition: border-color .18s, background-color .18s; }
+.cashapp-link:hover { border-color: var(--carbon); background: var(--day-off); }
+.cashapp-logo { flex: none; width: 28px; height: 28px; }
+.cashapp-out { width: 18px; height: 18px; color: var(--muted); }
 .where-link { text-decoration: none; }
 .where-link:hover { text-decoration: underline; }
 .inline-link { color: var(--chile-dark); font-weight: 500; }
 
 /* The bottom padding leaves room for the "Today" tag that hangs under the strip. */
 .week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-2); padding-bottom: var(--space-6); }
-.day { position: relative; display: grid; place-items: center; min-height: 48px; border-radius: var(--radius-sm); background: var(--day-off); color: var(--muted); font-size: var(--text-sm); font-weight: 500; }
+/* Closed days are hatched out, like a blocked day on a calendar, so they read as unavailable
+   rather than as buttons. Open days are solid green. */
+.day { position: relative; display: grid; place-items: center; min-height: 48px; border-radius: var(--radius-sm); background: repeating-linear-gradient(135deg, var(--day-off) 0 5px, var(--rule) 5px 7px); color: var(--day-off-text); font-size: var(--text-sm); font-weight: 500; }
 .day.is-open { background: var(--nopal); color: var(--crema); font-weight: 600; }
 .day.is-today { box-shadow: 0 0 0 2px var(--crema), 0 0 0 4px var(--chile); }
 .day-tag { position: absolute; padding: 0 var(--space-1); border-radius: var(--radius-xs); background: var(--crema); top: calc(100% + var(--space-2)); left: 50%; transform: translateX(-50%); color: var(--chile); font-size: var(--text-xs); font-weight: 700; line-height: 1.2; letter-spacing: .02em; white-space: nowrap; }

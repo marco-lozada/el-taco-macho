@@ -37,6 +37,7 @@ const STRINGS = {
     "hero.logoAlt": "El Taco Macho mascot logo",
     "hero.photoAlt": "A plate of tacos topped with cabbage, cilantro, radish, a grilled chile and lime, with a cup of salsa",
     "hero.payment": "Cash or Cash App",
+    "pay.cashapp": "Pay with Cash App: $eltacomacho",
     "hero.directions": "Get Directions",
 
     "visit.label": "Plan your visit",
@@ -94,6 +95,7 @@ const STRINGS = {
     "hero.logoAlt": "Logo de la mascota de El Taco Macho",
     "hero.photoAlt": "Un plato de tacos con repollo, cilantro, rábano, chile asado y limón, con un vasito de salsa",
     "hero.payment": "Efectivo o Cash App",
+    "pay.cashapp": "Paga con Cash App: $eltacomacho",
     "hero.directions": "Cómo llegar",
 
     "visit.label": "Planea tu visita",
