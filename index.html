@@ -66,6 +66,20 @@
     ]
   }
   </script>
+  <!-- Google Analytics (GA4 G-4FTGP9ZCPC, loaded through Google tag container GTM-M9HR9586).
+       Loads only on the live domain so branch deploys and local previews don't add test visits.
+       gtag() is always defined, so the click events in js/main.js are harmless off the live site. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    if (location.hostname === "eltacomachofresno.com") {
+      gtag('js', new Date());
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-M9HR9586';
+      document.head.appendChild(ga);
+    }
+  </script>
   <script src="js/main.js" defer></script>
 </head>
 <body>

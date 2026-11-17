@@ -341,4 +341,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+
+  // Analytics: name the two actions that matter (gtag is defined in index.html <head>).
+  // Outbound links (Instagram, Cash App, maps) are also counted by GA's enhanced measurement.
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a");
+    if (!a || typeof gtag !== "function") return;
+    if (a.href.startsWith("tel:")) gtag("event", "call", { phone_number: a.href.slice(4) });
+    else if (a.hasAttribute("data-maps")) gtag("event", "get_directions", { link_url: a.href });
+  });
 });
