@@ -266,6 +266,13 @@ main:focus { outline: none; }
 }
 @media (max-width: 599px) {
   .btn { width: 100%; }
+  /* Compact pay row so label + Cash App pill share one line on phones (EN from 375px, ES from 390px).
+     The out-arrow goes; the Cash App logo already says the link leaves the site. */
+  .visit-pay { column-gap: var(--space-3); }
+  .visit-pay .visit-label { font-size: var(--text-base); }
+  .cashapp-link { gap: 6px; padding: 0 14px 0 10px; font-size: var(--text-sm); }
+  .cashapp-logo { width: 24px; height: 24px; }
+  .cashapp-out { display: none; }
 }
 @media (max-width: 480px) {
   .meats { grid-template-columns: 1fr; }
