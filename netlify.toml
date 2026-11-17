@@ -1,6 +1,15 @@
 [build]
   publish = "."
 
+# Send the project's built-in Netlify address to the real domain.
+# Matches this exact host only, so branch deploys and deploy previews
+# (e.g. my-branch--eltacomacho.netlify.app) keep working for testing.
+[[redirects]]
+  from = "https://eltacomacho.netlify.app/*"
+  to = "https://eltacomachofresno.com/:splat"
+  status = 301
+  force = true
+
 # Keep internal notes off the live site
 [[redirects]]
   from = "/SITE-CONTENT.md"
